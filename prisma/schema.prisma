@@ -1,17 +1,51 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
     provider = "prisma-client-js"
 }
 
 datasource db {
-    provider = "sqlite"
-    // NOTE: When using postgresql, mysql or sqlserver, uncomment the @db.Text annotations in model Account below
-    // Further reading:
-    // https://next-auth.js.org/adapters/prisma#create-the-prisma-schema
-    // https://www.prisma.io/docs/reference/api-reference/prisma-schema-reference#string
+    provider = "postgresql"
     url      = env("DATABASE_URL")
+}
+
+model Message {
+    messageID String   @id
+    channelID String
+    guildID   String
+    userID    String
+    createdAt DateTime @default(now())
+    updatedAt DateTime
+    User      Player   @relation(fields: [userID], references: [discordID])
+    Upvote    Upvote[]
+}
+
+model Upvote {
+    id        String   @id
+    messageID String
+    channelID String
+    guildID   String
+    userID    String
+    createdAt DateTime @default(now())
+    updatedAt DateTime
+    Message   Message  @relation(fields: [messageID], references: [messageID])
+    User      Player   @relation(fields: [userID], references: [discordID])
+
+    @@index([messageID])
+    @@index([messageID, userID])
+    @@index([userID])
+}
+
+model Player {
+    discordID       String    @id
+    discordTag      String
+    points          Float     @default(0)
+    level           Int       @default(0)
+    createdAt       DateTime  @default(now())
+    updatedAt       DateTime
+    upvotesGiven    Int       @default(0)
+    upvotesReceived Int       @default(0)
+    messagesSent    Int       @default(0)
+    Message         Message[]
+    Upvote          Upvote[]
 }
 
 model Example {
@@ -27,12 +61,12 @@ model Account {
     type              String
     provider          String
     providerAccountId String
-    refresh_token     String? // @db.Text
-    access_token      String? // @db.Text
+    refresh_token     String? @db.Text
+    access_token      String? @db.Text
     expires_at        Int?
     token_type        String?
     scope             String?
-    id_token          String? // @db.Text
+    id_token          String? @db.Text
     session_state     String?
     user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 
