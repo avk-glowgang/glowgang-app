@@ -3,9 +3,9 @@ import Image from 'next/image';
 import {
     SignedIn,
     SignedOut,
-    SignInButton,
     UserButton,
 } from "@clerk/nextjs";
+import Link from "next/link";
 
 
 
@@ -15,9 +15,9 @@ function Navbar(): JSX.Element {
             <div className="container max-w-5xl mx-auto px-8">
                 <nav className="flex items-center justify-between flex-wrap py-4">
                     <div className="flex items-center text-white">
-                        <a href="/">
+                        <Link href="/">
                             <Image src="/logo-ICON-02.png" width={35} height={35} alt="Glow Gang Logo" />
-                        </a>
+                        </Link>
                     </div>
                     <div>
                         <SignedIn>
@@ -26,12 +26,12 @@ function Navbar(): JSX.Element {
                         </SignedIn>
                         <SignedOut>
                             {/* Signed out users get sign in button */}
-                            <a
+                            <Link
                                 href="/sign-in"
                                 className="text-white text-sm  px-4 py-2 rounded-md bg-gray-800 hover:bg-gray-700"
                             >
                                 Sign in
-                            </a>
+                            </Link>
                         </SignedOut>
                     </div>
                 </nav>
