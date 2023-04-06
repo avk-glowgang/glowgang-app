@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from "next/link";
 
 function Hero(): JSX.Element {
     return (
@@ -11,6 +12,8 @@ function Hero(): JSX.Element {
                             alt="Glow Gang"
                             src="/16661250666139507.jpg"
                             className="absolute inset-0 h-full w-full object-cover"
+                            width={500}
+                            height={500}
                         />
                     </div>
 
@@ -21,20 +24,13 @@ function Hero(): JSX.Element {
                             Glow Gang: a dynamic community empowering the leaders of tomorrow through connection, inspiration, and a shared passion for achievement.
                         </p>
 
-                        {/* <a
-                            href="/register"
-                            className="mt-8 inline-block rounded bg-red px-12 py-3 text-sm font-medium text-white transition hover:color-red focus:outline-none focus:ring focus:ring-yellow-400"
-                        >
-                            Join the Glow Gang community!
-                        </a> */}
-
                         <div className="mt-8">
-                            <a
+                            <Link
                                 href="/sign-up"
                                 className="inline-block rounded bg-red px-12 py-3 text-sm font-medium text-white transition hover:color-red focus:outline-none focus:ring focus:ring-yellow-400"
                             >
                                 Join the Glow Gang community!
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>
