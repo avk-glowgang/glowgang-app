@@ -5,7 +5,7 @@ import Head from "next/head";
 
 
 export default function Example() {
-    const { isLoaded, userId, sessionId, getToken } = useAuth();
+    const { isLoaded, userId } = useAuth();
 
     // In case the user signs out while on the page.
     if (!isLoaded || !userId) {
@@ -18,7 +18,7 @@ export default function Example() {
                 <title>Dashboard | Glow Gang</title>
             </Head>
 
-            
+
             <Navbar />
             <Header />
 
