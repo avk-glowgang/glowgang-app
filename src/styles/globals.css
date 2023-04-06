@@ -1,3 +1,43 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.bg-black {
+    background-color: #000101;
+}
+
+.bg-dark-blue {
+    background-color: #010144;
+}
+
+.bg-dark {
+    background-color: #1D2B39;
+}
+
+.bg-hero {
+    background-color: #F6F6F7;
+}
+
+.bg-red {
+    background-color: #EC4137;
+}
+
+.bg-gray {
+    background-color: #F6F6F7;
+}
+
+.bg-dark-gray {
+    background-color: #2C353A;
+}
+
+.color-black {
+    color: #000000;
+}
+
+.color-gray {
+    color: #969CA4;
+}
+
+.color-white {
+    color: #FEFFFE;
+}

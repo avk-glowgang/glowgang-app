@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from 'next/link';
 
 
 function Hero(): JSX.Element {
@@ -16,7 +15,7 @@ function Hero(): JSX.Element {
                     </div>
 
                     <div className="lg:py-24">
-                        <h2 className="text-3xl font-bold sm:text-4xl color-black">Success Starts with the Glow Gang Community</h2>
+                        <h2 className="text-3xl font-bold sm:text-4xl color-black">Success Starts with the Glow Gang Community!</h2>
 
                         <p className="mt-4 color-gray">
                             Glow Gang: a dynamic community empowering the leaders of tomorrow through connection, inspiration, and a shared passion for achievement.
