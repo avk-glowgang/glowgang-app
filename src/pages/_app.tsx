@@ -1,6 +1,7 @@
 import { type AppType } from "next/app";
 import { type Session } from "next-auth";
-import { SessionProvider } from "next-auth/react";
+// import { SessionProvider } from "next-auth/react";
+import { ClerkProvider } from "@clerk/nextjs";
 
 import { api } from "utils,components/utils/api";
 
@@ -8,12 +9,12 @@ import "utils,components/styles/globals.css";
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
-  pageProps: { session, ...pageProps },
+  pageProps: { ...pageProps },
 }) => {
   return (
-    <SessionProvider session={session}>
+    <ClerkProvider {...pageProps} publishableKey="pk_test_d2lsbGluZy1vcmlvbGUtNzQuY2xlcmsuYWNjb3VudHMuZGV2JA"> 
       <Component {...pageProps} />
-    </SessionProvider>
+    </ClerkProvider>
   );
 };
 

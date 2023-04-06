@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 function Hero(): JSX.Element {
     return (
         <section className="bg-gray">
@@ -21,12 +20,21 @@ function Hero(): JSX.Element {
                             Glow Gang: a dynamic community empowering the leaders of tomorrow through connection, inspiration, and a shared passion for achievement.
                         </p>
 
-                        <a
+                        {/* <a
                             href="/register"
                             className="mt-8 inline-block rounded bg-red px-12 py-3 text-sm font-medium text-white transition hover:color-red focus:outline-none focus:ring focus:ring-yellow-400"
                         >
                             Join the Glow Gang community!
-                        </a>
+                        </a> */}
+
+                        <div className="mt-8">
+                            <a
+                                href="/sign-up"
+                                className="inline-block rounded bg-red px-12 py-3 text-sm font-medium text-white transition hover:color-red focus:outline-none focus:ring focus:ring-yellow-400"
+                            >
+                                Join the Glow Gang community!
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
