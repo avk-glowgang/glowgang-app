@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 function Hero(): JSX.Element {
     return (
@@ -6,7 +7,7 @@ function Hero(): JSX.Element {
             <div className="mx-auto max-w-5xl px-8 py-8 sm:py-12 sm:px-6 lg:py-16 lg:px-8">
                 <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-16">
                     <div className="relative h-64 overflow-hidden rounded-lg sm:h-80 lg:order-last lg:h-full">
-                        <img
+                        <Image
                             alt="Glow Gang"
                             src="/16661250666139507.jpg"
                             className="absolute inset-0 h-full w-full object-cover"

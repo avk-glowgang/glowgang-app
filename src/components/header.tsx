@@ -1,8 +1,6 @@
 import React from 'react';
-import { useUser } from "@clerk/nextjs";
 
 const Header: React.FC = () => {
-    const { user } = useUser();
     return (
         <header aria-label="Page Header" className="bg-gray-50">
 
