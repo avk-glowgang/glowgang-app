@@ -1,6 +1,4 @@
 import React from 'react';
-import Link from 'next/link';
-
 
 function Hero(): JSX.Element {
     return (
@@ -16,18 +14,27 @@ function Hero(): JSX.Element {
                     </div>
 
                     <div className="lg:py-24">
-                        <h2 className="text-3xl font-bold sm:text-4xl color-black">Success Starts with the Glow Gang Community</h2>
+                        <h2 className="text-3xl font-bold sm:text-4xl color-black">Success Starts with the Glow Gang Community!</h2>
 
                         <p className="mt-4 color-gray">
                             Glow Gang: a dynamic community empowering the leaders of tomorrow through connection, inspiration, and a shared passion for achievement.
                         </p>
 
-                        <a
+                        {/* <a
                             href="/register"
                             className="mt-8 inline-block rounded bg-red px-12 py-3 text-sm font-medium text-white transition hover:color-red focus:outline-none focus:ring focus:ring-yellow-400"
                         >
                             Join the Glow Gang community!
-                        </a>
+                        </a> */}
+
+                        <div className="mt-8">
+                            <a
+                                href="/sign-up"
+                                className="inline-block rounded bg-red px-12 py-3 text-sm font-medium text-white transition hover:color-red focus:outline-none focus:ring focus:ring-yellow-400"
+                            >
+                                Join the Glow Gang community!
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
