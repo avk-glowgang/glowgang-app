@@ -15,6 +15,10 @@ const MyApp: AppType<{ session: Session | null }> = ({ Component, pageProps: { .
             appearance={{
                 variables: {
                     colorPrimary: "#1A75BA"
+                },
+                layout: {
+                    logoPlacement: "outside",
+                    socialButtonsVariant: "iconButton"
                 }
             }}>
             <Component {...pageProps} />

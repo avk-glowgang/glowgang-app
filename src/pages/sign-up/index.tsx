@@ -13,7 +13,18 @@ const SignUpPage = () => (
         <Navbar />
 
         <div className="mt-20 flex flex-col items-center justify-center">
-            <SignUp path="/sign-up" routing="path" signInUrl="/sign-in" />
+            <SignUp
+                path="/sign-up"
+                routing="path"
+                redirectUrl="/auth/sso-callback"
+                signInUrl="/sign-in"
+                appearance={{
+                    layout: {
+                        socialButtonsVariant: "iconButton",
+                        socialButtonsPlacement: "top"
+                    }
+                }}
+            />
         </div>
     </>
 );

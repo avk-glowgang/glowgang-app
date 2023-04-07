@@ -8,7 +8,14 @@ function Hero(): JSX.Element {
             <div className="mx-auto max-w-5xl px-8 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
                 <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-16">
                     <div className="relative h-64 overflow-hidden rounded-lg sm:h-80 lg:order-last lg:h-full">
-                        <Image alt="Glow Gang" src="/16661250666139507.jpg" className="absolute inset-0 h-full w-full object-cover" width={500} height={500} />
+                        <Image
+                            alt="Glow Gang"
+                            src="/16661250666139507.jpg"
+                            className="absolute inset-0 h-full w-full object-cover"
+                            width={500}
+                            height={500}
+                            priority
+                        />
                     </div>
 
                     <div className="lg:py-24">
