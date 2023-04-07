@@ -28,7 +28,7 @@ function Navbar(): JSX.Element {
                             {/* Signed out users get sign in button */}
                             <Link
                                 href="/sign-in"
-                                className="text-white text-sm  px-4 py-2 rounded-md bg-gray-800 hover:bg-gray-700"
+                                className="text-white text-sm  px-4 py-2 rounded bg-gray-800 hover:bg-gray-700"
                             >
                                 Sign in
                             </Link>
