@@ -4,9 +4,9 @@ const Header: React.FC = () => {
     return (
         <header aria-label="Page Header" className="bg-gray-50">
 
-            {/* // Should only be display if user's role is not PRO 
+          
 
-             <div className="bg-indigo-600 px-4 py-3 text-white sm:flex sm:items-center sm:justify-between sm:px-4 lg:px-4">
+             {/* <div className="bg-indigo-600 px-4 py-3 text-white sm:flex sm:items-center sm:justify-between sm:px-4 lg:px-4">
                 <div className="container max-w-5xl mx-auto px-4 flex justify-between items-center">
                     <p className="text-center text-sm sm:text-left">
                         Connect your discord account to receive your PRO role!
@@ -19,7 +19,7 @@ const Header: React.FC = () => {
                         Connect Discord
                     </a>
                 </div>
-            </div> */}
+            </div>  */}
 
 
 
@@ -36,7 +36,7 @@ const Header: React.FC = () => {
 
                     <div className="mt-4 flex flex-col gap-4 sm:mt-0 sm:flex-row sm:items-center">
                         <button
-                            className="block rounded-lg bg-dark-blue px-5 py-3 text-sm font-medium text-white transition hover:bg-dark-blue focus:outline-none focus:ring"
+                            className="block rounded-lg bg-red-600 px-5 py-3 text-sm font-medium text-white transition hover:bg-red-500 focus:outline-none focus:ring"
                             type="button"
                         >
                             Upgrade to PRO

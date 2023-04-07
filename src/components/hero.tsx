@@ -21,7 +21,7 @@ function Hero(): JSX.Element {
                         <h2 className="text-3xl font-bold sm:text-4xl text-black ">Success Starts with the Glow Gang Community!</h2>
 
                         <p className="mt-4 text-gray-400">
-                            Glow Gang: a dynamic community empowering the leaders of tomorrow through connection, inspiration, and a shared passion for achievement.
+                            We are a dynamic community empowering the leaders of tomorrow through connection, inspiration, and a shared passion for achievement.
                         </p>
 
                         <div className="mt-8">
