@@ -1,10 +1,8 @@
 import { SignUp } from "@clerk/nextjs";
 import Head from "next/head";
-import Navbar from "utils,components/components/navbar";
-
+import Navbar from "@components/navbar";
 
 const SignUpPage = () => (
-
     <>
         <Head>
             <title>Sign Up | Glow Gang</title>
@@ -14,11 +12,9 @@ const SignUpPage = () => (
 
         <Navbar />
 
-        <div className="flex flex-col items-center justify-center mt-20">
+        <div className="mt-20 flex flex-col items-center justify-center">
             <SignUp path="/sign-up" routing="path" signInUrl="/sign-in" />
         </div>
-       
     </>
-
 );
 export default SignUpPage;

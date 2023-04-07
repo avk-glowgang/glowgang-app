@@ -1,8 +1,7 @@
 import { useAuth } from "@clerk/nextjs";
-import Navbar from "utils,components/components/navbar";
-import Header from "utils,components/components/header";
+import Navbar from "@components/navbar";
+import Header from "@components/header";
 import Head from "next/head";
-
 
 export default function Example() {
     const { isLoaded, userId } = useAuth();
@@ -18,13 +17,10 @@ export default function Example() {
                 <title>Dashboard | Glow Gang</title>
             </Head>
 
-
             <Navbar />
             <Header />
 
-            <div className="container max-w-5xl mx-auto px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-10">
-                asd
-            </div>
+            <div className="container mx-auto mt-10 grid max-w-5xl grid-cols-1 gap-4 px-8 sm:grid-cols-2 md:grid-cols-3">asd</div>
         </>
     );
 }
