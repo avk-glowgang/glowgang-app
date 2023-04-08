@@ -1,6 +1,4 @@
-import React from "react";
 import Image from "next/image";
-import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 
 function Navbar(): JSX.Element {
@@ -14,16 +12,9 @@ function Navbar(): JSX.Element {
                         </Link>
                     </div>
                     <div>
-                        <SignedIn>
-                            {/* Mount the UserButton component */}
-                            <UserButton />
-                        </SignedIn>
-                        <SignedOut>
-                            {/* Signed out users get sign in button */}
-                            <Link href="/sign-in" className="rounded-md bg-gray-800  px-4 py-2 text-sm text-white hover:bg-gray-700">
-                                Sign in
-                            </Link>
-                        </SignedOut>
+                        <Link href="/sign-in" className="rounded-md bg-gray-800  px-4 py-2 text-sm text-white hover:bg-gray-700">
+                            Sign in
+                        </Link>
                     </div>
                 </nav>
             </div>

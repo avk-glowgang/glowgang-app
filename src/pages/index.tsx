@@ -2,8 +2,6 @@ import { type NextPage } from "next";
 import Head from "next/head";
 import Navbar from "../components/navbar";
 import Hero from "../components/hero";
-import { SignedIn, SignedOut } from "@clerk/nextjs";
-import Dashboard from "./dashboard";
 
 const Home: NextPage = () => {
     return (
@@ -14,14 +12,8 @@ const Home: NextPage = () => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <SignedOut>
-                <Navbar />
-                <Hero />
-            </SignedOut>
-
-            <SignedIn>
-                <Dashboard />
-            </SignedIn>
+            <Navbar />
+            <Hero />
         </>
     );
 };
