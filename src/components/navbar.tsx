@@ -32,21 +32,17 @@ function Navbar(): JSX.Element {
                             <Image src="/logo.png" width={35} height={35} alt="Glow Gang Logo" />
                         </Link>
                     </div>
-                    <div>
-                        <SignedIn>
-                            {/* Mount the UserButton component */}
-                            <UserButton />
-                        </SignedIn>
-                        <SignedOut>
-                            {/* Signed out users get sign in button */}
-                            <Link
-                                href="/sign-in"
-                                className="text-white text-sm  px-4 py-2 rounded-md bg-gray-800 hover:bg-gray-700"
-                            >
+
+                    {/* display for unauthenticated users only when they are not in the sign in page */}
+                    {session.status !== "authenticated" && !isSignIn && (
+                        <div>
+                            <Link href="/sign-in" className="rounded-md bg-gray-800 px-4 py-2 text-sm text-white hover:bg-gray-700">
                                 Sign in
                             </Link>
                         </div>
                     )}
+
+                    {/* display for authenticated users */}
                     {session.status == "authenticated" && <UserButton session={session.data}></UserButton>}
                 </nav>
             </div>
