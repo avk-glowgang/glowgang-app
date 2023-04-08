@@ -8,11 +8,11 @@ import { FcGoogle } from "react-icons/fc";
 import { signIn } from "next-auth/react";
 import Footer from "@components/footer";
 
-const SignIn: NextPage = () => {
+const SignUp: NextPage = () => {
     return (
         <>
             <Head>
-                <title>Sign In | Glow Gang</title>
+                <title>Sign Up | Glow Gang</title>
                 <meta
                     name="description"
                     content="We are a community of like minded individuals striving for greatness and achieving success. Among us are multi-millionaires, content creators, aspiring entrepreneurs and people seeking guidance."
@@ -43,7 +43,7 @@ const SignIn: NextPage = () => {
                                         className="hover:color-red flex items-center gap-x-2 rounded bg-discord px-6 py-3 text-sm font-medium text-white transition focus:outline-none focus:ring focus:ring-yellow-400"
                                         onClick={() => signIn("discord", { callbackUrl: "/", redirect: true })}>
                                         <BsDiscord className="h-8 w-8"></BsDiscord>
-                                        <span>Sign in with Discord</span>
+                                        <span>Sign up with Discord</span>
                                     </button>
                                 </div>
 
@@ -53,7 +53,7 @@ const SignIn: NextPage = () => {
                                         className="hover:color-red flex cursor-not-allowed items-center gap-x-2 rounded bg-slate-500 px-6 py-3 text-sm  font-medium text-white transition focus:outline-none focus:ring focus:ring-yellow-400"
                                         onClick={() => signIn("google", { callbackUrl: "/", redirect: true })}>
                                         <FcGoogle className="h-8 w-8"></FcGoogle>
-                                        <span>Sign in with Google</span>
+                                        <span>Sign up with Google</span>
                                     </button>
                                 </div>
                             </div>
@@ -66,4 +66,4 @@ const SignIn: NextPage = () => {
     );
 };
 
-export default SignIn;
+export default SignUp;
