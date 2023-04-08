@@ -17,7 +17,11 @@ const server = z.object({
     ),
     // Add `.min(1) on ID and SECRET if you want to make sure they're not empty
     DISCORD_CLIENT_ID: z.string(),
-    DISCORD_CLIENT_SECRET: z.string()
+    DISCORD_CLIENT_SECRET: z.string(),
+    STRIPE_TEST_PUBLIC_KEY: z.string(),
+    STRIPE_TEST_SECRET_KEY: z.string(),
+    MEMBERSHIP_LOOKUP_KEY: z.string(),
+    TEST_MEMBERSHIP_LOOKUP_KEY: z.string()
 });
 
 /**
@@ -38,7 +42,11 @@ const processEnv = {
     NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
     NEXTAUTH_URL: process.env.NEXTAUTH_URL,
     DISCORD_CLIENT_ID: process.env.DISCORD_CLIENT_ID,
-    DISCORD_CLIENT_SECRET: process.env.DISCORD_CLIENT_SECRET
+    DISCORD_CLIENT_SECRET: process.env.DISCORD_CLIENT_SECRET,
+    STRIPE_TEST_PUBLIC_KEY: process.env.STRIPE_TEST_PUBLIC_KEY,
+    STRIPE_TEST_SECRET_KEY: process.env.STRIPE_TEST_SECRET_KEY,
+    MEMBERSHIP_LOOKUP_KEY: process.env.MEMBERSHIP_LOOKUP_KEY,
+    TEST_MEMBERSHIP_LOOKUP_KEY: process.env.MEMBERSHIP_LOOKUP_KEY
 };
 
 // Don't touch the part below

@@ -1,11 +1,12 @@
 import { type NextPage } from "next";
 import Head from "next/head";
-import Navbar from "../components/navbar";
+import Navbar from "@components/navbar";
 import Image from "next/image";
 import { BsDiscord } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
 
 import { signIn } from "next-auth/react";
+import Footer from "@components/footer";
 
 const SignUp: NextPage = () => {
     return (
@@ -60,6 +61,7 @@ const SignUp: NextPage = () => {
                     </div>
                 </div>
             </section>
+            <Footer />
         </>
     );
 };
