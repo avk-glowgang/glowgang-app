@@ -4,6 +4,8 @@ import Navbar from "../components/navbar";
 import Hero from "../components/hero";
 import { SignedIn, SignedOut } from "@clerk/nextjs";
 import Dashboard from "./dashboard";
+import Stats from "../components/stats";
+import WhyJoin from "utils,components/components/whyjoin";
 
 const Home: NextPage = () => {
 
@@ -20,6 +22,8 @@ const Home: NextPage = () => {
       <SignedOut>
         <Navbar />
         <Hero />
+        <WhyJoin />
+
       </SignedOut>
 
 
