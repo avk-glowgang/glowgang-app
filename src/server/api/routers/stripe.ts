@@ -29,7 +29,7 @@ export const stripeRouter = createTRPCRouter({
     portalPro: protectedProcedure.input(z.object({ sessionID: z.string() })).query(async ({ input, ctx }) => {
         const { sessionID } = input;
         const checkoutSession = await ctx.stripe.checkout.sessions.retrieve(sessionID);
-        const returnUrl = `${YOUR_DOMAIN}/pro/portal`;
+        const returnUrl = `${YOUR_DOMAIN}/pro/portal/?session_id=${sessionID}`;
         const portalSession = await ctx.stripe.billingPortal.sessions.create({
             customer: checkoutSession.customer as string,
             return_url: returnUrl
