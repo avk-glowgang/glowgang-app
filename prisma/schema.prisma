@@ -7,54 +7,12 @@ datasource db {
     url      = env("DATABASE_URL")
 }
 
-model Message {
-    messageID String   @id
-    channelID String
-    guildID   String
-    userID    String
-    createdAt DateTime @default(now())
-    updatedAt DateTime
-    User      Player   @relation(fields: [userID], references: [discordID])
-    Upvote    Upvote[]
-}
-
-model Upvote {
-    id        String   @id
-    messageID String
-    channelID String
-    guildID   String
-    userID    String
-    createdAt DateTime @default(now())
-    updatedAt DateTime
-    Message   Message  @relation(fields: [messageID], references: [messageID])
-    User      Player   @relation(fields: [userID], references: [discordID])
-
-    @@index([messageID])
-    @@index([messageID, userID])
-    @@index([userID])
-}
-
-model Player {
-    discordID       String    @id
-    discordTag      String
-    points          Float     @default(0)
-    level           Int       @default(0)
-    createdAt       DateTime  @default(now())
-    updatedAt       DateTime
-    upvotesGiven    Int       @default(0)
-    upvotesReceived Int       @default(0)
-    messagesSent    Int       @default(0)
-    Message         Message[]
-    Upvote          Upvote[]
-}
-
 model Example {
     id        String   @id @default(cuid())
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
 }
 
-// Necessary for Next auth
 model Account {
     id                String  @id @default(cuid())
     userId            String
