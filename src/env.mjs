@@ -17,19 +17,14 @@ const server = z.object({
     ),
     // Add `.min(1) on ID and SECRET if you want to make sure they're not empty
     DISCORD_CLIENT_ID: z.string(),
-    DISCORD_CLIENT_SECRET: z.string(),
-    CLERK_SECRET_KEY: z.string(),
-    DEV_CLERK_SECRET_KEY: z.string()
+    DISCORD_CLIENT_SECRET: z.string()
 });
 
 /**
  * Specify your client-side environment variables schema here. This way you can ensure the app isn't
  * built with invalid env vars. To expose them to the client, prefix them with `NEXT_PUBLIC_`.
  */
-const client = z.object({
-    NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: z.string(),
-    NEXT_PUBLIC_DEV_CLERK_PUBLISHABLE_KEY: z.string()
-});
+const client = z.object({});
 
 /**
  * You can't destruct `process.env` as a regular object in the Next.js edge runtimes (e.g.
@@ -43,12 +38,7 @@ const processEnv = {
     NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
     NEXTAUTH_URL: process.env.NEXTAUTH_URL,
     DISCORD_CLIENT_ID: process.env.DISCORD_CLIENT_ID,
-    DISCORD_CLIENT_SECRET: process.env.DISCORD_CLIENT_SECRET,
-    CLERK_SECRET_KEY: process.env.CLERK_SECRET_KEY,
-    DEV_CLERK_SECRET_KEY: process.env.DEV_CLERK_SECRET_KEY,
-
-    NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY,
-    NEXT_PUBLIC_DEV_CLERK_PUBLISHABLE_KEY: process.env.NEXT_PUBLIC_DEV_CLERK_PUBLISHABLE_KEY
+    DISCORD_CLIENT_SECRET: process.env.DISCORD_CLIENT_SECRET
 };
 
 // Don't touch the part below
