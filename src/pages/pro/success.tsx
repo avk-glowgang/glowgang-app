@@ -1,8 +1,14 @@
 import { type NextPage, GetServerSidePropsContext } from "next";
 import Head from "next/head";
 import Navbar from "@components/navbar";
+import { useRouter } from "next/router";
+import { api } from "@utils/api";
 
-const ProSuccessPage: NextPage<{ sessionId: string }> = ({ sessionId }) => {
+const ProSuccessPage: NextPage = () => {
+    const router = useRouter();
+    const { query } = router;
+    const sessionID = query.session_id;
+    const portalPro = api.stripe.portalPro.useQuery({ sessionID: sessionID as string });
     return (
         <>
             <Head>
@@ -14,18 +20,23 @@ const ProSuccessPage: NextPage<{ sessionId: string }> = ({ sessionId }) => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Navbar />
-            <section>
-                <div className="product Box-root">
-                    <div className="description Box-root">
-                        <h3>Subscription to Membership plan successful!</h3>
+            <section className="flex h-full w-full items-center justify-center">
+                <div>
+                    <div className="">
+                        <div className="">
+                            <h3>Subscription to Membership plan successful!</h3>
+                        </div>
                     </div>
+                    {portalPro.isSuccess && (
+                        <div className="mt-8">
+                            <Link
+                                href={portalPro.data}
+                                className="inline-block rounded bg-red-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-red-500 focus:outline-none focus:ring focus:ring-yellow-400">
+                                Manage your billing information
+                            </Link>
+                        </div>
+                    )}
                 </div>
-                <form action="/create-portal-session" method="POST">
-                    <input type="hidden" id="session-id" name="session_id" value={sessionId} />
-                    <button id="checkout-and-portal-button" type="submit">
-                        Manage your billing information
-                    </button>
-                </form>
             </section>
         </>
     );
@@ -36,6 +47,7 @@ export default ProSuccessPage;
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@server/auth";
 import { env } from "src/env.mjs";
+import Link from "next/link";
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
     const session = await getServerSession(context.req, context.res, authOptions);

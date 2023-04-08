@@ -20,15 +20,16 @@ const server = z.object({
     DISCORD_CLIENT_SECRET: z.string(),
     STRIPE_TEST_PUBLIC_KEY: z.string(),
     STRIPE_TEST_SECRET_KEY: z.string(),
-    MEMBERSHIP_LOOKUP_KEY: z.string(),
-    TEST_MEMBERSHIP_LOOKUP_KEY: z.string()
+    STRIPE_TEST_WEBHOOK_KEY: z.string()
 });
 
 /**
  * Specify your client-side environment variables schema here. This way you can ensure the app isn't
  * built with invalid env vars. To expose them to the client, prefix them with `NEXT_PUBLIC_`.
  */
-const client = z.object({});
+const client = z.object({
+    NEXT_PUBLIC_TEST_MEMBERSHIP_LOOKUP_KEY: z.string()
+});
 
 /**
  * You can't destruct `process.env` as a regular object in the Next.js edge runtimes (e.g.
@@ -45,8 +46,8 @@ const processEnv = {
     DISCORD_CLIENT_SECRET: process.env.DISCORD_CLIENT_SECRET,
     STRIPE_TEST_PUBLIC_KEY: process.env.STRIPE_TEST_PUBLIC_KEY,
     STRIPE_TEST_SECRET_KEY: process.env.STRIPE_TEST_SECRET_KEY,
-    MEMBERSHIP_LOOKUP_KEY: process.env.MEMBERSHIP_LOOKUP_KEY,
-    TEST_MEMBERSHIP_LOOKUP_KEY: process.env.MEMBERSHIP_LOOKUP_KEY
+    STRIPE_TEST_WEBHOOK_KEY: process.env.STRIPE_TEST_WEBHOOK_KEY,
+    NEXT_PUBLIC_TEST_MEMBERSHIP_LOOKUP_KEY: process.env.NEXT_PUBLIC_TEST_MEMBERSHIP_LOOKUP_KEY
 };
 
 // Don't touch the part below

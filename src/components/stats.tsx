@@ -1,8 +1,4 @@
-import React from "react";
-import Image from "next/image";
-import Link from "next/link";
-
-function Hero(): JSX.Element {
+function Stats(): JSX.Element {
     return (
         <section className="bg-white">
             <div className="mx-auto max-w-5xl">
@@ -16,4 +12,4 @@ function Hero(): JSX.Element {
     );
 }
 
-export default Hero;
+export default Stats;
