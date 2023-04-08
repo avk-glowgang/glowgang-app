@@ -14,7 +14,11 @@ function Footer(): JSX.Element {
                 <Link href="/privacy-policy">Privacy Policy</Link>
             </div>
             <div className="flex flex-col">
-                <Link href="/pro">Pro Membership</Link>
+                <Link href="/profile">Account Profile</Link>
+
+                <Link href="/pro" className="mt-4">
+                    Pro Membership
+                </Link>
                 <Link href="/pro/portal">Pro Portal</Link>
             </div>
         </section>

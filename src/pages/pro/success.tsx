@@ -38,6 +38,7 @@ const ProSuccessPage: NextPage = () => {
                     )}
                 </div>
             </section>
+            <Footer />
         </>
     );
 };
@@ -48,6 +49,7 @@ import { getServerSession } from "next-auth/next";
 import { authOptions } from "@server/auth";
 import { env } from "src/env.mjs";
 import Link from "next/link";
+import Footer from "@components/footer";
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
     const session = await getServerSession(context.req, context.res, authOptions);

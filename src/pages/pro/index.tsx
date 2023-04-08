@@ -49,6 +49,7 @@ const ProInfoPage: NextPage = () => {
                     </div>
                 </div>
             </section>
+            <Footer />
         </>
     );
 };
@@ -59,6 +60,7 @@ import { getServerSession } from "next-auth/next";
 import { authOptions } from "@server/auth";
 import { api } from "@utils/api";
 import Link from "next/link";
+import Footer from "@components/footer";
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
     const session = await getServerSession(context.req, context.res, authOptions);
