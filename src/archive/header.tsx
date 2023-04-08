@@ -6,6 +6,8 @@ const Header: React.FC = () => {
             {/* // Should only be display if user's role is not PRO 
 
              <div className="bg-indigo-600 px-4 py-3 text-white sm:flex sm:items-center sm:justify-between sm:px-4 lg:px-4">
+
+             <div className="bg-indigo-600 px-4 py-3 text-white sm:flex sm:items-center sm:justify-between sm:px-4 lg:px-4">
                 <div className="container max-w-5xl mx-auto px-4 flex justify-between items-center">
                     <p className="text-center text-sm sm:text-left">
                         Connect your discord account to receive your PRO role!

@@ -19,16 +19,17 @@ function Hero(): JSX.Element {
                     </div>
 
                     <div className="lg:py-24">
-                        <h2 className="text-3xl font-bold text-black sm:text-4xl ">Success Starts with the Glow Gang Community!</h2>
+                        <h2 className="color-black text-3xl font-bold sm:text-4xl">Success Starts with the Glow Gang Community!</h2>
 
-                        <p className="mt-4 text-gray-400">
-                            We are a dynamic community empowering the leaders of tomorrow through connection, inspiration, and a shared passion for achievement.
+                        <p className="color-gray mt-4">
+                            Glow Gang: a dynamic community empowering the leaders of tomorrow through connection, inspiration, and a shared passion for
+                            achievement.
                         </p>
 
                         <div className="mt-8">
                             <Link
                                 href="/sign-up"
-                                className="inline-block rounded bg-red-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-red-500 focus:outline-none focus:ring focus:ring-yellow-400">
+                                className="bg-red hover:color-red inline-block rounded px-12 py-3 text-sm font-medium text-white transition focus:outline-none focus:ring focus:ring-yellow-400">
                                 Join the Glow Gang community!
                             </Link>
                         </div>
