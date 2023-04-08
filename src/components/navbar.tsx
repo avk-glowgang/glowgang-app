@@ -9,7 +9,7 @@ function UserButton({ session }: { session: Session }): JSX.Element {
         <>
             <button
                 onClick={() => signOut()}
-                className="flex cursor-pointer items-center space-x-2 whitespace-nowrap rounded-md bg-gray-800 px-3 py-2 text-white transition-all ease-in-out hover:bg-gray-700">
+                className="flex cursor-pointer items-center space-x-2 whitespace-nowrap rounded bg-gray-800 px-3 py-2 text-white transition-all ease-in-out hover:bg-gray-700">
                 <Image className="h-8 w-8 rounded-full" src={session.user.image as string} alt={session.user.name as string} width={100} height={100}></Image>
                 <span className="font-sans font-bold">{session.user.name}</span>
             </button>
