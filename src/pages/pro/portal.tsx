@@ -51,15 +51,22 @@ const ProPortal: NextPage = () => {
                     <Perk
                         href="#"
                         icon="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a69f118df70ad7828d4_icon_clyde_blurple_RGB.svg"
-                        title="Discord "
+                        title="Discord community"
                         description="Join our free discord server and meet other community members."
+                        level="Member"
+                    />
+                    <Perk
+                        href="#"
+                        icon="https://www.svgrepo.com/show/408453/event-calender-date-note.svg"
+                        title="Weekly Live Events"
+                        description="Watch our weekly live events with successful entrepreneurs."
                         level="Member"
                     />
                     <Perk
                         href="#"
                         icon="https://www.svgrepo.com/show/324411/video-collection.svg"
                         title="Event Recordings"
-                        description="Recordings from all of our weekly live events in Discord."
+                        description="Access all recordings of our weekly live events."
                         level="PRO"
                         disabled={true}
                     />
@@ -74,16 +81,8 @@ const ProPortal: NextPage = () => {
                     <Perk
                         href="#"
                         icon="https://www.svgrepo.com/show/452175/camera.svg"
-                        title="Video Footage"
-                        description="Videos of interviews with millionaires and successful entrepreneurs."
-                        level="PRO"
-                        disabled={true}
-                    />
-                    <Perk
-                        href="#"
-                        icon="https://www.svgrepo.com/show/429964/customer-support-chat.svg"
-                        title="Services Marketplace"
-                        description="Get access to post an ad in our services channel in Discord."
+                        title="Video Library"
+                        description="Interviews and behind-the-scenes with millionaires."
                         level="PRO"
                         disabled={true}
                     />
