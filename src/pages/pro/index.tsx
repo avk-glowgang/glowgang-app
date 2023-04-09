@@ -25,7 +25,7 @@ const ProInfoPage: NextPage = () => {
                     <ol role="list" className="flex items-center gap-1 text-sm text-gray-600">
 
                         <li>
-                            <a href="#" className="block transition text-blue-600 hover:text-gray-700"> Dashboard </a>
+                            <a href="/pro/portal" className="block transition text-blue-600 hover:text-gray-700"> Dashboard </a>
                         </li>
 
                         <li>
