@@ -49,21 +49,7 @@ const ProInfoPage: NextPage = () => {
                     </ol>
                 </nav>
                 <div className="container mx-auto max-w-5xl px-8 grid grid-cols-3 gap-20 my-20">
-                    <nav aria-label="Breadcrumb" className="flex">
-                        <ol role="list" className="flex overflow-hidden rounded-lg border border-gray-200 text-gray-600">
-                            <li className="flex items-center">
-                                <a href="#" className="flex h-10 items-center bg-gray-100 px-4 transition hover:text-gray-900">
-                                    <span> Dashboard </span>
-                                </a>
-                            </li>
-                            <li className="relative flex items-center">
-                                <span className="absolute inset-y-0 -left-px h-10 w-4 bg-gray-100 clip-path:polygon(0 0, 0 100%, 100% 50%)"></span>
-                                <a href="#" className="flex h-10 items-center bg-white pl-8 pr-4 text-xs font-medium transition hover:text-gray-900">
-                                    Shirts
-                                </a>
-                            </li>
-                        </ol>
-                    </nav>
+                    
                     <div className="col-span-2">
                         <h2 className="text-1xl font-bold text-gray-900 sm:text-2xl mb-5">Membership Details</h2>
                         <p className="mt-1 text-sm text-gray-500 border-t border-b py-5">
