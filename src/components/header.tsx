@@ -36,7 +36,7 @@ const Header: React.FC = () => {
                             type="button"
                         >
                             <Link href="/pro">
-                                <p>Upgrade to PRO</p>
+                                <p>Become a PRO member</p>
                             </Link>
                         </button>
                     </div>

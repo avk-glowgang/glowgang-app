@@ -37,7 +37,7 @@ const ProInfoPage: NextPage = () => {
     return (
         <>
             <Head>
-                <title>Dashboard | Glow Gang</title>
+                <title>PRO Membership | Glow Gang</title>
                 <meta
                     name="description"
                     content="We are a community of like minded individuals striving for greatness and achieving success. Among us are multi-millionaires, content creators, aspiring entrepreneurs and people seeking guidance."
@@ -76,8 +76,8 @@ const ProInfoPage: NextPage = () => {
                 </nav>
 
 
-                <div className="container mx-auto max-w-5xl px-8">
-                    <div className="text-center mt-10 lg:mb-12">
+                <div className="container mx-auto max-w-5xl px-8 mb-20">
+                    <div className="text-center mt-10  lg:mb-12">
                         <h2 className="mb-4 text-4xl font-extrabold text-gray-900">Become a <span className="whitespace-nowrap  rounded-full bg-black px-5 py-0.5 text-white">
                             PRO
                         </span> Member!</h2>
@@ -87,7 +87,9 @@ const ProInfoPage: NextPage = () => {
                     <div className=" md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12">
                         <div>
                             <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-black lg:h-12 lg:w-12 ">
-                                <svg className="w-5 h-5 text-white lg:w-6 lg:h-6 " fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 0l-2 2a1 1 0 101.414 1.414L8 10.414l1.293 1.293a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5 text-white lg:w-6 lg:h-6">
+                                    <path d="M2 4.25A2.25 2.25 0 014.25 2h2.5A2.25 2.25 0 019 4.25v2.5A2.25 2.25 0 016.75 9h-2.5A2.25 2.25 0 012 6.75v-2.5zM2 13.25A2.25 2.25 0 014.25 11h2.5A2.25 2.25 0 019 13.25v2.5A2.25 2.25 0 016.75 18h-2.5A2.25 2.25 0 012 15.75v-2.5zM11 4.25A2.25 2.25 0 0113.25 2h2.5A2.25 2.25 0 0118 4.25v2.5A2.25 2.25 0 0115.75 9h-2.5A2.25 2.25 0 0111 6.75v-2.5zM15.25 11.75a.75.75 0 00-1.5 0v2h-2a.75.75 0 000 1.5h2v2a.75.75 0 001.5 0v-2h2a.75.75 0 000-1.5h-2v-2z" />
+                                </svg>
                             </div>
                             <h3 className="mb-2 text-xl font-bold ">Discord perks and privileges</h3>
                             <p className="text-gray-500 ">Get a special <span className="rounded-full font-bold bg-black px-2 py-0.5 text-white">
@@ -96,46 +98,92 @@ const ProInfoPage: NextPage = () => {
                                     #seeking
                                 </span> and <span className="rounded bg-blue-50 px-0.5 py-0.5 ">
                                     #offering
-                                </span>  channels where you can offer your services, or seek help from other members. Find employees, clients, business partners, mentors, anything you need!</p>
+                                </span>  channels where you can find employees, clients, business partners, mentors, anything you need!</p>
                         </div>
                         <div>
                             <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-black lg:h-12 lg:w-12 ">
-                                <svg className="w-5 h-5 text-white lg:w-6 lg:h-6 " fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"></path></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5 text-white lg:w-6 lg:h-6">
+                                    <path d="M3.25 4A2.25 2.25 0 001 6.25v7.5A2.25 2.25 0 003.25 16h7.5A2.25 2.25 0 0013 13.75v-7.5A2.25 2.25 0 0010.75 4h-7.5zM19 4.75a.75.75 0 00-1.28-.53l-3 3a.75.75 0 00-.22.53v4.5c0 .199.079.39.22.53l3 3a.75.75 0 001.28-.53V4.75z" />
+                                </svg>
                             </div>
                             <h3 className="mb-2 text-xl font-bold ">All live event recordings</h3>
-                            <p className="text-gray-500 ">Get access to all of our live event recordings, including our weekly <span className="rounded bg-green-50 px-0.5 py-0.5 ">Millionaire Mondays</span>, <span className="rounded bg-sky-50 px-0.5 py-0.5 ">Q&A Wednesdays</span>, and <span className="rounded bg-gray-50 px-0.5 py-0.5 ">Community Success Stories</span> events,
+                            <p className="text-gray-500 ">Get access to all of our live event recordings, including our weekly <span className="rounded bg-green-50 px-0.5 py-0.5 ">Millionaire Mondays</span>, <span className="rounded bg-green-50 px-0.5 py-0.5 ">Q&A Wednesdays</span>, and <span className="rounded bg-green-50 px-0.5 py-0.5 ">Community Success Stories</span> events,
                                 and any future events.</p>
                         </div>
+
+
+                    </div>
+                </div>
+
+
+
+
+
+
+                <div className="container mx-auto max-w-5xl px-8 mb-20">
+                    <div className="text-center mt-10  lg:mb-12">
+                        <h2 className="mb-4 text-4xl font-bold text-gray-900">More coming soon...</h2>
+                    </div>
+
+                    <div className=" md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 opacity-50">
                         <div>
                             <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-black lg:h-12 lg:w-12 ">
-                                <svg className="w-5 h-5 text-white lg:w-6 lg:h-6 " fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clip-rule="evenodd"></path><path d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z"></path></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5 text-white lg:w-6 lg:h-6">
+                                    <path d="M2 4.25A2.25 2.25 0 014.25 2h2.5A2.25 2.25 0 019 4.25v2.5A2.25 2.25 0 016.75 9h-2.5A2.25 2.25 0 012 6.75v-2.5zM2 13.25A2.25 2.25 0 014.25 11h2.5A2.25 2.25 0 019 13.25v2.5A2.25 2.25 0 016.75 18h-2.5A2.25 2.25 0 012 15.75v-2.5zM11 4.25A2.25 2.25 0 0113.25 2h2.5A2.25 2.25 0 0118 4.25v2.5A2.25 2.25 0 0115.75 9h-2.5A2.25 2.25 0 0111 6.75v-2.5zM15.25 11.75a.75.75 0 00-1.5 0v2h-2a.75.75 0 000 1.5h2v2a.75.75 0 001.5 0v-2h2a.75.75 0 000-1.5h-2v-2z" />
+                                </svg>
                             </div>
-                            <h3 className="mb-2 text-xl font-bold ">Business Automation</h3>
-                            <p className="text-gray-500 ">Auto-assign tasks, send Slack messages, and much more. Now power up with hundreds of new templates to help you get started.</p>
+                            <h3 className="mb-2 text-xl font-bold ">Courses & Tutorials</h3>
+                            <p className="text-gray-500 ">Learn from the best in the industry with our courses and tutorials. From beginner to advanced, in various topics.</p>
                         </div>
                         <div>
                             <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-black lg:h-12 lg:w-12 ">
-                                <svg className="w-5 h-5 text-white lg:w-6 lg:h-6 " fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z"></path><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clip-rule="evenodd"></path></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5 text-white lg:w-6 lg:h-6">
+                                    <path d="M3.25 4A2.25 2.25 0 001 6.25v7.5A2.25 2.25 0 003.25 16h7.5A2.25 2.25 0 0013 13.75v-7.5A2.25 2.25 0 0010.75 4h-7.5zM19 4.75a.75.75 0 00-1.28-.53l-3 3a.75.75 0 00-.22.53v4.5c0 .199.079.39.22.53l3 3a.75.75 0 001.28-.53V4.75z" />
+                                </svg>
                             </div>
-                            <h3 className="mb-2 text-xl font-bold ">Finance</h3>
-                            <p className="text-gray-500 ">Audit-proof software built for critical financial operations like month-end close and quarterly budgeting.</p>
+                            <h3 className="mb-2 text-xl font-bold ">Discounted Merchandise</h3>
+                            <p className="text-gray-500 ">Exclusive discounts on merchandise, from clothing to accessories, and more...</p>
                         </div>
                         <div>
                             <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-black lg:h-12 lg:w-12 ">
-                                <svg className="w-5 h-5 text-white lg:w-6 lg:h-6 " fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z"></path></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5 text-white lg:w-6 lg:h-6">
+                                    <path fillRule="evenodd" d="M4.93 1.31a41.401 41.401 0 0110.14 0C16.194 1.45 17 2.414 17 3.517V18.25a.75.75 0 01-1.075.676l-2.8-1.344-2.8 1.344a.75.75 0 01-.65 0l-2.8-1.344-2.8 1.344A.75.75 0 013 18.25V3.517c0-1.103.806-2.068 1.93-2.207zm8.85 5.97a.75.75 0 00-1.06-1.06l-6.5 6.5a.75.75 0 101.06 1.06l6.5-6.5zM9 8a1 1 0 11-2 0 1 1 0 012 0zm3 5a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd" />
+                                </svg>
                             </div>
-                            <h3 className="mb-2 text-xl font-bold ">Enterprise Design</h3>
-                            <p className="text-gray-500 ">Craft beautiful, delightful experiences for both marketing and product with real cross-company collaboration.</p>
+                            <h3 className="mb-2 text-xl font-bold ">Deals & discounts</h3>
+                            <p className="text-gray-500 ">Exclusive deals and discounts on tools, services, and products that will help you grow your business and improve your life.</p>
                         </div>
                         <div>
                             <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-black lg:h-12 lg:w-12 ">
-                                <svg className="w-5 h-5 text-white lg:w-6 lg:h-6 " fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"></path></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 text-white lg:w-6 lg:h-6">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 7.125C2.25 6.504 2.754 6 3.375 6h6c.621 0 1.125.504 1.125 1.125v3.75c0 .621-.504 1.125-1.125 1.125h-6a1.125 1.125 0 01-1.125-1.125v-3.75zM14.25 8.625c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v8.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 01-1.125-1.125v-8.25zM3.75 16.125c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v2.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 01-1.125-1.125v-2.25z" />
+                                </svg>
                             </div>
-                            <h3 className="mb-2 text-xl font-bold ">Operations</h3>
-                            <p className="text-gray-500 ">Keep your company’s lights on with customizable, iterative, and structured workflows built for all efficient teams and individual.</p>
+                            <h3 className="mb-2 text-xl font-bold ">Referral program</h3>
+                            <p className="text-gray-500 ">Access to our referral program and earn money by referring your friends and family to our community.</p>
+                        </div>
+                        <div>
+                            <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-black lg:h-12 lg:w-12 ">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 text-white lg:w-6 lg:h-6">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 7.125C2.25 6.504 2.754 6 3.375 6h6c.621 0 1.125.504 1.125 1.125v3.75c0 .621-.504 1.125-1.125 1.125h-6a1.125 1.125 0 01-1.125-1.125v-3.75zM14.25 8.625c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v8.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 01-1.125-1.125v-8.25zM3.75 16.125c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v2.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 01-1.125-1.125v-2.25z" />
+                                </svg>
+                            </div>
+                            <h3 className="mb-2 text-xl font-bold ">Consultations with experts</h3>
+                            <p className="text-gray-500 ">Book free consultations with industry experts, including lawyers, accountants, business consultants. </p>
+                        </div>
+                        <div>
+                            <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-black lg:h-12 lg:w-12 ">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 text-white lg:w-6 lg:h-6">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 7.125C2.25 6.504 2.754 6 3.375 6h6c.621 0 1.125.504 1.125 1.125v3.75c0 .621-.504 1.125-1.125 1.125h-6a1.125 1.125 0 01-1.125-1.125v-3.75zM14.25 8.625c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v8.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 01-1.125-1.125v-8.25zM3.75 16.125c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v2.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 01-1.125-1.125v-2.25z" />
+                                </svg>
+                            </div>
+                            <h3 className="mb-2 text-xl font-bold ">Resources</h3>
+                            <p className="text-gray-500 ">Library of resources, tools, and templates to help you start, grow, and scale your business.</p>
                         </div>
                     </div>
                 </div>
+
+
             </section>
             <Footer />
         </>
