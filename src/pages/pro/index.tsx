@@ -47,8 +47,8 @@ const ProInfoPage: NextPage = () => {
                 </nav>
 
 
-                <div className="container mx-auto max-w-5xl px-8 mb-20">
-                    <div className="text-center mt-10  lg:mb-12">
+                <div className="container mx-auto max-w-5xl px-8 pt-10 pb-10 mb-20">
+                    <div className="text-center lg:mb-12">
                         <h2 className="mb-4 text-4xl font-extrabold text-gray-900">Become a <span className="whitespace-nowrap  rounded-full bg-black px-5 py-0.5 text-white">
                             PRO
                         </span> Member!</h2>
@@ -100,8 +100,8 @@ const ProInfoPage: NextPage = () => {
 
 
 
-                <div className="container mx-auto max-w-5xl px-8 mb-20">
-                    <div className="text-center mt-10  lg:mb-12">
+                <div className="container mx-auto max-w-5xl pb-10 mb-20">
+                    <div className="text-center lg:mb-12">
                         <h2 className="mb-4 text-4xl font-bold text-gray-900">More coming soon...</h2>
                         <p className=" text-gray-500 sm:text-lg">New perks and features will be released gradually, so stay tuned!</p>
 
@@ -177,7 +177,6 @@ const ProInfoPage: NextPage = () => {
                     
                     <div className="flex flex-col items-center justify-center mt-10">
                         <div className="bg-white rounded-lg shadow-lg w-full max-w-md p-8 text-center">
-                            <h3 className="text-2xl font-bold mb-5">PRO Membership</h3>
                             <div className="flex items-center justify-center mb-5">
                                 <span className="text-4xl font-bold">$</span>
                                 <span className="text-6xl font-bold">97</span>
