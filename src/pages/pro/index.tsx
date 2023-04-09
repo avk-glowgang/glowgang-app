@@ -2,6 +2,10 @@ import { type NextPage, GetServerSidePropsContext } from "next";
 import Head from "next/head";
 import Navbar from "@components/navbar";
 import Image from "next/image";
+import Header from "@components/header";
+
+
+
 
 const ProInfoPage: NextPage = () => {
     const checkoutPro = api.stripe.checkoutPro.useQuery();
@@ -16,36 +20,43 @@ const ProInfoPage: NextPage = () => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Navbar />
+            <Header />
             {/* Info and Payment Information for Membership */}
-            <section className="bg-gray-50">
-                <div className="mx-auto max-w-5xl px-8 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
-                    <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-16">
-                        <div className="relative h-64 overflow-hidden rounded-lg sm:h-80 lg:order-last lg:h-full">
-                            <Image
-                                alt="Glow Gang Pro Membership"
-                                src="/products/membership.jpg"
-                                className="absolute inset-0 h-full w-full object-cover"
-                                width={500}
-                                height={500}
-                                priority
-                            />
-                        </div>
+            <section className="bg-white">
+                <div className="container mx-auto max-w-5xl px-8 grid grid-cols-3 gap-20 my-20">
+                    <div className="col-span-2">
+                        <h2 className="text-1xl font-bold text-gray-900 sm:text-2xl mb-5">Membership Details</h2>
+                        <p className="mt-1 text-sm text-gray-500 border-t border-b py-5">
+                            Your current level is{" "}
+                            <span className="whitespace-nowrap rounded-full bg-purple-100 px-2.5 py-0.5 text-sm text-purple-700">
+                                Member
+                            </span>
+                        </p>
+                    </div>
+                    <div className="col-span-1">
+                        <nav aria-label="Main Nav" className="flex flex-col gap-1 gap-space-y-1">
+                            <a
+                                href=""
+                                className="block rounded-lg bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700"
+                            >
+                                General
+                            </a>
 
-                        <div className="lg:py-24">
-                            <h2 className="text-3xl font-bold sm:text-4xl">Pro Membership Plan</h2>
+                            <a
+                                href=""
+                                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+                            >
+                                Order History
+                            </a>
 
-                            <p className="mt-4 text-gray-400">only $99/month</p>
+                            <a
+                                href=""
+                                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+                            >
+                                Payment Methods
+                            </a>
 
-                            {checkoutPro.isSuccess && (
-                                <div className="mt-8">
-                                    <Link
-                                        href={checkoutPro.data}
-                                        className="inline-block rounded bg-red-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-red-500 focus:outline-none focus:ring focus:ring-yellow-400">
-                                        Checkout
-                                    </Link>
-                                </div>
-                            )}
-                        </div>
+                        </nav>
                     </div>
                 </div>
             </section>
