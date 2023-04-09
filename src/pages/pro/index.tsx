@@ -3,7 +3,34 @@ import Head from "next/head";
 import Navbar from "@components/navbar";
 import Image from "next/image";
 import Header from "@components/header";
+import { ArrowPathIcon, CloudArrowUpIcon, FingerPrintIcon, LockClosedIcon } from '@heroicons/react/24/outline'
 
+const features = [
+    {
+        name: 'Push to deploy',
+        description:
+            'Morbi viverra dui mi arcu sed. Tellus semper adipiscing suspendisse semper morbi. Odio urna massa nunc massa.',
+        icon: CloudArrowUpIcon,
+    },
+    {
+        name: 'SSL certificates',
+        description:
+            'Sit quis amet rutrum tellus ullamcorper ultricies libero dolor eget. Sem sodales gravida quam turpis enim lacus amet.',
+        icon: LockClosedIcon,
+    },
+    {
+        name: 'Simple queues',
+        description:
+            'Quisque est vel vulputate cursus. Risus proin diam nunc commodo. Lobortis auctor congue commodo diam neque.',
+        icon: ArrowPathIcon,
+    },
+    {
+        name: 'Advanced security',
+        description:
+            'Arcu egestas dolor vel iaculis in ipsum mauris. Tincidunt mattis aliquet hac quis. Id hac maecenas ac donec pharetra eget.',
+        icon: FingerPrintIcon,
+    },
+]
 
 const ProInfoPage: NextPage = () => {
     const checkoutPro = api.stripe.checkoutPro.useQuery();
@@ -42,49 +69,34 @@ const ProInfoPage: NextPage = () => {
                                 />
                             </svg>
                         </li>
-
                         <li>
                             <p className="block transition hover:text-gray-700"> PRO Membership </p>
                         </li>
                     </ol>
                 </nav>
-                <div className="container mx-auto max-w-5xl px-8 grid grid-cols-3 gap-20 my-20">
-                    
-                    <div className="col-span-2">
-                        <h2 className="text-1xl font-bold text-gray-900 sm:text-2xl mb-5">Membership Details</h2>
-                        <p className="mt-1 text-sm text-gray-500 border-t border-b py-5">
-                            Your current level is{" "}
-                            <span className="whitespace-nowrap rounded-full bg-purple-100 px-2.5 py-0.5 text-sm text-purple-700">
-                                Member
-                            </span>
-                        </p>
-                    </div>
-                    <div className="col-span-1">
-                        <nav aria-label="Main Nav" className="flex flex-col gap-1 gap-space-y-1">
-                            <a
-                                href=""
-                                className="block rounded-lg bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700"
-                            >
-                                General
-                            </a>
 
-                            <a
-                                href=""
-                                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
-                            >
-                                Order History
-                            </a>
 
-                            <a
-                                href=""
-                                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
-                            >
-                                Payment Methods
-                            </a>
+                <div className="container mx-auto max-w-5xl px-8">
 
-                        </nav>
-                    </div>
+
+                    <section className="bg-white">
+                        <div className="mx-auto max-w-5xl px-8 py-8 sm:py-12 sm:px-6 lg:px-8">
+                            <div className="mx-auto max-w-screen-md text-center mb-8 lg:mb-12">
+                                <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900">Become a <span className="whitespace-nowrap  rounded-full bg-red-100 px-5 py-0.5 text-red-700">
+                                    PRO
+                                </span> Member!</h2>
+                                <p className="mb-5 font-light text-gray-500 sm:text-xl dark:text-gray-400">Become a PRO member and get access to all of our exclusive features and perks.</p>
+                            </div>
+
+                            
+                        </div>
+                    </section>
+
+
                 </div>
+
+
+
             </section>
             <Footer />
         </>

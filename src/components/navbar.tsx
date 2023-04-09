@@ -9,9 +9,8 @@ function UserButton({ session }: { session: Session }): JSX.Element {
         <>
             <button
                 onClick={() => signOut()}
-                className="flex cursor-pointer items-center space-x-2 whitespace-nowrap rounded bg-gray-800 px-4 py-2 text-white transition-all ease-in-out hover:bg-gray-700">
-                <Image className="h-5 w-5 rounded-full" src={session.user.image as string} alt={session.user.name as string} width={100} height={100}></Image>
-                <span className="font-sans text-sm">Sign out</span>
+                className="flex cursor-pointer items-center rounded bg-gray-800 px-4 py-2 transition-all ease-in-out hover:bg-gray-700">
+                <span className="text-sm text-white">Sign out</span>
             </button>
         </>
     );
@@ -36,7 +35,7 @@ function Navbar(): JSX.Element {
                     {/* display for unauthenticated users only when they are not in the sign in page */}
                     {session.status !== "authenticated" && !isSignIn && (
                         <div>
-                            <Link href="/sign-in" className="rounded-md bg-gray-800 transition-all ease-in-out px-4 py-2 text-sm text-white hover:bg-gray-700">
+                            <Link href="/sign-in" className="rounded bg-gray-800 transition-all ease-in-out px-4 py-2 text-sm text-white hover:bg-gray-700">
                                 Sign in
                             </Link>
                         </div>
