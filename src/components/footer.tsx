@@ -17,25 +17,25 @@ function Footer() {
                 <nav aria-label="Footer Nav" className="mt-12">
                     <ul className="flex flex-wrap text-sm justify-center gap-5 md:gap-7 lg:gap-10">
                         <li>
-                            <a className="text-gray-700 transition hover:text-gray-700/75" href="/">
+                            <a className="text-gray-600 transition hover:text-gray-500/75" href="/">
                                 About Us
                             </a>
                         </li>
 
                         <li>
-                            <a className="text-gray-700 transition hover:text-gray-700/75" href="/terms">
+                            <a className="text-gray-600 transition hover:text-gray-500/75" href="/terms">
                                 Terms of Service
                             </a>
                         </li>
 
                         <li>
-                            <a className="text-gray-700 transition hover:text-gray-700/75" href="/privacy-policy">
+                            <a className="text-gray-600 transition hover:text-gray-500/75" href="/privacy-policy">
                                 Privacy Policy
                             </a>
                         </li>
 
                         <li>
-                            <a className="text-gray-700 transition hover:text-gray-700/75" href="/">
+                            <a className="text-gray-600 transition hover:text-gray-500/75" href="/">
                                 Contact Us
                             </a>
                         </li>
