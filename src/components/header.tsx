@@ -32,7 +32,7 @@ const Header: React.FC = () => {
                         </button> */}
 
                         <button
-                            className="block rounded-lg bg-red-600 px-5 py-3 text-sm font-medium text-white transition hover:bg-red-700 focus:outline-none focus:ring"
+                            className="block rounded-lg bg-black px-5 py-3 text-sm font-medium text-white transition hover:bg-gray-900 focus:outline-none focus:ring"
                             type="button"
                         >
                             <Link href="/pro">

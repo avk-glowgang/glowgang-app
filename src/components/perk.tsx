@@ -18,8 +18,8 @@ const Perk: React.FC<PerkProps> = ({
     level,
     disabled = false,
 }) => {
-    const labelBgColor = level === 'PRO' ? 'bg-red-100' : 'bg-purple-100';
-    const labelTextColor = level === 'PRO' ? 'text-red-700' : 'text-purple-700';
+    const labelBgColor = level === 'PRO' ? 'bg-black font-bold' : 'bg-purple-100';
+    const labelTextColor = level === 'PRO' ? 'text-white' : 'text-purple-700';
 
     const cardStyle = disabled
         ? 'opacity-50 cursor-not-allowed'
@@ -42,7 +42,7 @@ const Perk: React.FC<PerkProps> = ({
                     {level}
                 </span>
             </div>
-            <h3 className="mt-3 text-lg font-bold sm:text-xl">{title}</h3>
+            <h3 className="mt-3 text-gray-800 text-lg font-bold sm:text-xl">{title}</h3>
 
             <p className="mt-4 text-sm text-gray-400">{description}</p>
         </a>
