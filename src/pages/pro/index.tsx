@@ -1,36 +1,7 @@
 import { type NextPage, GetServerSidePropsContext } from "next";
 import Head from "next/head";
 import Navbar from "@components/navbar";
-import Image from "next/image";
 import Header from "@components/header";
-import { ArrowPathIcon, CloudArrowUpIcon, FingerPrintIcon, LockClosedIcon } from '@heroicons/react/24/outline'
-
-const features = [
-    {
-        name: 'Push to deploy',
-        description:
-            'Morbi viverra dui mi arcu sed. Tellus semper adipiscing suspendisse semper morbi. Odio urna massa nunc massa.',
-        icon: CloudArrowUpIcon,
-    },
-    {
-        name: 'SSL certificates',
-        description:
-            'Sit quis amet rutrum tellus ullamcorper ultricies libero dolor eget. Sem sodales gravida quam turpis enim lacus amet.',
-        icon: LockClosedIcon,
-    },
-    {
-        name: 'Simple queues',
-        description:
-            'Quisque est vel vulputate cursus. Risus proin diam nunc commodo. Lobortis auctor congue commodo diam neque.',
-        icon: ArrowPathIcon,
-    },
-    {
-        name: 'Advanced security',
-        description:
-            'Arcu egestas dolor vel iaculis in ipsum mauris. Tincidunt mattis aliquet hac quis. Id hac maecenas ac donec pharetra eget.',
-        icon: FingerPrintIcon,
-    },
-]
 
 const ProInfoPage: NextPage = () => {
     const checkoutPro = api.stripe.checkoutPro.useQuery();
@@ -81,7 +52,7 @@ const ProInfoPage: NextPage = () => {
                         <h2 className="mb-4 text-4xl font-extrabold text-gray-900">Become a <span className="whitespace-nowrap  rounded-full bg-black px-5 py-0.5 text-white">
                             PRO
                         </span> Member!</h2>
-                        <p className="mb-5 font-light text-gray-500 sm:text-lg">Become a PRO member and get access to all of our exclusive features and perks.</p>
+                        <p className=" text-gray-500 sm:text-lg">Become a PRO member and get access to all of our exclusive features and perks.</p>
                     </div>
 
                     <div className=" md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12">
@@ -110,6 +81,15 @@ const ProInfoPage: NextPage = () => {
                             <p className="text-gray-500 ">Get access to all of our live event recordings, including our weekly <span className="rounded bg-green-50 px-0.5 py-0.5 ">Millionaire Mondays</span>, <span className="rounded bg-green-50 px-0.5 py-0.5 ">Q&A Wednesdays</span>, and <span className="rounded bg-green-50 px-0.5 py-0.5 ">Community Success Stories</span> events,
                                 and any future events.</p>
                         </div>
+                        <div>
+                            <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-black lg:h-12 lg:w-12 ">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5 text-white lg:w-6 lg:h-6">
+                                    <path d="M3.25 4A2.25 2.25 0 001 6.25v7.5A2.25 2.25 0 003.25 16h7.5A2.25 2.25 0 0013 13.75v-7.5A2.25 2.25 0 0010.75 4h-7.5zM19 4.75a.75.75 0 00-1.28-.53l-3 3a.75.75 0 00-.22.53v4.5c0 .199.079.39.22.53l3 3a.75.75 0 001.28-.53V4.75z" />
+                                </svg>
+                            </div>
+                            <h3 className="mb-2 text-xl font-bold ">Interviews with Millionaires</h3>
+                            <p className="text-gray-500 ">Get an hour long interview and behind the scenes footage with millionaires every week! Learn how they got started, and what they did to become successful.</p>
+                        </div>
 
 
                     </div>
@@ -123,6 +103,8 @@ const ProInfoPage: NextPage = () => {
                 <div className="container mx-auto max-w-5xl px-8 mb-20">
                     <div className="text-center mt-10  lg:mb-12">
                         <h2 className="mb-4 text-4xl font-bold text-gray-900">More coming soon...</h2>
+                        <p className=" text-gray-500 sm:text-lg">New perks and features will be released gradually, so stay tuned!</p>
+
                     </div>
 
                     <div className=" md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 opacity-50">
@@ -180,6 +162,32 @@ const ProInfoPage: NextPage = () => {
                             <h3 className="mb-2 text-xl font-bold ">Resources</h3>
                             <p className="text-gray-500 ">Library of resources, tools, and templates to help you start, grow, and scale your business.</p>
                         </div>
+                    </div>
+                </div>
+
+
+
+                <div className="container mx-auto max-w-5xl px-8 mb-20">
+                    <div className="text-center mt-10  lg:mb-12">
+                        <h2 className="mb-4 text-4xl font-bold text-gray-900">Are your ready? 🚀</h2>
+                        <p className=" text-gray-500 sm:text-lg">Get an instant access to everything you've seen above.</p>
+
+                    </div>
+
+                    
+                    <div className="flex flex-col items-center justify-center mt-10">
+                        <div className="bg-white rounded-lg shadow-lg w-full max-w-md p-8 text-center">
+                            <h3 className="text-2xl font-bold mb-5">PRO Membership</h3>
+                            <div className="flex items-center justify-center mb-5">
+                                <span className="text-4xl font-bold">$</span>
+                                <span className="text-6xl font-bold">97</span>
+                                <span className="text-xl font-bold">/month</span>
+                            </div>
+                            <Link href="/sign-up">
+                                <p className="bg-black text-white font-bold py-3 px-8 rounded-lg hover:bg-gray-900 transition duration-300">Become a PRO member</p>
+                            </Link>
+                        </div>
+                        <p className="text-gray-500 text-xs mt-3">Cancel anytime. No hidden fees. No commitment. Secure payment.</p>
                     </div>
                 </div>
 
