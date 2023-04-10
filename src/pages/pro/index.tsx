@@ -87,7 +87,7 @@ const ProInfoPage: NextPage = () => {
                 </div>
 
 
-                <div className="container mx-auto max-w-5xl pb-10 mb-20">
+                <div className="container mx-auto max-w-5xl px-8 pt-10 pb-10 mb-20">
                     <div className="text-center lg:mb-12">
                         <h2 className="mb-4 text-4xl font-bold text-gray-900">More coming soon...</h2>
                         <p className=" text-gray-500 sm:text-lg">New perks and features will be released gradually, so stay tuned!</p>
@@ -156,7 +156,16 @@ const ProInfoPage: NextPage = () => {
                                 </svg>
                             </div>
                             <h3 className="mb-2 text-xl font-bold ">AI Assistant</h3>
-                            <p className="text-gray-500 ">Generate unlimited business ideas, business name suggestions, business plans, and more.</p>
+                            <p className="text-gray-500 ">Generate unlimited business/content ideas, business name suggestions, business plans, and more.</p>
+                        </div>
+                        <div>
+                            <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-black lg:h-12 lg:w-12 ">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 text-white lg:w-6 lg:h-6">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 7.125C2.25 6.504 2.754 6 3.375 6h6c.621 0 1.125.504 1.125 1.125v3.75c0 .621-.504 1.125-1.125 1.125h-6a1.125 1.125 0 01-1.125-1.125v-3.75zM14.25 8.625c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v8.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 01-1.125-1.125v-8.25zM3.75 16.125c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v2.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 01-1.125-1.125v-2.25z" />
+                                </svg>
+                            </div>
+                            <h3 className="mb-2 text-xl font-bold ">Documentaries</h3>
+                            <p className="text-gray-500 ">Long form documentaries on business, entrepreneurship, and more.</p>
                         </div>
                     </div>
                 </div>
