@@ -54,9 +54,19 @@ const ProSuccessPage: NextPage = () => {
                     
                     <div className="container mx-auto max-w-5xl px-8 pt-10 pb-10 mb-20">
                         <div className="text-center lg:mb-12">
-                            <h2 className="mb-4 text-4xl font-extrabold text-gray-900">🎉 Congratulations!</h2>
-                            <p className=" text-gray-500 sm:text-lg">You are a <span className="font-bold">PRO Member</span> now!</p>
+                            <h1 className="text-4xl font-extrabold text-gray-900 mb-5">🥳</h1>
+                            <h2 className="mb-4 text-4xl font-extrabold text-gray-900">Congratulations! </h2>
+                            <p className=" text-gray-500 sm:text-lg">You are a <span className="font-bold"><span className="whitespace-nowrap  rounded-full bg-black px-2.5 py-0.5 text-white">
+                                PRO
+                            </span> Member</span> now!</p>
+                            <button
+                                onClick={() => router.push("/pro/portal")}
+                                className="inline-block rounded bg-red-600 mt-10 px-12 py-3 text-sm font-medium text-white transition hover:bg-red-500 focus:outline-none focus:ring focus:ring-yellow-400">
+                                ← Go back to dashboard
+                            </button>
                         </div>
+                        
+
                     </div>
 
 
