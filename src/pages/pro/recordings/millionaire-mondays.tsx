@@ -6,17 +6,17 @@ import Header from "@components/header";
 
 const events = [
     {
-        title: "Daniel Snow x Aaron (Millionaire Mondays Ep. 2)",
-
-        image: "../../events/Daniel-Snow-work.jpg",
-        description: "Daniels Snow is the founder of The Snow Agency and RapTV. He started with a simple idea and a credit card, eventually scaling his e-commerce business to over 8 million dollars in revenue.",
-    },
-    {
+        id: 1,
         title: "Alex G x Aaron (Millionaire Mondays Ep. 1)",
         image: "../../events/301995610_1236995393762761_5127352412176830480_n.jpg",
         description: "Alex G is a 22-year-old self-made millionaire. Starting from working at Dunkin' Donuts to making seven figures within six months by trading on the forex exchanges.",
     },
-    // Add more events here...
+    {
+        id: 2,
+        title: "Daniel Snow x Aaron (Millionaire Mondays Ep. 2)",
+        image: "../../events/Daniel-Snow-work.jpg",
+        description: "Daniel Snow is the founder of The Snow Agency and RapTV. He started with a simple idea and a credit card, eventually scaling his e-commerce business to over 8 million dollars in revenue.",
+    },
 ];
 
 
