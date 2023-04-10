@@ -4,19 +4,22 @@ import Navbar from "@components/navbar";
 import { useRouter } from "next/router";
 import Header from "@components/header";
 
+
 const events = [
     {
-        title: "Daniel Snow x Aaron (Millionaire Mondays Ep. 2)",
-
-        image: "../../events/Daniel-Snow-work.jpg",
-        description: "Daniels Snow is the founder of The Snow Agency and RapTV. He started with a simple idea and a credit card, eventually scaling his e-commerce business to over 8 million dollars in revenue.",
+        id: 1,
+        title: "Alex G x Aaron (Millionaire Mondays Ep. 1)",
+        image: "../../events/301995610_1236995393762761_5127352412176830480_n.png",
+        description: "Alex G is a 22-year-old self-made millionaire. Starting from working at Dunkin' Donuts to making seven figures within six months by trading on the forex exchanges.",
+        URL: "https://vimeo.com/816270415"
     },
     {
-        title: "Alex G x Aaron (Millionaire Mondays Ep. 1)",
-        image: "../../events/301995610_1236995393762761_5127352412176830480_n.jpg",
-        description: "Alex G is a 22-year-old self-made millionaire. Starting from working at Dunkin' Donuts to making seven figures within six months by trading on the forex exchanges.",
+        id: 2,
+        title: "Daniel Snow x Aaron (Millionaire Mondays Ep. 2)",
+        image: "../../events/Daniel-Snow-work.jpg",
+        description: "Daniel Snow is the founder of The Snow Agency and RapTV. He started with a simple idea and a credit card, eventually scaling his e-commerce business to over 8 million dollars in revenue.",
+        URL: "#"
     },
-    // Add more events here...
 ];
 
 
@@ -87,26 +90,29 @@ const Recordings: NextPage = () => {
 
 
             <div className="container mx-auto max-w-5xl px-8 mt-10 mb-10">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4">
-                    {events.map((event, index) => (
-                        <article className="group" key={index}>
-                            <img
-                                alt={event.title}
-                                src={event.image}
-                                className="h-56 w-full rounded-xl object-cover shadow-xl transition group-hover:grayscale-[50%]"
-                            />
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-7">
 
-                            <div className="p-4">
-                                <a href="#">
+
+                    {events.sort((a, b) => b.id - a.id).map((event, index) => (
+                        <article className="group" key={index}>
+                            <a href={event.URL} target="_blank">
+                                <img
+                                    alt={event.title}
+                                    src={event.image}
+                                    className="h-56 w-full rounded-xl object-cover shadow-xl transition group-hover:grayscale-[50%]"
+                                />
+
+                                <div className="p-4">
                                     <h3 className="text-lg font-medium text-gray-900">
                                         {event.title}
                                     </h3>
-                                </a>
 
-                                <p className="mt-2 text-sm leading-relaxed text-gray-500 line-clamp-3">
-                                    {event.description}
-                                </p>
-                            </div>
+
+                                    <p className="mt-2 text-sm leading-relaxed text-gray-500 line-clamp-3">
+                                        {event.description}
+                                    </p>
+                                </div>
+                            </a>
                         </article>
                     ))}
                 </div>
