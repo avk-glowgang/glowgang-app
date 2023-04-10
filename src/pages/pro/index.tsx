@@ -57,22 +57,18 @@ const ProInfoPage: NextPage = () => {
                     <div className=" md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12">
                         <div>
                             <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-black lg:h-12 lg:w-12 ">
-                                ➕
+                                🌟
                             </div>
                             <h3 className="mb-2 text-xl font-bold ">Discord perks and privileges</h3>
                             <p className="text-gray-500 ">Get a special <span className="rounded-full font-bold bg-black px-2 py-0.5 text-white">
                                 PRO
                             </span> role, that will grant you permissions to post in <span className="rounded bg-blue-50 px-0.5 py-0.5 ">
-                                    #seeking
-                                </span> and <span className="rounded bg-blue-50 px-0.5 py-0.5 ">
-                                    #offering
-                                </span>  channels where you can find employees, clients, business partners, mentors, anything you need!</p>
+                                    Marketplace
+                                </span> channels where you can find employees, clients, business partners, mentors, anything you need!</p>
                         </div>
                         <div>
                             <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-black lg:h-12 lg:w-12 ">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5 text-white lg:w-6 lg:h-6">
-                                    <path d="M3.25 4A2.25 2.25 0 001 6.25v7.5A2.25 2.25 0 003.25 16h7.5A2.25 2.25 0 0013 13.75v-7.5A2.25 2.25 0 0010.75 4h-7.5zM19 4.75a.75.75 0 00-1.28-.53l-3 3a.75.75 0 00-.22.53v4.5c0 .199.079.39.22.53l3 3a.75.75 0 001.28-.53V4.75z" />
-                                </svg>
+                                📹
                             </div>
                             <h3 className="mb-2 text-xl font-bold ">All live event recordings</h3>
                             <p className="text-gray-500 ">Get access to all of our live event recordings, including our weekly <span className="rounded bg-green-50 px-0.5 py-0.5 ">Millionaire Mondays</span>, <span className="rounded bg-green-50 px-0.5 py-0.5 ">Q&A Wednesdays</span>, and <span className="rounded bg-green-50 px-0.5 py-0.5 ">Community Success Stories</span> events,
@@ -80,9 +76,7 @@ const ProInfoPage: NextPage = () => {
                         </div>
                         <div>
                             <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-black lg:h-12 lg:w-12 ">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5 text-white lg:w-6 lg:h-6">
-                                    <path d="M3.25 4A2.25 2.25 0 001 6.25v7.5A2.25 2.25 0 003.25 16h7.5A2.25 2.25 0 0013 13.75v-7.5A2.25 2.25 0 0010.75 4h-7.5zM19 4.75a.75.75 0 00-1.28-.53l-3 3a.75.75 0 00-.22.53v4.5c0 .199.079.39.22.53l3 3a.75.75 0 001.28-.53V4.75z" />
-                                </svg>
+                                🎥
                             </div>
                             <h3 className="mb-2 text-xl font-bold ">Interviews with Millionaires</h3>
                             <p className="text-gray-500 ">Get an hour long interview and behind the scenes footage with millionaires every week! Learn how they got started, and what they did to become successful.</p>
@@ -154,6 +148,15 @@ const ProInfoPage: NextPage = () => {
                             </div>
                             <h3 className="mb-2 text-xl font-bold ">Resources</h3>
                             <p className="text-gray-500 ">Library of resources, tools, and templates to help you start, grow, and scale your business.</p>
+                        </div>
+                        <div>
+                            <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-black lg:h-12 lg:w-12 ">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 text-white lg:w-6 lg:h-6">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 7.125C2.25 6.504 2.754 6 3.375 6h6c.621 0 1.125.504 1.125 1.125v3.75c0 .621-.504 1.125-1.125 1.125h-6a1.125 1.125 0 01-1.125-1.125v-3.75zM14.25 8.625c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v8.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 01-1.125-1.125v-8.25zM3.75 16.125c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v2.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 01-1.125-1.125v-2.25z" />
+                                </svg>
+                            </div>
+                            <h3 className="mb-2 text-xl font-bold ">AI Assistant</h3>
+                            <p className="text-gray-500 ">Generate unlimited business ideas, business name suggestions, business plans, and more.</p>
                         </div>
                     </div>
                 </div>
