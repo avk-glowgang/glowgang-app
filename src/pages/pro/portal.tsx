@@ -5,26 +5,6 @@ import { useRouter } from "next/router";
 import { api } from "@utils/api";
 import Header from "@components/header";
 import Perk from "@components/perk";
-import { useState } from "react";
-
-interface NavLinkProps {
-    href: string;
-    icon: React.ReactNode;
-    label: string;
-}
-
-const NavLink: React.FC<NavLinkProps> = ({ href, icon, label }) => {
-    return (
-        <a
-            href={href}
-            className="flex items-center gap-2 rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700"
-        >
-            {icon}
-            <span className="text-sm font-medium">{label}</span>
-        </a>
-    );
-};
-
 
 const ProPortal: NextPage = () => {
     const router = useRouter();
@@ -42,6 +22,9 @@ const ProPortal: NextPage = () => {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
+
+
+            
             <Navbar />
             <Header />
 
@@ -65,21 +48,20 @@ const ProPortal: NextPage = () => {
                         level="Member"
                     />
                     <Perk
-                        href="#"
+                        href="/pro/recordings"
                         icon="https://www.svgrepo.com/show/324411/video-collection.svg"
                         title="Event Recordings"
                         description="Access all recordings of our weekly live podcasts."
                         level="PRO"
-                        disabled={true}
                     />
-                    {/* <Perk
+                    <Perk
                         href="#"
                         icon="https://www.svgrepo.com/show/219422/discount.svg"
                         title="Discounts & Deals"
                         description="Exclusive discounts and deals for our PRO members."
                         level="PRO"
                         disabled={true}
-                    /> */}
+                    />
                     <Perk
                         href="#"
                         icon="https://www.svgrepo.com/show/452175/camera.svg"
@@ -91,23 +73,6 @@ const ProPortal: NextPage = () => {
                 </div>
             </div>
 
-
-
-            <section className="flex h-full w-full items-center justify-center">
-                <div>
-
-                    {portalPro.isSuccess && (
-                        <div className="mt-8">
-                            <Link
-                                href={portalPro.data}
-                                className="inline-block rounded bg-red-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-red-500 focus:outline-none focus:ring focus:ring-yellow-400">
-                                Manage your membership
-                            </Link>
-                        </div>
-                    )}
-                </div>
-            </section>
-
             <Footer />
         </>
     );
@@ -117,8 +82,6 @@ export default ProPortal;
 
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@server/auth";
-import { env } from "src/env.mjs";
-import Link from "next/link";
 import Footer from "@components/footer";
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
