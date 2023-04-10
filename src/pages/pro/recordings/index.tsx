@@ -8,7 +8,7 @@ const events = [
     {
         image: "../events/banners/MillionaireMondays.png",
         title: "Millionaire Mondays",
-        url: "recordings/mm-recordings",
+        url: "recordings/millionaire-mondays",
     },
     {
         image: "../events/banners/Q&AWednesdays.png",
@@ -67,7 +67,7 @@ const Recordings: NextPage = () => {
 
 
             <div className="container mx-auto max-w-5xl px-8 mt-10 mb-10">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-7">
                     {events.map((event, index) => (
                         <article className="group" key={index}>
                             <a href={event.url}>
