@@ -96,10 +96,6 @@ const ProInfoPage: NextPage = () => {
                 </div>
 
 
-
-
-
-
                 <div className="container mx-auto max-w-5xl pb-10 mb-20">
                     <div className="text-center lg:mb-12">
                         <h2 className="mb-4 text-4xl font-bold text-gray-900">More coming soon...</h2>
