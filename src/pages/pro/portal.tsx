@@ -31,9 +31,6 @@ const ProPortal: NextPage = () => {
     const { query } = router;
     const sessionID = query.session_id;
     const portalPro = api.stripe.portalPro.useQuery({ sessionID: sessionID as string });
-    const [memberChecked, setMemberChecked] = useState(true);
-    const [proChecked, setProChecked] = useState(true);
-
 
     return (
         <>

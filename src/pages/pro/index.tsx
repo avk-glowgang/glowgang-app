@@ -4,7 +4,6 @@ import Navbar from "@components/navbar";
 import Header from "@components/header";
 
 const ProInfoPage: NextPage = () => {
-    const checkoutPro = api.stripe.checkoutPro.useQuery();
     return (
         <>
             <Head>
@@ -58,9 +57,7 @@ const ProInfoPage: NextPage = () => {
                     <div className=" md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12">
                         <div>
                             <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-black lg:h-12 lg:w-12 ">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5 text-white lg:w-6 lg:h-6">
-                                    <path d="M2 4.25A2.25 2.25 0 014.25 2h2.5A2.25 2.25 0 019 4.25v2.5A2.25 2.25 0 016.75 9h-2.5A2.25 2.25 0 012 6.75v-2.5zM2 13.25A2.25 2.25 0 014.25 11h2.5A2.25 2.25 0 019 13.25v2.5A2.25 2.25 0 016.75 18h-2.5A2.25 2.25 0 012 15.75v-2.5zM11 4.25A2.25 2.25 0 0113.25 2h2.5A2.25 2.25 0 0118 4.25v2.5A2.25 2.25 0 0115.75 9h-2.5A2.25 2.25 0 0111 6.75v-2.5zM15.25 11.75a.75.75 0 00-1.5 0v2h-2a.75.75 0 000 1.5h2v2a.75.75 0 001.5 0v-2h2a.75.75 0 000-1.5h-2v-2z" />
-                                </svg>
+                                ➕
                             </div>
                             <h3 className="mb-2 text-xl font-bold ">Discord perks and privileges</h3>
                             <p className="text-gray-500 ">Get a special <span className="rounded-full font-bold bg-black px-2 py-0.5 text-white">
