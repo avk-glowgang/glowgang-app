@@ -53,37 +53,37 @@ const ProPortal: NextPage = () => {
                     <Perk
                         href="#"
                         icon="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a69f118df70ad7828d4_icon_clyde_blurple_RGB.svg"
-                        title="Discord community"
-                        description="Join our free discord server and meet other community members."
+                        title="Discord Community"
+                        description="Join our free Discord server and meet other community members."
                         level="Member"
                     />
                     <Perk
                         href="#"
                         icon="https://www.svgrepo.com/show/408453/event-calender-date-note.svg"
-                        title="Weekly Live Events"
-                        description="Watch our weekly live events with successful entrepreneurs."
+                        title="Weekly Podcasts"
+                        description="Watch our weekly live podcasts with successful people in Discord server."
                         level="Member"
                     />
                     <Perk
                         href="#"
                         icon="https://www.svgrepo.com/show/324411/video-collection.svg"
                         title="Event Recordings"
-                        description="Access all recordings of our weekly live events."
+                        description="Access all recordings of our weekly live podcasts."
                         level="PRO"
                         disabled={true}
                     />
-                    <Perk
+                    {/* <Perk
                         href="#"
                         icon="https://www.svgrepo.com/show/219422/discount.svg"
                         title="Discounts & Deals"
                         description="Exclusive discounts and deals for our PRO members."
                         level="PRO"
                         disabled={true}
-                    />
+                    /> */}
                     <Perk
                         href="#"
                         icon="https://www.svgrepo.com/show/452175/camera.svg"
-                        title="Video Library"
+                        title="Interviews"
                         description="Interviews and behind-the-scenes with millionaires."
                         level="PRO"
                         disabled={true}
