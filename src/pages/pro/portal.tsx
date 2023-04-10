@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { api } from "@utils/api";
 import Header from "@components/header";
 import Perk from "@components/perk";
+import { useState } from "react";
 
 interface NavLinkProps {
     href: string;
@@ -30,6 +31,7 @@ const ProPortal: NextPage = () => {
     const { query } = router;
     const sessionID = query.session_id;
     const portalPro = api.stripe.portalPro.useQuery({ sessionID: sessionID as string });
+
     return (
         <>
             <Head>
@@ -44,9 +46,9 @@ const ProPortal: NextPage = () => {
             <Header />
 
             
-            
+        
 
-            <div className="container mx-auto max-w-5xl px-8 mt-20 mb-20">
+            <div className="container mx-auto max-w-5xl px-8 mt-10 mb-10">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     <Perk
                         href="#"

@@ -19,11 +19,10 @@ function Hero(): JSX.Element {
                     </div>
 
                     <div className="lg:py-24">
-                        <h2 className="text-3xl font-bold sm:text-4xl">Success Starts with the Glow Gang Community!</h2>
+                        <h2 className="text-3xl font-bold sm:text-4xl">A Community of Success-Driven Individuals</h2>
 
                         <p className="text-gray-400 mt-4">
-                            Glow Gang: a dynamic community empowering the leaders of tomorrow through connection, inspiration, and a shared passion for
-                            achievement.
+                        Join to connect with ambitious leaders, gain inspiration, and achieve your goals. Access exclusive resources, events, and videos to accelerate your personal and professional growth.
                         </p>
 
                         <div className="mt-8">
