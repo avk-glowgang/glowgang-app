@@ -1,8 +1,10 @@
 import { type NextPage, GetServerSidePropsContext } from "next";
 import Head from "next/head";
 import Navbar from "@components/navbar";
-import { useRouter } from "next/router";
 import Header from "@components/header";
+import Breadcrumbs from "@components/breadcrumbs";
+
+
 
 
 const events = [
@@ -23,7 +25,7 @@ const events = [
     {
         id: 3,
         title: "Dre Medici x Aaron (Millionaire Mondays Ep. 4)",
-        image: "../../events/IMG_20210913_180000_1.jpg",
+        image: "../../events/dre.JPG",
         description: "Dre Medici, a 22-year-old multimillionaire who started a successful SMMA business instead of going to college.",
         URL: "#"
     },
@@ -34,6 +36,24 @@ const Recordings: NextPage = () => {
     const router = useRouter();
     const { query } = router;
     const sessionID = query.session_id;
+    const portalPro = api.stripe.portalPro.useQuery({ sessionID: sessionID as string });
+
+    // Breadcumbs
+    const breadcrumbs = [
+        {
+            label: "Dashboard",
+            href: "/pro/portal",
+        },
+        {
+            label: "Podcast Recordings",
+            href: "/pro/recordings",
+        },
+        {
+            label: "Millionaire Mondays",
+            href: "/pro/recordings/millionaire-mondays",
+        }
+    ];
+
     return (
         <>
             <Head>
@@ -48,53 +68,7 @@ const Recordings: NextPage = () => {
 
             <Navbar />
             <Header />
-
-
-            <nav aria-label="Breadcrumb" className="container mx-auto max-w-5xl px-8 my-5">
-                <ol role="list" className="flex items-center gap-1 text-sm text-gray-600">
-
-                    <li>
-                        <a href="/pro/portal" className="block transition text-blue-600 hover:text-gray-700"> Dashboard </a>
-                    </li>
-
-                    <li>
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="h-4 w-4"
-                            viewBox="0 0 20 20"
-                            fill="currentColor"
-                        >
-                            <path
-                                fill-rule="evenodd"
-                                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                clip-rule="evenodd"
-                            />
-                        </svg>
-                    </li>
-                    <li>
-                        <a href="/pro/recordings" className="block transition text-blue-600 hover:text-gray-700"> Podcast Recordings </a>
-                    </li>
-                    <li>
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="h-4 w-4"
-                            viewBox="0 0 20 20"
-                            fill="currentColor"
-                        >
-                            <path
-                                fill-rule="evenodd"
-                                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                clip-rule="evenodd"
-                            />
-                        </svg>
-                    </li>
-                    <li>
-                        <p className="block transition hover:text-gray-700"> Millionaire Mondays </p>
-                    </li>
-                </ol>
-            </nav>
-
-
+            <Breadcrumbs items={breadcrumbs} />
 
             <div className="container mx-auto max-w-5xl px-8 mt-10 mb-10">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-7">
@@ -136,9 +110,9 @@ export default Recordings;
 
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@server/auth";
-import { env } from "src/env.mjs";
-import Link from "next/link";
 import Footer from "@components/footer";
+import { useRouter } from "next/router";
+import { api } from "@utils/api";
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
     const session = await getServerSession(context.req, context.res, authOptions);
