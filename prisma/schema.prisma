@@ -19,12 +19,12 @@ model Account {
   type              String
   provider          String
   providerAccountId String
-  refresh_token     String? @db.Text
-  access_token      String? @db.Text
+  refresh_token     String?
+  access_token      String?
   expires_at        Int?
   token_type        String?
   scope             String?
-  id_token          String? @db.Text
+  id_token          String?
   session_state     String?
   user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -50,13 +50,23 @@ model User {
 }
 
 model Podcast {
-  id          Int              @id @default(autoincrement()) @unique
+  id          Int       @id @unique @default(autoincrement())
   title       String
   description String?
   image       String?
   link        String?
+  episodes    Episode[]
 }
 
+model Episode {
+  id          Int     @id @unique @default(autoincrement())
+  title       String
+  description String?
+  image       String?
+  link        String?
+  podcastId   Int
+  podcast     Podcast @relation(fields: [podcastId], references: [id])
+}
 
 
 model VerificationToken {

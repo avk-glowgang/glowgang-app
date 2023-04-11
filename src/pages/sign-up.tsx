@@ -1,9 +1,8 @@
 import { type NextPage } from "next";
 import Head from "next/head";
 import Navbar from "@components/navbar";
-import Image from "next/image";
 import { BsDiscord } from "react-icons/bs";
-import { FcGoogle } from "react-icons/fc";
+
 
 import { signIn } from "next-auth/react";
 import Footer from "@components/footer";
@@ -27,7 +26,7 @@ const SignUp: NextPage = () => {
                             <div className="flex w-full justify-center">
                                 <button
                                     className="hover:color-red flex items-center gap-x-2 rounded bg-discord px-6 py-3 text-sm font-medium text-white transition focus:outline-none focus:ring focus:ring-yellow-400"
-                                    onClick={() => signIn("discord", { callbackUrl: "/", redirect: true })}>
+                                    onClick={() => signIn("discord", { callbackUrl: "/pro/portal", redirect: true })}>
                                     <BsDiscord className="h-8 w-8"></BsDiscord>
                                     <span>Sign up with Discord</span>
                                 </button>

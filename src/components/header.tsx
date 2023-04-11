@@ -9,7 +9,7 @@ const Header: React.FC = () => {
                 <div className="sm:flex sm:items-center sm:justify-between">
                     <div className="text-center sm:text-left">
                         <h1 className="text-2xl font-bold text-gray-900 sm:text-3xl">
-                            Welcome, Ernest!
+                            Welcome to Glow Gang!
                         </h1>
                         <p className="mt-2 text-sm text-gray-500">
                             Your current level is{' '}
@@ -21,7 +21,7 @@ const Header: React.FC = () => {
 
                     <div className="mt-4 flex flex-col gap-4 sm:mt-0 sm:flex-row sm:items-center">
                         {/* 
-                        // Show this button if the user is PRO. Hide the other button.
+                        // Show this button if the user is PRO. Hide the become pro button
                         <button
                             className="inline-flex items-center justify-center rounded-lg border border-gray-200 bg-white px-5 py-3 text-gray-500 transition focus:outline-none focus:ring hover:bg-gray-50"
                             type="button"
@@ -47,3 +47,4 @@ const Header: React.FC = () => {
 };
 
 export default Header;
+

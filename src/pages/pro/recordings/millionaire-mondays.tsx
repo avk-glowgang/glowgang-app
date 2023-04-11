@@ -1,38 +1,30 @@
-import { type NextPage, GetServerSidePropsContext } from "next";
+import { NextPage, GetServerSidePropsContext } from "next";
 import Head from "next/head";
 import Navbar from "@components/navbar";
 import Header from "@components/header";
+import Footer from "@components/footer";
+import { prisma } from "@server/db";
 import Breadcrumbs from "@components/breadcrumbs";
+import { useRouter } from "next/router";
+import { api } from "@utils/api";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@server/auth";
 
+// Episode information
+interface Episode {
+    id: number;
+    title: string;
+    description?: string;
+    image?: string;
+    link?: string;
+}
 
+interface Props {
+    session: any;
+    episodes: Episode[];
+}
 
-
-const events = [
-    {
-        id: 1,
-        title: "Alex G x Aaron (Millionaire Mondays Ep. 1)",
-        image: "../../events/301995610_1236995393762761_5127352412176830480_n.png",
-        description: "Alex G is a 22-year-old self-made millionaire. Starting from working at Dunkin' Donuts to making seven figures within six months by trading on the forex exchanges.",
-        URL: "https://vimeo.com/816270415"
-    },
-    {
-        id: 2,
-        title: "Daniel Snow x Aaron (Millionaire Mondays Ep. 2)",
-        image: "../../events/Daniel-Snow-work.jpg",
-        description: "Daniel Snow is the founder of The Snow Agency and RapTV. He started with a simple idea and a credit card, eventually scaling his e-commerce business to over 8 million dollars in revenue.",
-        URL: "#"
-    },
-    {
-        id: 3,
-        title: "Dre Medici x Aaron (Millionaire Mondays Ep. 4)",
-        image: "../../events/dre.JPG",
-        description: "Dre Medici, a 22-year-old multimillionaire who started a successful SMMA business instead of going to college.",
-        URL: "#"
-    },
-];
-
-
-const Recordings: NextPage = () => {
+const Recordings: NextPage<Props> = ({ session, episodes }) => {
     const router = useRouter();
     const { query } = router;
     const sessionID = query.session_id;
@@ -65,41 +57,25 @@ const Recordings: NextPage = () => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-
             <Navbar />
             <Header />
             <Breadcrumbs items={breadcrumbs} />
 
             <div className="container mx-auto max-w-5xl px-8 mt-10 mb-10">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-7">
-
-
-                    {events.sort((a, b) => b.id - a.id).map((event, index) => (
-                        <article className="group" key={index}>
-                            <a href={event.URL} target="_blank">
+                    {episodes.map((episode) => (
+                        <article className="group" key={episode.id}>
+                            <a href={episode.link}>
                                 <img
-                                    alt={event.title}
-                                    src={event.image}
-                                    className="h-56 w-full rounded-xl object-cover shadow-xl transition group-hover:grayscale-[50%]"
+                                    alt={episode.title}
+                                    src={episode.image}
+                                    className="h-56 w-full rounded-xl object-cover shadow-xl transition group-hover:scale-105"
                                 />
-
-                                <div className="p-4">
-                                    <h3 className="text-lg font-medium text-gray-900">
-                                        {event.title}
-                                    </h3>
-
-
-                                    <p className="mt-2 text-sm leading-relaxed text-gray-500 line-clamp-3">
-                                        {event.description}
-                                    </p>
-                                </div>
                             </a>
                         </article>
                     ))}
                 </div>
             </div>
-
-
 
             <Footer />
         </>
@@ -107,12 +83,6 @@ const Recordings: NextPage = () => {
 };
 
 export default Recordings;
-
-import { getServerSession } from "next-auth/next";
-import { authOptions } from "@server/auth";
-import Footer from "@components/footer";
-import { useRouter } from "next/router";
-import { api } from "@utils/api";
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
     const session = await getServerSession(context.req, context.res, authOptions);
@@ -126,9 +96,16 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
         };
     }
 
+    const episodes = await prisma.episode.findMany({
+        where: {
+            podcastId: 1,
+        },
+    });
+
     return {
         props: {
-            session
+            session,
+            episodes,
         }
     };
 }
