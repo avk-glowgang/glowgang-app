@@ -49,7 +49,7 @@ const Recordings: NextPage<{ podcasts: Podcast[] }> = ({ podcasts }) => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-7">
                     {podcasts.map((podcast) => (
                         <article className="group" key={podcast.id}>
-                            <a href={podcast.link}>
+                            <a href={`/pro/recordings/${podcast.link}`}>
                                 <img
                                     alt={podcast.title}
                                     src={`../../events/banners/${podcast.image}`}

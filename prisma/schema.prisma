@@ -60,6 +60,7 @@ model Podcast {
 
 model Episode {
   id          Int     @id @unique @default(autoincrement())
+  episodeNumber Int
   title       String
   description String?
   image       String?
