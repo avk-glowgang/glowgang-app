@@ -50,8 +50,8 @@ const ProPortal: NextPage = () => {
                     <Perk
                         href="/pro/recordings"
                         icon="https://www.svgrepo.com/show/324411/video-collection.svg"
-                        title="Event Recordings"
-                        description="Access all recordings of our weekly live podcasts."
+                        title="Podcast Recordings"
+                        description="All of our podcast recordings are available to watch on-demand."
                         level="PRO"
                     />
                     <Perk

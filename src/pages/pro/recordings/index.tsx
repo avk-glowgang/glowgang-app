@@ -7,6 +7,8 @@ import { prisma } from "@server/db";
 import Breadcrumbs from "@components/breadcrumbs";
 import { useRouter } from "next/router";
 import { api } from "@utils/api";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@server/auth";
 
 // Podcast information
 interface Podcast {
@@ -38,7 +40,7 @@ const Recordings: NextPage<{ podcasts: Podcast[] }> = ({ podcasts }) => {
     return (
         <>
             <Head>
-                <title>Podcast | Glow Gang</title>
+                <title>Podcast Recordings | Glow Gang</title>
             </Head>
             <Navbar />
             <Header />
@@ -65,9 +67,12 @@ const Recordings: NextPage<{ podcasts: Podcast[] }> = ({ podcasts }) => {
 
 export default Recordings;
 
+
+
 export async function getServerSideProps(context: GetServerSidePropsContext) {
     const sessionID = context.query.session_id;
     const id = isNaN(Number(sessionID)) ? null : Number(sessionID);
+    const session = await getServerSession(context.req, context.res, authOptions);
 
     const podcasts = await prisma.podcast.findMany({
         where: {
@@ -75,10 +80,19 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
         },
     });
 
+    if (!session) {
+        return {
+            redirect: {
+                destination: "/sign-in",
+                permanent: false
+            }
+        };
+    }
+
     return {
         props: {
             podcasts,
-        },
+        }
     };
 }
 
