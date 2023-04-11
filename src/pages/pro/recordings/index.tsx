@@ -15,7 +15,6 @@ interface Podcast {
     link?: string;
 }
 
-
 const Recordings: NextPage<{ podcasts: Podcast[] }> = ({ podcasts }) => {
 
     // Breadcumbs
@@ -62,10 +61,11 @@ export default Recordings;
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
     const sessionID = context.query.session_id;
+    const id = isNaN(Number(sessionID)) ? null : Number(sessionID);
 
     const podcasts = await prisma.podcast.findMany({
         where: {
-            sessionID,
+            id: id !== null ? { equals: id } : undefined,
         },
     });
 
@@ -75,3 +75,4 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
         },
     };
 }
+
