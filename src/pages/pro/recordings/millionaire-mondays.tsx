@@ -1,9 +1,10 @@
 import { type NextPage, GetServerSidePropsContext } from "next";
 import Head from "next/head";
 import Navbar from "@components/navbar";
-import { useRouter } from "next/router";
 import Header from "@components/header";
 import Breadcrumbs from "@components/breadcrumbs";
+
+
 
 
 const events = [
@@ -32,6 +33,12 @@ const events = [
 
 
 const Recordings: NextPage = () => {
+    const router = useRouter();
+    const { query } = router;
+    const sessionID = query.session_id;
+    const portalPro = api.stripe.portalPro.useQuery({ sessionID: sessionID as string });
+
+    // Breadcumbs
     const breadcrumbs = [
         {
             label: "Dashboard",
@@ -46,8 +53,6 @@ const Recordings: NextPage = () => {
             href: "/pro/recordings/millionaire-mondays",
         }
     ];
-
-
 
     return (
         <>
@@ -106,6 +111,8 @@ export default Recordings;
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@server/auth";
 import Footer from "@components/footer";
+import { useRouter } from "next/router";
+import { api } from "@utils/api";
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
     const session = await getServerSession(context.req, context.res, authOptions);

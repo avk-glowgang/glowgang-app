@@ -5,6 +5,8 @@ import Header from "@components/header";
 import Footer from "@components/footer";
 import { prisma } from "@server/db";
 import Breadcrumbs from "@components/breadcrumbs";
+import { useRouter } from "next/router";
+import { api } from "@utils/api";
 
 // Podcast information
 interface Podcast {
@@ -16,6 +18,10 @@ interface Podcast {
 }
 
 const Recordings: NextPage<{ podcasts: Podcast[] }> = ({ podcasts }) => {
+    const router = useRouter();
+    const { query } = router;
+    const sessionID = query.session_id;
+    const portalPro = api.stripe.portalPro.useQuery({ sessionID: sessionID as string });
 
     // Breadcumbs
     const breadcrumbs = [
