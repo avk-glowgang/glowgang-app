@@ -20,6 +20,13 @@ const events = [
         description: "Daniel Snow is the founder of The Snow Agency and RapTV. He started with a simple idea and a credit card, eventually scaling his e-commerce business to over 8 million dollars in revenue.",
         URL: "#"
     },
+    {
+        id: 3,
+        title: "Dre Medici x Aaron (Millionaire Mondays Ep. 4)",
+        image: "../../events/IMG_20210913_180000_1.jpg",
+        description: "Dre Medici, a 22-year-old multimillionaire who started a successful SMMA business instead of going to college.",
+        URL: "#"
+    },
 ];
 
 
