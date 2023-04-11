@@ -88,11 +88,12 @@ const Recordings: NextPage<Props> = ({ session, episodes }) => {
                                               {episode.title}
                                         </h3>
                                     </div>
-                                </a>
+                                
 
                                 <p className="mt-2 text-sm leading-relaxed text-gray-500 line-clamp-3">
                                     {episode.description}
-                                </p>
+                                    </p>
+                                </a>
                             </div>
                         </article>
                     ))}

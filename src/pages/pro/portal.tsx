@@ -54,11 +54,19 @@ const ProPortal: NextPage = () => {
                         description="All of our podcast recordings are available to watch on-demand."
                         level="PRO"
                     />
+                </div>
+
+                <h2 className="text-2xl font-bold mt-20 mb-5 text-center text-gray-700">Coming Soon</h2>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 ">
+                    
+                   
+
                     <Perk
                         href="#"
                         icon="https://www.svgrepo.com/show/219422/discount.svg"
                         title="Discounts & Deals"
-                        description="Exclusive discounts and deals for our PRO members."
+                        description="Exclusive deals and discounts on tools, services, and products."
                         level="PRO"
                         disabled={true}
                     />
@@ -67,6 +75,22 @@ const ProPortal: NextPage = () => {
                         icon="https://www.svgrepo.com/show/452175/camera.svg"
                         title="Interviews"
                         description="Interviews and behind-the-scenes with millionaires."
+                        level="PRO"
+                        disabled={true}
+                    />
+                    <Perk
+                        href="#"
+                        icon="https://www.svgrepo.com/show/1325/businessman.svg"
+                        title="Consultations"
+                        description="Book consultations with our team of experts. Lawyers, accountants etc."
+                        level="PRO"
+                        disabled={true}
+                    />
+                    <Perk
+                        href="#"
+                        icon="https://www.svgrepo.com/show/418660/builder-code-design.svg"
+                        title="Resources & Tools"
+                        description="Library of resources, tools, and templates to help you succeed."
                         level="PRO"
                         disabled={true}
                     />
