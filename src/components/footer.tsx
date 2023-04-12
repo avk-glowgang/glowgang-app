@@ -35,7 +35,7 @@ function Footer() {
                         </li>
 
                         <li>
-                            <a className="text-gray-600 transition hover:text-gray-500/75" href="/">
+                            <a className="text-gray-600 transition hover:text-gray-500/75" href="mailto:glowgangemail@gmail.com">
                                 Contact Us
                             </a>
                         </li>
@@ -46,7 +46,7 @@ function Footer() {
                 <ul className="mt-12 flex justify-center gap-6 md:gap-8">
                     <li>
                         <a
-                            href="/"
+                            href="https://instagram.com/joinglowgang"
                             rel="noreferrer"
                             target="_blank"
                             className="text-gray-700 transition hover:text-gray-700/75"
@@ -69,7 +69,7 @@ function Footer() {
 
                     <li>
                         <a
-                            href="/"
+                            href="https://twitter.com/joinglowgang"
                             rel="noreferrer"
                             target="_blank"
                             className="text-gray-700 transition hover:text-gray-700/75"
