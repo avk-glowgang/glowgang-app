@@ -31,14 +31,14 @@ const Header: React.FC = () => {
                             </Link>
                         </button> */}
 
-                        <button
+                        {/* <button
                             className="block rounded-lg bg-black px-5 py-3 text-sm font-medium text-white transition hover:bg-gray-900 focus:outline-none focus:ring"
                             type="button"
                         >
                             <Link href="/pro">
                                 <p>Become a PRO member</p>
                             </Link>
-                        </button>
+                        </button> */}
                     </div>
                 </div>
             </div>

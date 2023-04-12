@@ -44,19 +44,20 @@ const ProPortal: NextPage = () => {
                         href="#"
                         icon="https://www.svgrepo.com/show/408453/event-calender-date-note.svg"
                         title="Weekly Podcasts"
-                        description="Watch our weekly live podcasts with successful people in Discord server."
+                        description="Watch free weekly live podcasts with successful people in Discord server."
                         level="Member"
                     />
-                    <Perk
+                    {/* <Perk
                         href="/pro/recordings"
                         icon="https://www.svgrepo.com/show/324411/video-collection.svg"
                         title="Podcast Recordings"
                         description="All of our podcast recordings are available to watch on-demand."
                         level="PRO"
-                    />
+                        disabled={true}
+                    /> */}
                 </div>
 
-                <h2 className="text-2xl font-bold mt-20 mb-5 text-center text-gray-700">Coming Soon</h2>
+                {/* <h2 className="text-2xl font-bold mt-20 mb-5 text-center text-gray-700">Coming Soon</h2>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 ">
                     
@@ -94,7 +95,7 @@ const ProPortal: NextPage = () => {
                         level="PRO"
                         disabled={true}
                     />
-                </div>
+                </div> */}
             </div>
 
             <Footer />
