@@ -14,6 +14,7 @@ import { authOptions } from "@server/auth";
 interface Episode {
     id: number;
     title: string;
+    episodeNumber: number;
     description?: string;
     image?: string;
     link?: string;
@@ -63,19 +64,42 @@ const Recordings: NextPage<Props> = ({ session, episodes }) => {
 
             <div className="container mx-auto max-w-5xl px-8 mt-10 mb-10">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-7">
-                    {episodes.map((episode) => (
+                    {episodes.sort((a, b) => b.id - a.id).map((episode) => (
                         <article className="group" key={episode.id}>
                             <a href={episode.link}>
                                 <img
                                     alt={episode.title}
-                                    src={episode.image}
-                                    className="h-56 w-full rounded-xl object-cover shadow-xl transition group-hover:scale-105"
+                                    src={`../../events/${episode.image}`}
+                                    className="h-56 w-full rounded-xl object-cover shadow-xl transition group-hover:grayscale-[50%]"
                                 />
                             </a>
+
+                            <div className="p-4">
+
+
+                                <a href={episode.link}>
+                                    <div className="flex items-center gap-2">
+                                        <span
+                                            className="whitespace-nowrap rounded bg-green-600 text-xs px-1.5 py-0.5 text-white"
+                                        >
+                                            Episode #{episode.episodeNumber}
+                                        </span>
+                                        <h3 className="text-lg text-gray-900 font-medium">
+                                              {episode.title}
+                                        </h3>
+                                    </div>
+                                
+
+                                <p className="mt-2 text-sm leading-relaxed text-gray-500 line-clamp-3">
+                                    {episode.description}
+                                    </p>
+                                </a>
+                            </div>
                         </article>
                     ))}
                 </div>
             </div>
+
 
             <Footer />
         </>

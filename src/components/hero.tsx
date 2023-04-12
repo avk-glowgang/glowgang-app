@@ -29,7 +29,7 @@ function Hero(): JSX.Element {
                             <Link
                                 href="/sign-up"
                                 className="bg-red-600 hover:bg-red-500 inline-block rounded px-12 py-3 text-sm font-medium text-white transition focus:outline-none focus:ring focus:ring-yellow-400">
-                                Join the Glow Gang community!
+                                Join now for FREE
                             </Link>
                         </div>
                     </div>
