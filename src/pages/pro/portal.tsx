@@ -41,7 +41,7 @@ const ProPortal: NextPage = () => {
                         level="Member"
                     />
                     <Perk
-                        href="#"
+                        href="/perks/podcasts"
                         icon="https://www.svgrepo.com/show/408453/event-calender-date-note.svg"
                         title="Weekly Podcasts"
                         description="Watch free weekly live podcasts with successful people in Discord server."
