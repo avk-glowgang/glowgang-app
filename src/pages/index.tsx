@@ -3,9 +3,7 @@ import Head from "next/head";
 import Navbar from "@components/navbar";
 import Hero from "@components/hero";
 import Footer from "@components/footer";
-import Stats from "@components/stats";
 import WhyJoin from "@components/whyjoin";
-import Reviews from "@components/reviews";
 
 const Home: NextPage = () => {
     return (
@@ -18,11 +16,9 @@ const Home: NextPage = () => {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-
             <Navbar />
             <Hero />
             <WhyJoin />
-
             <Footer />
         </>
     );
