@@ -33,35 +33,35 @@ const ProPortal: NextPage = () => {
 
             <div className="container mx-auto max-w-5xl px-8 mt-10 mb-10">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    
                     <Perk
                         href="#"
                         icon="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a69f118df70ad7828d4_icon_clyde_blurple_RGB.svg"
-                        title="Discord Community"
+                        title="Discord Server"
                         description="Join our free Discord server and meet other community members."
                         level="Member"
                     />
                     <Perk
-                        href="#"
+                        href="/perks/podcasts"
                         icon="https://www.svgrepo.com/show/408453/event-calender-date-note.svg"
                         title="Weekly Podcasts"
-                        description="Watch our weekly live podcasts with successful people in Discord server."
+                        description="Watch free weekly live podcasts with successful people in Discord server."
                         level="Member"
                     />
+                
+                </div>
+
+                <h2 className="text-2xl font-bold mt-20 mb-5 text-center text-gray-700">Coming Soon</h2>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 ">
                     <Perk
                         href="/pro/recordings"
                         icon="https://www.svgrepo.com/show/324411/video-collection.svg"
                         title="Podcast Recordings"
                         description="All of our podcast recordings are available to watch on-demand."
                         level="PRO"
+                        disabled={true}
                     />
-                </div>
-
-                <h2 className="text-2xl font-bold mt-20 mb-5 text-center text-gray-700">Coming Soon</h2>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 ">
-                    
-                   
-
                     <Perk
                         href="#"
                         icon="https://www.svgrepo.com/show/219422/discount.svg"
@@ -94,6 +94,7 @@ const ProPortal: NextPage = () => {
                         level="PRO"
                         disabled={true}
                     />
+                    
                 </div>
             </div>
 
