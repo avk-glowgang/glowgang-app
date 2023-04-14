@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { type NextPage, type GetServerSidePropsContext } from "next";
 import Head from "next/head";
 import Navbar from "@components/navbar";

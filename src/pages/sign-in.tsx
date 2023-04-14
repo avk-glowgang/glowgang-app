@@ -1,4 +1,4 @@
-import { GetServerSidePropsContext, type InferGetServerSidePropsType, type NextPage } from "next";
+import { type GetServerSidePropsContext, type InferGetServerSidePropsType, type NextPage } from "next";
 import Head from "next/head";
 import Navbar from "@components/navbar";
 import { BsDiscord } from "react-icons/bs";
