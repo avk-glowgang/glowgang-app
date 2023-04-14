@@ -1,16 +1,11 @@
 import { type NextPage, GetServerSidePropsContext } from "next";
 import Head from "next/head";
 import Navbar from "@components/navbar";
-import { useRouter } from "next/router";
-import { api } from "@utils/api";
 import Header from "@components/header";
 import Perk from "@components/perk";
 
 const ProPortal: NextPage = () => {
-    const router = useRouter();
-    const { query } = router;
-    const sessionID = query.session_id;
-    const portalPro = api.stripe.portalPro.useQuery({ sessionID: sessionID as string });
+    const session = useSession();
 
     return (
         <>
@@ -24,7 +19,7 @@ const ProPortal: NextPage = () => {
             </Head>
 
             <Navbar />
-            <Header />
+            <Header user={session.data?.user} />
 
             <div className="container mx-auto mb-10 mt-10 max-w-5xl px-8">
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -101,6 +96,7 @@ import { getServerSession } from "next-auth/next";
 import { authOptions } from "@server/auth";
 import Footer from "@components/footer";
 import { env } from "src/env.mjs";
+import { useSession } from "next-auth/react";
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
     // TODO: remove when page is launched

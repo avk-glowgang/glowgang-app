@@ -10,7 +10,7 @@ datasource db {
 model Example {
   id        String   @id @default(cuid())
   createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  updatedAt DateTime @default(now()) @updatedAt
 }
 
 model Account {
@@ -27,6 +27,9 @@ model Account {
   id_token          String?
   session_state     String?
   user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
 
   @@unique([provider, providerAccountId])
 }
@@ -47,6 +50,45 @@ model User {
   image         String?
   accounts      Account[]
   sessions      Session[]
+
+  isPro Boolean @default(false)
+
+  proCheckouts     ProCheckout[]
+  ProSubscriptions ProSubscription[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+}
+
+model ProCheckout {
+  id String @id @default(cuid())
+
+  user   User   @relation(fields: [userID], references: [id])
+  userID String
+
+  checkoutID  String
+  checkoutURL String
+  status      ProCheckoutStatus @default(open)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+}
+
+model ProSubscription {
+  id String @id @default(cuid())
+
+  user   User   @relation(fields: [userID], references: [id])
+  userID String
+
+  checkoutID String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+}
+
+enum ProCheckoutStatus {
+  open
+  expired
 }
 
 model Podcast {
@@ -56,19 +98,24 @@ model Podcast {
   image       String?
   link        String?
   episodes    Episode[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
 }
 
 model Episode {
-  id          Int     @id @unique @default(autoincrement())
+  id            Int     @id @unique @default(autoincrement())
   episodeNumber Int
-  title       String
-  description String?
-  image       String?
-  link        String?
-  podcastId   Int
-  podcast     Podcast @relation(fields: [podcastId], references: [id])
-}
+  title         String
+  description   String?
+  image         String?
+  link          String?
+  podcastId     Int
+  podcast       Podcast @relation(fields: [podcastId], references: [id])
 
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+}
 
 model VerificationToken {
   identifier String
@@ -76,4 +123,23 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+model BlueContact {
+  email String @id
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+}
+
+model BlueContactlist {
+  id       String @id @default(cuid())
+  email    String
+  listID   Int
+  listName String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  @@unique([email, listID])
 }

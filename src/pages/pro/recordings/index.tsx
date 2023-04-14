@@ -10,6 +10,7 @@ import { api } from "@utils/api";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@server/auth";
 import { env } from "src/env.mjs";
+import { useSession } from "next-auth/react";
 
 // Podcast information
 interface Podcast {
@@ -21,16 +22,13 @@ interface Podcast {
 }
 
 const Recordings: NextPage<{ podcasts: Podcast[] }> = ({ podcasts }) => {
-    const router = useRouter();
-    const { query } = router;
-    const sessionID = query.session_id;
-    const portalPro = api.stripe.portalPro.useQuery({ sessionID: sessionID as string });
+    const session = useSession();
 
     // Breadcumbs
     const breadcrumbs = [
         {
             label: "Dashboard",
-            href: "/pro/portal"
+            href: "/dashboard"
         },
         {
             label: "Podcast Recordings",
@@ -44,7 +42,7 @@ const Recordings: NextPage<{ podcasts: Podcast[] }> = ({ podcasts }) => {
                 <title>Podcast Recordings | Glow Gang</title>
             </Head>
             <Navbar />
-            <Header />
+            <Header user={session.data?.user} />
             <Breadcrumbs items={breadcrumbs} />
             <div className="container mx-auto mb-10 mt-10 max-w-5xl px-8">
                 <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-2">

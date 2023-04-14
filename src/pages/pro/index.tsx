@@ -4,18 +4,20 @@ import Navbar from "@components/navbar";
 import Header from "@components/header";
 import Breadcrumbs from "@components/breadcrumbs";
 
-const ProInfoPage: NextPage = () => {
+const ProInfoPage: NextPage<{ checkout: Stripe.Response<Stripe.Checkout.Session> }> = ({ checkout }) => {
     // Breadcumbs
     const breadcrumbs = [
         {
             label: "Dashboard",
-            href: "/pro/portal"
+            href: "/dashboard"
         },
         {
             label: "Become a PRO Member",
             href: "/pro"
         }
     ];
+
+    const session = useSession();
 
     return (
         <>
@@ -28,7 +30,7 @@ const ProInfoPage: NextPage = () => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Navbar />
-            <Header />
+            <Header user={session.data?.user} />
             <Breadcrumbs items={breadcrumbs} />
 
             <section className="bg-white">
@@ -228,7 +230,7 @@ const ProInfoPage: NextPage = () => {
                                 <span className="text-6xl font-bold">97</span>
                                 <span className="text-xl font-bold">/month</span>
                             </div>
-                            <Link href="/sign-up">
+                            <Link href={checkout.url as string}>
                                 <p className="rounded-lg bg-black px-8 py-3 font-bold text-white transition duration-300 hover:bg-gray-900">
                                     Become a PRO member
                                 </p>
@@ -251,6 +253,12 @@ import { api } from "@utils/api";
 import Link from "next/link";
 import Footer from "@components/footer";
 import { env } from "src/env.mjs";
+import { stripe } from "@server/stripe";
+import Stripe from "stripe";
+import { prisma } from "@server/db";
+import { Session } from "next-auth";
+import { useSession } from "next-auth/react";
+const YOUR_DOMAIN = env.NODE_ENV == "development" ? "http://localhost:3000" : "https://glow.up.railway.app/";
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
     // TODO: remove when page is launched
@@ -262,9 +270,8 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
             }
         };
     }
-
+    // check if user is logged in
     const session = await getServerSession(context.req, context.res, authOptions);
-
     if (!session) {
         return {
             redirect: {
@@ -274,9 +281,62 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
         };
     }
 
-    return {
-        props: {
-            session
+    // check if a user is already a pro subscriber
+    if (session.user.isPro) {
+        return {
+            redirect: {
+                destination: "/dashboard",
+                permanent: false
+            }
+        };
+    }
+
+    // check if a user already has a checkout session previously, then retrieve that instead
+    const user = await prisma.user.findUnique({ where: { id: session.user.id }, include: { proCheckouts: { orderBy: { createdAt: "desc" } } } });
+    if (user && user.proCheckouts.length >= 1) {
+        const proCheckout = user.proCheckouts[0];
+        const checkout = await stripe.checkout.sessions.retrieve(proCheckout?.checkoutID as string);
+        if (checkout.url) {
+            return {
+                props: {
+                    session,
+                    checkout
+                }
+            };
+        } else {
+            throw Error("invalid previous checkout");
         }
-    };
+    }
+
+    // create new checkout session
+    const prices = await stripe.prices.list({
+        lookup_keys: [env.NEXT_PUBLIC_TEST_MEMBERSHIP_LOOKUP_KEY],
+        expand: ["data.product"]
+    });
+    const product = prices.data[0] as Stripe.Price;
+    const checkout = await stripe.checkout.sessions.create({
+        billing_address_collection: "auto",
+        line_items: [
+            {
+                price: product.id,
+                quantity: 1
+            }
+        ],
+        mode: "subscription",
+        success_url: `${YOUR_DOMAIN}/pro/success/?success=true&session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `${YOUR_DOMAIN}/pro/canceled/?canceled=true`
+    });
+
+    if (checkout.url) {
+        // upload checkout session to db
+        await prisma.proCheckout.create({ data: { userID: session.user.id, checkoutID: checkout.id, checkoutURL: checkout.url } });
+        return {
+            props: {
+                session,
+                checkout
+            }
+        };
+    } else {
+        throw Error("invalid new checkout");
+    }
 }

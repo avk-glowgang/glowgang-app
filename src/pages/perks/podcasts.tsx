@@ -8,16 +8,13 @@ import Perk from "@components/perk";
 import Breadcrumbs from "@components/breadcrumbs";
 
 const ProPortal: NextPage = () => {
-    const router = useRouter();
-    const { query } = router;
-    const sessionID = query.session_id;
-    const portalPro = api.stripe.portalPro.useQuery({ sessionID: sessionID as string });
+    const session = useSession();
 
     // Breadcumbs
     const breadcrumbs = [
         {
             label: "Dashboard",
-            href: "/pro/portal"
+            href: "/dashboard"
         },
         {
             label: "Podcasts",
@@ -37,7 +34,7 @@ const ProPortal: NextPage = () => {
             </Head>
 
             <Navbar />
-            <Header />
+            <Header user={session.data?.user} />
             <Breadcrumbs items={breadcrumbs} />
             <div className="container mx-auto mb-10 mt-10 max-w-5xl px-8">
                 <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-2">
@@ -103,6 +100,8 @@ import { getServerSession } from "next-auth/next";
 import { authOptions } from "@server/auth";
 import Footer from "@components/footer";
 import { env } from "src/env.mjs";
+import { useSession } from "next-auth/react";
+import { useEffect } from "react";
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
     // TODO: remove when page is launched

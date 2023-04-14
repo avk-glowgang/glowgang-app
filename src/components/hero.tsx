@@ -21,14 +21,15 @@ function Hero(): JSX.Element {
                     <div className="lg:py-24">
                         <h2 className="text-3xl font-bold sm:text-4xl">A Community of Success-Driven Individuals</h2>
 
-                        <p className="text-gray-400 mt-4">
-                        Join to connect with ambitious leaders, gain inspiration, and achieve your goals. Access exclusive resources, events, and videos to accelerate your personal and professional growth.
+                        <p className="mt-4 text-gray-400">
+                            Join to connect with ambitious leaders, gain inspiration, and achieve your goals. Access exclusive resources, events, and videos to
+                            accelerate your personal and professional growth.
                         </p>
 
                         <div className="mt-8">
                             <Link
-                                href="/sign-up"
-                                className="bg-red-600 hover:bg-red-500 inline-block rounded px-12 py-3 text-sm font-medium text-white transition focus:outline-none focus:ring focus:ring-yellow-400">
+                                href="/sign-in"
+                                className="inline-block rounded bg-red-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-red-500 focus:outline-none focus:ring focus:ring-yellow-400">
                                 Join now for FREE
                             </Link>
                         </div>

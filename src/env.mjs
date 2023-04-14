@@ -20,7 +20,11 @@ const server = z.object({
     DISCORD_CLIENT_SECRET: z.string(),
     STRIPE_TEST_PUBLIC_KEY: z.string(),
     STRIPE_TEST_SECRET_KEY: z.string(),
-    STRIPE_TEST_WEBHOOK_KEY: z.string()
+    STRIPE_TEST_WEBHOOK_KEY: z.string(),
+    SMTP_KEY: z.string(),
+    EMAIL_SERVER: z.string(),
+    EMAIL_FROM: z.string(),
+    SIB_API_KEY: z.string()
 });
 
 /**
@@ -47,6 +51,10 @@ const processEnv = {
     STRIPE_TEST_PUBLIC_KEY: process.env.STRIPE_TEST_PUBLIC_KEY,
     STRIPE_TEST_SECRET_KEY: process.env.STRIPE_TEST_SECRET_KEY,
     STRIPE_TEST_WEBHOOK_KEY: process.env.STRIPE_TEST_WEBHOOK_KEY,
+    SMTP_KEY: process.env.SMTP_KEY,
+    EMAIL_SERVER: process.env.EMAIL_SERVER,
+    EMAIL_FROM: process.env.EMAIL_FROM,
+    SIB_API_KEY: process.env.SIB_API_KEY,
     NEXT_PUBLIC_TEST_MEMBERSHIP_LOOKUP_KEY: process.env.NEXT_PUBLIC_TEST_MEMBERSHIP_LOOKUP_KEY
 };
 
