@@ -9,7 +9,7 @@ import { useRouter } from "next/router";
 import { api } from "@utils/api";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@server/auth";
-
+import { env } from "src/env.mjs";
 
 // Podcast information
 interface Podcast {
@@ -30,12 +30,12 @@ const Recordings: NextPage<{ podcasts: Podcast[] }> = ({ podcasts }) => {
     const breadcrumbs = [
         {
             label: "Dashboard",
-            href: "/pro/portal",
+            href: "/pro/portal"
         },
         {
             label: "Podcast Recordings",
-            href: "/pro/recordings",
-        },
+            href: "/pro/recordings"
+        }
     ];
 
     return (
@@ -46,8 +46,8 @@ const Recordings: NextPage<{ podcasts: Podcast[] }> = ({ podcasts }) => {
             <Navbar />
             <Header />
             <Breadcrumbs items={breadcrumbs} />
-            <div className="container mx-auto max-w-5xl px-8 mt-10 mb-10">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-7">
+            <div className="container mx-auto mb-10 mt-10 max-w-5xl px-8">
+                <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-2">
                     {podcasts.map((podcast) => (
                         <article className="group" key={podcast.id}>
                             <a href={`/pro/recordings/${podcast.link}`}>
@@ -68,17 +68,24 @@ const Recordings: NextPage<{ podcasts: Podcast[] }> = ({ podcasts }) => {
 
 export default Recordings;
 
-
-
 export async function getServerSideProps(context: GetServerSidePropsContext) {
+    // TODO: remove when page is launched
+    if (env.NODE_ENV !== "development") {
+        return {
+            redirect: {
+                destination: "/",
+                permanent: false
+            }
+        };
+    }
     const sessionID = context.query.session_id;
     const id = isNaN(Number(sessionID)) ? null : Number(sessionID);
     const session = await getServerSession(context.req, context.res, authOptions);
 
     const podcasts = await prisma.podcast.findMany({
         where: {
-            id: id !== null ? { equals: id } : undefined,
-        },
+            id: id !== null ? { equals: id } : undefined
+        }
     });
 
     if (!session) {
@@ -92,8 +99,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
     return {
         props: {
-            podcasts,
+            podcasts
         }
     };
 }
-

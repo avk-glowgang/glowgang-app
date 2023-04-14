@@ -42,8 +42,18 @@ import { getServerSession } from "next-auth/next";
 import { authOptions } from "@server/auth";
 import Link from "next/link";
 import Footer from "@components/footer";
+import { env } from "src/env.mjs";
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
+    // TODO: remove when page is launched
+    if (env.NODE_ENV !== "development") {
+        return {
+            redirect: {
+                destination: "/",
+                permanent: false
+            }
+        };
+    }
     const session = await getServerSession(context.req, context.res, authOptions);
 
     if (!session) {
