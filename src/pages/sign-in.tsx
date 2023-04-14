@@ -42,7 +42,7 @@ const SignIn: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> =
                             <div className="flex w-full justify-center ">
                                 <button
                                     className="hover:color-red flex items-center gap-x-2 rounded  bg-discord px-6 py-3 text-sm font-medium text-white transition focus:outline-none focus:ring focus:ring-yellow-400"
-                                    onClick={() => signIn("discord", { callbackUrl: "/dashboard", redirect: true })}>
+                                    onClick={() => void signIn("discord", { callbackUrl: "/dashboard", redirect: true })}>
                                     <BsDiscord className="h-8 w-8"></BsDiscord>
                                     <span>Sign in with Discord</span>
                                 </button>

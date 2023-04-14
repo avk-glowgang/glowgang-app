@@ -1,11 +1,13 @@
-import { type NextPage, GetServerSidePropsContext } from "next";
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+import { type NextPage, type GetServerSidePropsContext } from "next";
 import Head from "next/head";
 import Navbar from "@components/navbar";
 import Header from "@components/header";
 
 const ProSuccessPage: NextPage<{ portal: Stripe.Response<Stripe.BillingPortal.Session> }> = ({ portal }) => {
     const session = useSession();
-    const createContact = api.blue.createContact.useMutation();
     return (
         <>
             <Head>
@@ -22,10 +24,10 @@ const ProSuccessPage: NextPage<{ portal: Stripe.Response<Stripe.BillingPortal.Se
             <nav aria-label="Breadcrumb" className="container mx-auto my-5 max-w-5xl px-8">
                 <ol role="list" className="flex items-center gap-1 text-sm text-gray-600">
                     <li>
-                        <a href="/dashboard" className="block text-blue-600 transition hover:text-gray-700">
+                        <Link href="/dashboard" className="block text-blue-600 transition hover:text-gray-700">
                             {" "}
                             Dashboard{" "}
-                        </a>
+                        </Link>
                     </li>
 
                     <li>
@@ -86,13 +88,12 @@ import { env } from "src/env.mjs";
 import Link from "next/link";
 import Footer from "@components/footer";
 import { stripe } from "@server/stripe";
-import Stripe from "stripe";
+import type Stripe from "stripe";
 import { prisma } from "@server/db";
-import { Session, User } from "next-auth";
 import { useSession } from "next-auth/react";
-import { api } from "@utils/api";
 const YOUR_DOMAIN = env.NODE_ENV == "development" ? "http://localhost:3000" : "https://glow.up.railway.app/";
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const SibApiV3Sdk = require("sib-api-v3-sdk");
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
@@ -120,6 +121,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     const checkoutID = context.query.session_id;
     if (checkoutID) {
         // fetch portal link in stripe
+        // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
         const returnUrl = `${YOUR_DOMAIN}/dashboard/?session_id=${checkoutID}`;
         const checkout = await stripe.checkout.sessions.retrieve(checkoutID as string);
         const portal = await stripe.billingPortal.sessions.create({ customer: checkout.customer as string, return_url: returnUrl });
@@ -128,12 +130,12 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
         await prisma.user.update({ where: { id: session.user.id }, data: { isPro: true } });
 
         // add contact to pro list
-        let defaultClient = SibApiV3Sdk.ApiClient.instance;
-        let apiKey = defaultClient.authentications["api-key"];
+        const defaultClient = SibApiV3Sdk.ApiClient.instance;
+        const apiKey = defaultClient.authentications["api-key"];
         apiKey.apiKey = env.SIB_API_KEY;
-        let apiInstance = new SibApiV3Sdk.ContactsApi();
-        let identifier = session.user.email;
-        let updateContact = new SibApiV3Sdk.UpdateContact();
+        const apiInstance = new SibApiV3Sdk.ContactsApi();
+        const identifier = session.user.email;
+        const updateContact = new SibApiV3Sdk.UpdateContact();
         updateContact.listIds = [8, 10]; // add to subscribed + all pros
         updateContact.unlinkListIds = [9, 11]; // remove from newsletter + unsubscribed
         await apiInstance.updateContact(identifier, updateContact).catch(console.error);

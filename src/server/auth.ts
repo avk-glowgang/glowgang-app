@@ -1,3 +1,7 @@
+/* eslint-disable @typescript-eslint/restrict-template-expressions */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { type GetServerSidePropsContext } from "next";
 import { getServerSession, type NextAuthOptions, type DefaultSession } from "next-auth";
 import DiscordProvider from "next-auth/providers/discord";
@@ -25,6 +29,7 @@ declare module "next-auth" {
      * The shape of the user object returned in the OAuth providers' `profile` callback,
      * or the second parameter of the `session` callback, when using a database.
      */
+    // eslint-disable-next-line @typescript-eslint/no-empty-interface
     interface User extends PrismaUser {}
     /**
      * Usually contains information about the provider being used
@@ -54,11 +59,11 @@ export const authOptions: NextAuthOptions = {
                 const count = await prisma.blueContact.count({ where: { email: user.email } });
                 if (count == 0) {
                     // add contact to sib
-                    let defaultClient = SibApiV3Sdk.ApiClient.instance;
-                    let apiKey = defaultClient.authentications["api-key"];
+                    const defaultClient = SibApiV3Sdk.ApiClient.instance;
+                    const apiKey = defaultClient.authentications["api-key"];
                     apiKey.apiKey = env.SIB_API_KEY;
-                    let apiInstance = new SibApiV3Sdk.ContactsApi();
-                    let createContact = new SibApiV3Sdk.CreateContact();
+                    const apiInstance = new SibApiV3Sdk.ContactsApi();
+                    const createContact = new SibApiV3Sdk.CreateContact();
                     createContact.email = user.email;
                     createContact.updateEnabled = true;
                     createContact.listIds = [7, 11]; // 7 = registered, 11 = subscribed
@@ -68,8 +73,8 @@ export const authOptions: NextAuthOptions = {
                     });
 
                     // send sib welcome email
-                    let welcomeApiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
-                    let sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail();
+                    const welcomeApiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
+                    const sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail();
                     sendSmtpEmail.templateId = 5;
                     sendSmtpEmail.to = [{ name: user.name, email: user.email }];
                     console.log(`[sign-in]: sending welcome email to ${user.email}...`);
