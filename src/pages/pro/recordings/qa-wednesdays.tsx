@@ -9,6 +9,8 @@ import { useRouter } from "next/router";
 import { api } from "@utils/api";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@server/auth";
+import { env } from "src/env.mjs";
+import { useSession } from "next-auth/react";
 
 // Episode information
 interface Episode {
@@ -25,25 +27,22 @@ interface Props {
     episodes: Episode[];
 }
 
-const Recordings: NextPage<Props> = ({ session, episodes }) => {
-    const router = useRouter();
-    const { query } = router;
-    const sessionID = query.session_id;
-    const portalPro = api.stripe.portalPro.useQuery({ sessionID: sessionID as string });
+const Recordings: NextPage<Props> = ({ episodes }) => {
+    const session = useSession();
 
     // Breadcumbs
     const breadcrumbs = [
         {
             label: "Dashboard",
-            href: "/pro/portal",
+            href: "/dashboard"
         },
         {
             label: "Podcast Recordings",
-            href: "/pro/recordings",
+            href: "/pro/recordings"
         },
         {
             label: "Q&A Wednesdays",
-            href: "/pro/recordings/qa-wednesdays",
+            href: "/pro/recordings/qa-wednesdays"
         }
     ];
 
@@ -59,48 +58,40 @@ const Recordings: NextPage<Props> = ({ session, episodes }) => {
             </Head>
 
             <Navbar />
-            <Header />
+            <Header user={session.data?.user} />
+
             <Breadcrumbs items={breadcrumbs} />
 
-            <div className="container mx-auto max-w-5xl px-8 mt-10 mb-10">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-7">
-                    {episodes.sort((a, b) => b.id - a.id).map((episode) => (
-                        <article className="group" key={episode.id}>
-                            <a href={episode.link}>
-                                <img
-                                    alt={episode.title}
-                                    src={`../../events/${episode.image}`}
-                                    className="h-56 w-full rounded-xl object-cover shadow-xl transition group-hover:grayscale-[50%]"
-                                />
-                            </a>
-
-                            <div className="p-4">
-
-
+            <div className="container mx-auto mb-10 mt-10 max-w-5xl px-8">
+                <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-2">
+                    {episodes
+                        .sort((a, b) => b.id - a.id)
+                        .map((episode) => (
+                            <article className="group" key={episode.id}>
                                 <a href={episode.link}>
-
-                                    <div className="flex items-center gap-2">
-                                        <span
-                                            className="whitespace-nowrap rounded bg-sky-600 text-xs px-1.5 py-0.5 text-white"
-                                        >
-                                            Episode #{episode.episodeNumber}
-                                        </span>
-                                        <h3 className="text-lg text-gray-900 font-medium">
-                                            {episode.title}
-                                        </h3>
-                                    </div>
-
+                                    <img
+                                        alt={episode.title}
+                                        src={`../../events/${episode.image}`}
+                                        className="h-56 w-full rounded-xl object-cover shadow-xl transition group-hover:grayscale-[50%]"
+                                    />
                                 </a>
 
-                                <p className="mt-2 text-sm leading-relaxed text-gray-500 line-clamp-3">
-                                    {episode.description}
-                                </p>
-                            </div>
-                        </article>
-                    ))}
+                                <div className="p-4">
+                                    <a href={episode.link}>
+                                        <div className="flex items-center gap-2">
+                                            <span className="whitespace-nowrap rounded bg-sky-600 px-1.5 py-0.5 text-xs text-white">
+                                                Episode #{episode.episodeNumber}
+                                            </span>
+                                            <h3 className="text-lg font-medium text-gray-900">{episode.title}</h3>
+                                        </div>
+                                    </a>
+
+                                    <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-gray-500">{episode.description}</p>
+                                </div>
+                            </article>
+                        ))}
                 </div>
             </div>
-
 
             <Footer />
         </>
@@ -110,6 +101,15 @@ const Recordings: NextPage<Props> = ({ session, episodes }) => {
 export default Recordings;
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
+    // TODO: remove when page is launched
+    if (env.NODE_ENV !== "development") {
+        return {
+            redirect: {
+                destination: "/",
+                permanent: false
+            }
+        };
+    }
     const session = await getServerSession(context.req, context.res, authOptions);
 
     if (!session) {
@@ -123,14 +123,14 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
     const episodes = await prisma.episode.findMany({
         where: {
-            podcastId: 2,
-        },
+            podcastId: 2
+        }
     });
 
     return {
         props: {
             session,
-            episodes,
+            episodes
         }
     };
 }

@@ -1,16 +1,11 @@
 import { type NextPage, GetServerSidePropsContext } from "next";
 import Head from "next/head";
 import Navbar from "@components/navbar";
-import { useRouter } from "next/router";
-import { api } from "@utils/api";
 import Header from "@components/header";
 import Perk from "@components/perk";
 
 const ProPortal: NextPage = () => {
-    const router = useRouter();
-    const { query } = router;
-    const sessionID = query.session_id;
-    const portalPro = api.stripe.portalPro.useQuery({ sessionID: sessionID as string });
+    const session = useSession();
 
     return (
         <>
@@ -23,17 +18,11 @@ const ProPortal: NextPage = () => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-
-            
             <Navbar />
-            <Header />
+            <Header user={session.data?.user} />
 
-            
-        
-
-            <div className="container mx-auto max-w-5xl px-8 mt-10 mb-10">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                    
+            <div className="container mx-auto mb-10 mt-10 max-w-5xl px-8">
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
                     <Perk
                         href="#"
                         icon="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a69f118df70ad7828d4_icon_clyde_blurple_RGB.svg"
@@ -48,12 +37,11 @@ const ProPortal: NextPage = () => {
                         description="Watch free weekly live podcasts with successful people in Discord server."
                         level="Member"
                     />
-                
                 </div>
 
-                <h2 className="text-2xl font-bold mt-20 mb-5 text-center text-gray-700">Coming Soon</h2>
+                <h2 className="mb-5 mt-20 text-center text-2xl font-bold text-gray-700">Coming Soon</h2>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 ">
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 ">
                     <Perk
                         href="/pro/recordings"
                         icon="https://www.svgrepo.com/show/324411/video-collection.svg"
@@ -94,7 +82,6 @@ const ProPortal: NextPage = () => {
                         level="PRO"
                         disabled={true}
                     />
-                    
                 </div>
             </div>
 
@@ -108,8 +95,19 @@ export default ProPortal;
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@server/auth";
 import Footer from "@components/footer";
+import { env } from "src/env.mjs";
+import { useSession } from "next-auth/react";
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
+    // TODO: remove when page is launched
+    if (env.NODE_ENV !== "development") {
+        return {
+            redirect: {
+                destination: "/",
+                permanent: false
+            }
+        };
+    }
     const session = await getServerSession(context.req, context.res, authOptions);
 
     if (!session) {
