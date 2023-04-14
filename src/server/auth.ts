@@ -54,15 +54,18 @@ export const authOptions: NextAuthOptions = {
                 const count = await prisma.blueContact.count({ where: { email: user.email } });
                 if (count == 0) {
                     // add contact to sib
-                    let apiInstance = new SibApiV3Sdk.ContactsApi();
-                    let apiKey = apiInstance.authentications["apiKey"];
+                    let defaultClient = SibApiV3Sdk.ApiClient.instance;
+                    let apiKey = defaultClient.authentications["api-key"];
                     apiKey.apiKey = env.SIB_API_KEY;
+                    let apiInstance = new SibApiV3Sdk.ContactsApi();
                     let createContact = new SibApiV3Sdk.CreateContact();
                     createContact.email = user.email;
+                    createContact.updateEnabled = true;
                     createContact.listIds = [7, 11]; // 7 = registered, 11 = subscribed
                     console.log(`[sign-in]: adding ${user.email} into SIB contacts list...`);
                     await apiInstance.createContact(createContact).catch((err: any) => {
                         console.error(`[sign-in]: ${err.status}: ${err.message}`);
+                        console.error(err);
                     });
 
                     // add contact to db

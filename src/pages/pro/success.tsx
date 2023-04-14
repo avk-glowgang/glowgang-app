@@ -128,13 +128,14 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
         await prisma.user.update({ where: { id: session.user.id }, data: { isPro: true } });
 
         // add contact to pro list
-        let apiInstance = new SibApiV3Sdk.ContactsApi();
-        let apiKey = apiInstance.authentications["apiKey"];
+        let defaultClient = SibApiV3Sdk.ApiClient.instance;
+        let apiKey = defaultClient.authentications["api-key"];
         apiKey.apiKey = env.SIB_API_KEY;
+        let apiInstance = new SibApiV3Sdk.ContactsApi();
         let identifier = session.user.email;
         let updateContact = new SibApiV3Sdk.UpdateContact();
-        updateContact.listIds = ["8", "10"]; // add to subscribed + all pros
-        updateContact.unlinkListIds = ["9", "11"]; // remove from newsletter + unsubscribed
+        updateContact.listIds = [8, 10]; // add to subscribed + all pros
+        updateContact.unlinkListIds = [9, 11]; // remove from newsletter + unsubscribed
         await apiInstance.updateContact(identifier, updateContact).catch(console.error);
 
         return {
