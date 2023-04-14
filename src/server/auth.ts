@@ -64,13 +64,23 @@ export const authOptions: NextAuthOptions = {
                     createContact.listIds = [7, 11]; // 7 = registered, 11 = subscribed
                     console.log(`[sign-in]: adding ${user.email} into SIB contacts list...`);
                     await apiInstance.createContact(createContact).catch((err: any) => {
-                        console.error(`[sign-in]: ${err.status}: ${err.message}`);
-                        console.error(err);
+                        console.error(`[sign-in]: adding to contact error! ${err.status}: ${err.message}`);
+                    });
+
+                    // send sib welcome email
+                    let welcomeApiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
+                    let sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail();
+                    sendSmtpEmail.templateId = 5;
+                    sendSmtpEmail.to = [{ name: user.name, email: user.email }];
+                    console.log(`[sign-in]: sending welcome email to ${user.email}...`);
+                    await welcomeApiInstance.sendTransacEmail(sendSmtpEmail).catch((err: any) => {
+                        console.error(`[sign-in]: sending welcome email error! ${err.status}: ${err.message}`);
+                        console.log(err);
                     });
 
                     // add contact to db
                     console.log(`[sign-in]: uploading ${user.email} into database...`);
-                    await prisma.blueContact.create({ data: { email: user.email } }).catch(console.error);
+                    // await prisma.blueContact.create({ data: { email: user.email } }).catch(console.error);
                 }
             }
             return true;
