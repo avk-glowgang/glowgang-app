@@ -2,13 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { signOut, useSession } from "next-auth/react";
-import { Session } from "next-auth";
 
-function UserButton({ session }: { session: Session }): JSX.Element {
+function UserButton(): JSX.Element {
     return (
         <>
             <button
-                onClick={() => signOut()}
+                onClick={() => void signOut()}
                 className="flex cursor-pointer items-center rounded bg-gray-800 px-4 py-2 transition-all ease-in-out hover:bg-gray-700">
                 <span className="text-sm text-white">Sign out</span>
             </button>
@@ -35,14 +34,14 @@ function Navbar(): JSX.Element {
                     {/* display for unauthenticated users only when they are not in the sign in page */}
                     {session.status !== "authenticated" && !isSignIn && (
                         <div>
-                            <Link href="/sign-in" className="rounded bg-gray-800 transition-all ease-in-out px-4 py-2 text-sm text-white hover:bg-gray-700">
+                            <Link href="/sign-in" className="rounded bg-gray-800 px-4 py-2 text-sm text-white transition-all ease-in-out hover:bg-gray-700">
                                 Sign in
                             </Link>
                         </div>
                     )}
 
                     {/* display for authenticated users */}
-                    {session.status == "authenticated" && <UserButton session={session.data}></UserButton>}
+                    {session.status == "authenticated" && <UserButton></UserButton>}
                 </nav>
             </div>
         </div>

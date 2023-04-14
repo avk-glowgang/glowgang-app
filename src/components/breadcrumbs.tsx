@@ -15,7 +15,7 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items }) => {
     const router = useRouter();
 
     return (
-        <nav aria-label="Breadcrumb" className="container mx-auto max-w-5xl px-8 my-5">
+        <nav aria-label="Breadcrumb" className="container mx-auto my-5 max-w-5xl px-8">
             <ol role="list" className="flex items-center gap-1 text-sm text-gray-600">
                 {items.map((item, index) => (
                     <React.Fragment key={item.href}>
@@ -35,7 +35,7 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items }) => {
                                 <span>{item.label}</span>
                             ) : (
                                 <Link href={item.href}>
-                                    <p className="block transition text-blue-600 hover:text-gray-700">{item.label}</p>
+                                    <p className="block text-blue-600 transition hover:text-gray-700">{item.label}</p>
                                 </Link>
                             )}
                         </li>

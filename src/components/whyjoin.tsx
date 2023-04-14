@@ -34,7 +34,7 @@ const WhyJoin: React.FC = () => {
                 </div>
                 <div className="mt-8 grid grid-cols-1 gap-5 md:mt-16 md:grid-cols-2 md:gap-5 lg:grid-cols-3">
                     {services.map((service) => (
-                        <div className="block rounded-xl border p-4 sm:p-6 lg:p-8">
+                        <div className="block rounded-xl border p-4 sm:p-6 lg:p-8" key={service.id}>
                             <h2 className="text-lg font-bold">{service.title}</h2>
                             <p className="mt-1 text-sm text-gray-400">{service.description}</p>
                         </div>

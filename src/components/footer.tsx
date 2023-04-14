@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 function Footer() {
     return (
@@ -12,21 +13,21 @@ function Footer() {
                 <nav aria-label="Footer Nav" className="mt-12">
                     <ul className="flex flex-wrap justify-center gap-5 text-sm md:gap-7 lg:gap-10">
                         <li>
-                            <a className="text-gray-600 transition hover:text-gray-500/75" href="/">
+                            <Link className="text-gray-600 transition hover:text-gray-500/75" href="/">
                                 About Us
-                            </a>
+                            </Link>
                         </li>
 
                         <li>
-                            <a className="text-gray-600 transition hover:text-gray-500/75" href="/terms">
+                            <Link className="text-gray-600 transition hover:text-gray-500/75" href="/terms">
                                 Terms of Service
-                            </a>
+                            </Link>
                         </li>
 
                         <li>
-                            <a className="text-gray-600 transition hover:text-gray-500/75" href="/privacy-policy">
+                            <Link className="text-gray-600 transition hover:text-gray-500/75" href="/privacy-policy">
                                 Privacy Policy
-                            </a>
+                            </Link>
                         </li>
 
                         <li>
