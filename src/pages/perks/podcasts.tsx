@@ -1,10 +1,7 @@
-import { type NextPage, GetServerSidePropsContext } from "next";
+import { type NextPage, type GetServerSidePropsContext } from "next";
 import Head from "next/head";
 import Navbar from "@components/navbar";
-import { useRouter } from "next/router";
-import { api } from "@utils/api";
 import Header from "@components/header";
-import Perk from "@components/perk";
 import Breadcrumbs from "@components/breadcrumbs";
 
 const ProPortal: NextPage = () => {
@@ -101,7 +98,6 @@ import { authOptions } from "@server/auth";
 import Footer from "@components/footer";
 import { env } from "src/env.mjs";
 import { useSession } from "next-auth/react";
-import { useEffect } from "react";
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
     // TODO: remove when page is launched

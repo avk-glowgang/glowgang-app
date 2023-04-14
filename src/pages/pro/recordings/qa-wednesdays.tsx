@@ -1,12 +1,13 @@
-import { NextPage, GetServerSidePropsContext } from "next";
+/* eslint-disable @typescript-eslint/restrict-template-expressions */
+/* eslint-disable @next/next/no-img-element */
+import { type NextPage, type GetServerSidePropsContext } from "next";
 import Head from "next/head";
 import Navbar from "@components/navbar";
 import Header from "@components/header";
 import Footer from "@components/footer";
 import { prisma } from "@server/db";
 import Breadcrumbs from "@components/breadcrumbs";
-import { useRouter } from "next/router";
-import { api } from "@utils/api";
+
 import { getServerSession } from "next-auth";
 import { authOptions } from "@server/auth";
 import { env } from "src/env.mjs";

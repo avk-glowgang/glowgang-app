@@ -1,4 +1,4 @@
-import { type NextPage, GetServerSidePropsContext } from "next";
+import { type NextPage, type GetServerSidePropsContext } from "next";
 import Head from "next/head";
 import Navbar from "@components/navbar";
 import Header from "@components/header";
@@ -220,7 +220,7 @@ const ProInfoPage: NextPage<{ checkout: Stripe.Response<Stripe.Checkout.Session>
                 <div className="container mx-auto mb-20 max-w-5xl px-8">
                     <div className="mt-10 text-center  lg:mb-12">
                         <h2 className="mb-4 text-4xl font-bold text-gray-900">Are your ready? 🚀</h2>
-                        <p className=" text-gray-500 sm:text-lg">Get an instant access to everything you've seen above.</p>
+                        <p className=" text-gray-500 sm:text-lg">Get an instant access to everything you&apos;ve seen above.</p>
                     </div>
 
                     <div className="mt-10 flex flex-col items-center justify-center">
@@ -249,14 +249,12 @@ export default ProInfoPage;
 
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@server/auth";
-import { api } from "@utils/api";
 import Link from "next/link";
 import Footer from "@components/footer";
 import { env } from "src/env.mjs";
 import { stripe } from "@server/stripe";
-import Stripe from "stripe";
+import type Stripe from "stripe";
 import { prisma } from "@server/db";
-import { Session } from "next-auth";
 import { useSession } from "next-auth/react";
 const YOUR_DOMAIN = env.NODE_ENV == "development" ? "http://localhost:3000" : "https://glow.up.railway.app/";
 

@@ -1,6 +1,5 @@
-import { type NextPage, GetServerSidePropsContext } from "next";
+import { type NextPage } from "next";
 import Head from "next/head";
-import Navbar from "@components/navbar";
 import Link from "next/link";
 
 const Error: NextPage = () => {

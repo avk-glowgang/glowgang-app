@@ -1,3 +1,7 @@
+/* eslint-disable @typescript-eslint/restrict-template-expressions */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import type { NextApiRequest, NextApiResponse } from "next";
 import { env } from "src/env.mjs";
 import Stripe from "stripe";
@@ -5,6 +9,7 @@ const stripe = new Stripe(env.STRIPE_TEST_SECRET_KEY, {
     apiVersion: "2022-11-15"
 });
 
+// eslint-disable-next-line @typescript-eslint/require-await
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     let event = req.body;
     // Replace this endpoint secret with your endpoint's unique secret
