@@ -48,7 +48,7 @@ const ProPortal: NextPage = () => {
                         title="Podcast Recordings"
                         description="All of our podcast recordings are available to watch on-demand."
                         level="PRO"
-                        disabled={true}
+                        disabled={!session.data?.user.isPro}
                     />
                     <Perk
                         href="#"
@@ -56,7 +56,7 @@ const ProPortal: NextPage = () => {
                         title="Discounts & Deals"
                         description="Exclusive deals and discounts on tools, services, and products."
                         level="PRO"
-                        disabled={true}
+                        disabled={!session.data?.user.isPro}
                     />
                     <Perk
                         href="#"
@@ -64,7 +64,7 @@ const ProPortal: NextPage = () => {
                         title="Interviews"
                         description="Interviews and behind-the-scenes with millionaires."
                         level="PRO"
-                        disabled={true}
+                        disabled={!session.data?.user.isPro}
                     />
                     <Perk
                         href="#"
@@ -72,7 +72,7 @@ const ProPortal: NextPage = () => {
                         title="Consultations"
                         description="Book consultations with our team of experts. Lawyers, accountants etc."
                         level="PRO"
-                        disabled={true}
+                        disabled={!session.data?.user.isPro}
                     />
                     <Perk
                         href="#"
@@ -80,7 +80,7 @@ const ProPortal: NextPage = () => {
                         title="Resources & Tools"
                         description="Library of resources, tools, and templates to help you succeed."
                         level="PRO"
-                        disabled={true}
+                        disabled={!session.data?.user.isPro}
                     />
                 </div>
             </div>
