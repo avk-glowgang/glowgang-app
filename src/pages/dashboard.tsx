@@ -24,7 +24,7 @@ const ProPortal: NextPage = () => {
             <div className="container mx-auto mb-10 mt-10 max-w-5xl px-8">
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
                     <Perk
-                        href="#"
+                        href="https://discord.gg/5nZnnE2dCH"
                         icon="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a69f118df70ad7828d4_icon_clyde_blurple_RGB.svg"
                         title="Discord Server"
                         description="Join our free Discord server and meet other community members."
