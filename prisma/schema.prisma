@@ -51,7 +51,8 @@ model User {
   accounts      Account[]
   sessions      Session[]
 
-  isPro Boolean @default(false)
+  isPro   Boolean @default(false)
+  isAdmin Boolean @default(false)
 
   proCheckouts     ProCheckout[]
   ProSubscriptions ProSubscription[]

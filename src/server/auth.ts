@@ -22,6 +22,7 @@ declare module "next-auth" {
         user: {
             id: string;
             isPro: boolean;
+            isAdmin: boolean;
         } & DefaultSession["user"];
     }
 
@@ -51,6 +52,7 @@ export const authOptions: NextAuthOptions = {
             if (session.user) {
                 session.user.id = user.id;
                 session.user.isPro = user.isPro;
+                session.user.isAdmin = user.isAdmin;
             }
             return session;
         },
