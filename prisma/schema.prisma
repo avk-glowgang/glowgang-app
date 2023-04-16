@@ -7,6 +7,47 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Message {
+  messageID String   @id
+  channelID String
+  guildID   String
+  userID    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime
+  Player    Player   @relation(fields: [userID], references: [discordID])
+  Upvote    Upvote[]
+}
+
+model Player {
+  discordID       String    @id
+  discordTag      String
+  points          Float     @default(0)
+  level           Int       @default(0)
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime
+  upvotesGiven    Int       @default(0)
+  upvotesReceived Int       @default(0)
+  messagesSent    Int       @default(0)
+  Message         Message[]
+  Upvote          Upvote[]
+}
+
+model Upvote {
+  id        String   @id
+  messageID String
+  channelID String
+  guildID   String
+  userID    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime
+  Message   Message  @relation(fields: [messageID], references: [messageID])
+  Player    Player   @relation(fields: [userID], references: [discordID])
+
+  @@index([messageID])
+  @@index([messageID, userID])
+  @@index([userID])
+}
+
 model Example {
   id        String   @id @default(cuid())
   createdAt DateTime @default(now())
@@ -14,7 +55,7 @@ model Example {
 }
 
 model Account {
-  id                String  @id @default(cuid())
+  id                String   @id @default(cuid())
   userId            String
   type              String
   provider          String
@@ -26,10 +67,9 @@ model Account {
   scope             String?
   id_token          String?
   session_state     String?
-  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @default(now()) @updatedAt
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @default(now()) @updatedAt
+  user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
 }
@@ -43,53 +83,39 @@ model Session {
 }
 
 model User {
-  id            String    @id @default(cuid())
-  name          String?
-  email         String?   @unique
-  emailVerified DateTime?
-  image         String?
-  accounts      Account[]
-  sessions      Session[]
-
-  isPro   Boolean @default(false)
-  isAdmin Boolean @default(false)
-
+  id               String            @id @default(cuid())
+  name             String?
+  email            String?           @unique
+  emailVerified    DateTime?
+  image            String?
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @default(now()) @updatedAt
+  isPro            Boolean           @default(false)
+  isAdmin          Boolean           @default(false)
+  accounts         Account[]
   proCheckouts     ProCheckout[]
   ProSubscriptions ProSubscription[]
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @default(now()) @updatedAt
+  sessions         Session[]
 }
 
 model ProCheckout {
-  id String @id @default(cuid())
-
-  user   User   @relation(fields: [userID], references: [id])
-  userID String
-
+  id          String            @id @default(cuid())
+  userID      String
   checkoutID  String
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @default(now()) @updatedAt
   checkoutURL String
   status      ProCheckoutStatus @default(open)
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @default(now()) @updatedAt
+  user        User              @relation(fields: [userID], references: [id])
 }
 
 model ProSubscription {
-  id String @id @default(cuid())
-
-  user   User   @relation(fields: [userID], references: [id])
-  userID String
-
+  id         String   @id @default(cuid())
+  userID     String
   checkoutID String
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @default(now()) @updatedAt
-}
-
-enum ProCheckoutStatus {
-  open
-  expired
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @default(now()) @updatedAt
+  user       User     @relation(fields: [userID], references: [id])
 }
 
 model Podcast {
@@ -98,24 +124,22 @@ model Podcast {
   description String?
   image       String?
   link        String?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @default(now()) @updatedAt
   episodes    Episode[]
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @default(now()) @updatedAt
 }
 
 model Episode {
-  id            Int     @id @unique @default(autoincrement())
+  id            Int      @id @unique @default(autoincrement())
   episodeNumber Int
   title         String
   description   String?
   image         String?
   link          String?
   podcastId     Int
-  podcast       Podcast @relation(fields: [podcastId], references: [id])
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @default(now()) @updatedAt
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @default(now()) @updatedAt
+  podcast       Podcast  @relation(fields: [podcastId], references: [id])
 }
 
 model VerificationToken {
@@ -127,20 +151,23 @@ model VerificationToken {
 }
 
 model BlueContact {
-  email String @id
-
+  email     String   @id
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now()) @updatedAt
 }
 
 model BlueContactlist {
-  id       String @id @default(cuid())
-  email    String
-  listID   Int
-  listName String
-
+  id        String   @id @default(cuid())
+  email     String
+  listID    Int
+  listName  String
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now()) @updatedAt
 
   @@unique([email, listID])
+}
+
+enum ProCheckoutStatus {
+  open
+  expired
 }
