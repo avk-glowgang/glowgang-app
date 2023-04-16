@@ -22,8 +22,8 @@ function Hero(): JSX.Element {
                         <h2 className="text-3xl font-bold sm:text-4xl">A Community of Success-Driven Individuals</h2>
 
                         <p className="mt-4 text-gray-400">
-                            Join to connect with ambitious leaders, gain inspiration, and achieve your goals. Access exclusive resources, events, and videos to
-                            accelerate your personal and professional growth.
+                            Join Glow Gang to connect with ambitious people, gain inspiration, and achieve your goals. Access exclusive resources, events, and videos to
+                            accelerate your growth.
                         </p>
 
                         <div className="mt-8">

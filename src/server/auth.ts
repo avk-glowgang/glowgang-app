@@ -85,7 +85,7 @@ export const authOptions: NextAuthOptions = {
 
                     // add contact to db
                     console.log(`[sign-in]: uploading ${user.email} into database...`);
-                    // await prisma.blueContact.create({ data: { email: user.email } }).catch(console.error);
+                    await prisma.blueContact.create({ data: { email: user.email } }).catch(console.error);
                 }
             }
             return true;

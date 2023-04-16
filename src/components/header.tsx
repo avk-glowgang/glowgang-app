@@ -10,7 +10,7 @@ const Header: React.FC<{ user: User | undefined }> = ({ user }) => {
             <div className="mx-auto max-w-5xl px-8 py-8 sm:px-6 sm:py-12 lg:px-8">
                 <div className="sm:flex sm:items-center sm:justify-between">
                     <div className="text-center sm:text-left">
-                        <h1 className="text-2xl font-bold text-gray-900 sm:text-3xl">Welcome to Glow Gang!</h1>
+                        <h1 className="text-2xl font-bold text-gray-900 sm:text-3xl">Welcome inside!</h1>
                         <p className="mt-2 text-sm text-gray-500">
                             Your current level is{" "}
                             {!user ||
@@ -18,7 +18,7 @@ const Header: React.FC<{ user: User | undefined }> = ({ user }) => {
                                     <span className="whitespace-nowrap rounded-full bg-purple-100 px-2.5 py-0.5 text-sm text-purple-700">Member</span>
                                 ))}
                             {user && user.isPro && (
-                                <span className="whitespace-nowrap rounded-full bg-purple-100 px-2.5 py-0.5 text-sm text-purple-700">Pro</span>
+                                <span className="whitespace-nowrap rounded-full bg-purple-100 px-2.5 py-0.5 text-sm text-purple-700">PRO</span>
                             )}
                         </p>
                     </div>

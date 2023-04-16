@@ -27,7 +27,7 @@ function Navbar(): JSX.Element {
                 <nav className="flex flex-wrap items-center justify-between py-4">
                     <div className="flex items-center text-white">
                         <Link href="/">
-                            <Image src="/logo.png" width={35} height={35} alt="Glow Gang Logo" />
+                            <Image src="/logo-PNG-05.png" width={150} height={150} alt="Glow Gang Logo" />
                         </Link>
                     </div>
 
