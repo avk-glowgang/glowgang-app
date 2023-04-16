@@ -12,11 +12,11 @@ function Footer() {
 
                 <nav aria-label="Footer Nav" className="mt-12">
                     <ul className="flex flex-wrap justify-center gap-5 text-sm md:gap-7 lg:gap-10">
-                        <li>
+                        {/* <li>
                             <Link className="text-gray-600 transition hover:text-gray-500/75" href="/">
                                 About Us
                             </Link>
-                        </li>
+                        </li> */}
 
                         <li>
                             <Link className="text-gray-600 transition hover:text-gray-500/75" href="/terms">

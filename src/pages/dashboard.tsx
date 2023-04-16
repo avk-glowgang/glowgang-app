@@ -39,7 +39,7 @@ const ProPortal: NextPage = () => {
                     />
                 </div>
 
-                <h2 className="mb-5 mt-20 text-center text-2xl font-bold text-gray-700">Coming Soon</h2>
+                {/* <h2 className="mb-5 mt-20 text-center text-2xl font-bold text-gray-700">Coming Soon</h2>
 
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 ">
                     <Perk
@@ -82,7 +82,7 @@ const ProPortal: NextPage = () => {
                         level="PRO"
                         disabled={!session.data?.user.isPro}
                     />
-                </div>
+                </div> */}
             </div>
 
             <Footer />
