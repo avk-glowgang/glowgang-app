@@ -10,7 +10,7 @@ function Hero(): JSX.Element {
                     <div className="relative h-64 overflow-hidden rounded-lg sm:h-80 lg:order-last lg:h-full">
                         <Image
                             alt="Glow Gang"
-                            src="/16661250666139507.jpg"
+                            src="/bann1.png"
                             className="absolute inset-0 h-full w-full object-cover"
                             width={500}
                             height={500}
