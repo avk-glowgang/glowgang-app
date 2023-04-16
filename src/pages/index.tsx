@@ -1,4 +1,4 @@
-import { type NextPage } from "next";
+import { GetServerSidePropsContext, type NextPage } from "next";
 import Head from "next/head";
 import Navbar from "@components/navbar";
 import Hero from "@components/hero";
@@ -25,3 +25,23 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "@server/auth";
+
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+    const session = await getServerSession(context.req, context.res, authOptions);
+
+    if (session) {
+        return {
+            redirect: {
+                destination: "/dashboard",
+                permanent: false
+            }
+        };
+    }
+
+    return {
+        props: {}
+    };
+}
