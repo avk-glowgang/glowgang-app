@@ -56,7 +56,11 @@ export const authOptions: NextAuthOptions = {
             }
             return session;
         },
-        async signIn({ user }) {
+        async signIn({ user , email}) {
+            if (email?.verificationRequest){
+                console.log(`[sign-in]: magic-link request detected for ${user.email}...`);
+                return true
+            }
             if (user.email) {
                 const count = await prisma.blueContact.count({ where: { email: user.email } });
                 if (count == 0) {
