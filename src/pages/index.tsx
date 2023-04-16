@@ -1,4 +1,4 @@
-import { GetServerSidePropsContext, type NextPage } from "next";
+import { type GetServerSidePropsContext, type NextPage } from "next";
 import Head from "next/head";
 import Navbar from "@components/navbar";
 import Hero from "@components/hero";

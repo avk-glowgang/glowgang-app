@@ -1,4 +1,4 @@
-import  {  type NextPage, type GetServerSidePropsContext } from "next";
+import { type NextPage, type GetServerSidePropsContext } from "next";
 import Head from "next/head";
 import Navbar from "@components/navbar";
 
@@ -49,7 +49,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     if (env.NODE_ENV !== "development") {
         return {
             redirect: {
-                destination: "/",
+                destination: "/dashboard",
                 permanent: false
             }
         };
