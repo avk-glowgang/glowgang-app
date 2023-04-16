@@ -101,7 +101,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     if (env.NODE_ENV !== "development") {
         return {
             redirect: {
-                destination: "/",
+                destination: "/dashboard",
                 permanent: false
             }
         };

@@ -1,10 +1,9 @@
-import { type NextPage, type GetServerSidePropsContext } from "next";
+import { type NextPage } from "next";
 import Head from "next/head";
 import Navbar from "@components/navbar";
 import Footer from "@components/footer";
 
 const ProPortal: NextPage = () => {
-
     return (
         <>
             <Head>
@@ -18,11 +17,11 @@ const ProPortal: NextPage = () => {
 
             <Navbar />
 
-
             <div className="container mx-auto mb-10 mt-10 max-w-5xl px-8">
-
                 <h1 className="mb-10 text-center text-2xl font-bold text-gray-700">Privacy Policy</h1>
-                <p className="mb-10 text-center text-gray-700">This Privacy Policy explains how we collect, use, and protect your personal information when you use our website.</p>
+                <p className="mb-10 text-center text-gray-700">
+                    This Privacy Policy explains how we collect, use, and protect your personal information when you use our website.
+                </p>
 
                 <h2>Purpose of the Website</h2>
                 <p>Our website is designed to allow people to sign up and get access to exclusive content.</p>
@@ -48,8 +47,10 @@ const ProPortal: NextPage = () => {
                 <h2>Contact Information</h2>
                 <p>If you have any questions or concerns about your personal information, please contact us at glowgangemail@gmail.com.</p>
 
-                <p>By using our website, you agree to the terms of this Privacy Policy. We may update this Privacy Policy from time to time. If we make significant changes, we will notify you by email or by posting a notice on our website.</p>
-
+                <p>
+                    By using our website, you agree to the terms of this Privacy Policy. We may update this Privacy Policy from time to time. If we make
+                    significant changes, we will notify you by email or by posting a notice on our website.
+                </p>
             </div>
 
             <Footer />
@@ -58,5 +59,3 @@ const ProPortal: NextPage = () => {
 };
 
 export default ProPortal;
-
-

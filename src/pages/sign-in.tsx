@@ -2,8 +2,6 @@ import { type GetServerSidePropsContext, type InferGetServerSidePropsType, type 
 import Head from "next/head";
 import Navbar from "@components/navbar";
 import { BsDiscord } from "react-icons/bs";
-import { MdEmail } from "react-icons/md";
-
 import { getCsrfToken, signIn } from "next-auth/react";
 import Footer from "@components/footer";
 
@@ -34,16 +32,13 @@ const SignIn: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> =
                                         </button>
                                     </div>
 
-                                    <p className="mt-10 text-gray-500">
-                                        Or use your email address
-                                    </p>
+                                    <p className="mt-10 text-gray-500">Or use your email address</p>
                                 </div>
 
-                                <form className="mx-auto mt-1 mb-0 max-w-md space-y-4" method="post" action="/api/auth/signin/email">
+                                <form className="mx-auto mb-0 mt-1 max-w-md space-y-4" method="post" action="/api/auth/signin/email">
                                     <input name="csrfToken" type="hidden" value={csrfToken} />
 
                                     <div>
-                                        
                                         <div className="relative">
                                             <input
                                                 type="email"
@@ -54,12 +49,7 @@ const SignIn: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> =
                                             />
 
                                             <span className="absolute inset-y-0 right-0 flex items-center pr-4">
-                                                <svg
-                                                    className="h-6 w-6 text-gray-400"
-                                                    fill="none"
-                                                    viewBox="0 0 24 24"
-                                                    stroke="currentColor"
-                                                >
+                                                <svg className="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path
                                                         stroke-linecap="round"
                                                         stroke-linejoin="round"
@@ -72,21 +62,14 @@ const SignIn: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> =
                                     </div>
 
                                     <div className="flex">
-                                        
-
                                         <button
                                             type="submit"
-                                            className="inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white transition duration-300 ease-in-out hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
-                                        >
+                                            className="inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white transition duration-300 ease-in-out hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
                                             <span>Sign in</span>
-                                            
                                         </button>
                                     </div>
                                 </form>
                             </div>
-
-                            
-                            
                         </div>
                     </div>
                 </div>
