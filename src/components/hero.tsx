@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
 
 function Hero(): JSX.Element {
@@ -8,14 +7,8 @@ function Hero(): JSX.Element {
             <div className="mx-auto max-w-5xl px-8 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
                 <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-16">
                     <div className="relative h-64 overflow-hidden rounded-lg sm:h-80 lg:order-last lg:h-full">
-                        <Image
-                            alt="Glow Gang"
-                            src="/bann1.png"
-                            className="absolute inset-0 h-full w-full object-cover"
-                            width={500}
-                            height={500}
-                            priority
-                        />
+                        
+                        <iframe src="https://player.vimeo.com/video/818443139?h=3fa954abe8&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen; picture-in-picture" title="site_video_1" className="absolute inset-0 w-full h-full"></iframe>
                     </div>
 
                     <div className="lg:py-24">
