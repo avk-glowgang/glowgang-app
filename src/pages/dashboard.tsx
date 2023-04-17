@@ -30,13 +30,13 @@ const ProPortal: NextPage = () => {
                         description="Join our free Discord server and meet other community members."
                         level="Member"
                     />
-                    <Perk
+                    {/* <Perk
                         href="/perks/podcasts"
                         icon="https://www.svgrepo.com/show/408453/event-calender-date-note.svg"
                         title="Weekly Podcasts"
                         description="Watch free weekly live podcasts with successful people in Discord server."
                         level="Member"
-                    />
+                    /> */}
                 </div>
 
                 {/* <h2 className="mb-5 mt-20 text-center text-2xl font-bold text-gray-700">Coming Soon</h2>
