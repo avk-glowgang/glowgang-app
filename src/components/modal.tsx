@@ -41,7 +41,7 @@ const Alert: React.FC<AlertProps> = ({ message, type = 'success', dismissible = 
     return (
         <div role="alert" className={`rounded-xl border ${type === 'success' ? 'border-green-100' : type === 'warning' ? 'border-yellow-100' : 'border-red-100'} p-4 shadow-xl`}>
             <div className="flex items-start gap-4">
-                <span className={`text-${type}-600`}>{getIcon}</span>
+                <span className={`text-${type}-600`}>O</span>
 
                 <div className="flex-1">
                     <strong className="block font-medium text-gray-900">{type === 'success' ? 'Changes saved' : type === 'warning' ? 'Warning' : 'Error'}</strong>
