@@ -91,7 +91,12 @@ import { stripe } from "@server/stripe";
 import type Stripe from "stripe";
 import { prisma } from "@server/db";
 import { useSession } from "next-auth/react";
+import { API } from "@discordjs/core";
+import { REST } from "@discordjs/rest";
 const YOUR_DOMAIN = env.NODE_ENV == "development" ? "http://localhost:3000" : "https://glow.up.railway.app/";
+const TOKEN = env.DISCORD_BOT_TOKEN;
+const GUILD_ID = env.DISCORD_GUILD_ID;
+const PRO_MEMBER_ID = env.DISCORD_PRO_MEMBER_ID;
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const SibApiV3Sdk = require("sib-api-v3-sdk");
@@ -128,6 +133,21 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
         // update user status in db
         await prisma.user.update({ where: { id: session.user.id }, data: { isPro: true } });
+        
+        // add role pro to member
+        const account = await prisma.account.findFirst({ where: { userId: session.user.id } });
+
+        try {
+            if (account) {
+                const rest = new REST({ version: '10' }).setToken(TOKEN);
+                const api = new API(rest);
+                await api.guilds.addRoleToMember(GUILD_ID, account.providerAccountId, PRO_MEMBER_ID);
+            } else {
+                console.log('account not found');
+            }
+        } catch (error) {
+            console.log('error: ', error);
+        }
 
         // add contact to pro list
         const defaultClient = SibApiV3Sdk.ApiClient.instance;
