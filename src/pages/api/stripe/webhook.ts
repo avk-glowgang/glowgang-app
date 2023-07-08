@@ -2,6 +2,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
+import { prisma } from "@server/db";
 import type { NextApiRequest, NextApiResponse } from "next";
 import { env } from "src/env.mjs";
 import Stripe from "stripe";
@@ -46,6 +47,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             console.log(`Subscription status is ${status}.`);
             // Then define and call a method to handle the subscription deleted.
             // handleSubscriptionDeleted(subscriptionDeleted);
+        
+            const subscriptionID = subscription.id;
+            const checkout = await stripe.checkout.sessions.list({ subscription: subscriptionID });
+      
+            let userId;
+            if (checkout.data[0]) userId = checkout.data[0].metadata?.user_id;
+      
+            if (userId) await prisma.user.update({ where: { id: userId }, data: { isPro: false } })
+            else console.log('user not found')
+        
             break;
         case "customer.subscription.created":
             subscription = event.data.object;

@@ -320,6 +320,9 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
                 quantity: 1
             }
         ],
+        metadata: {
+            user_id: session.user.id
+        },
         mode: "subscription",
         success_url: `${YOUR_DOMAIN}/pro/success/?success=true&session_id={CHECKOUT_SESSION_ID}`,
         cancel_url: `${YOUR_DOMAIN}/pro/canceled/?canceled=true`
