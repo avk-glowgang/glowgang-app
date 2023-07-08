@@ -4,11 +4,18 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { prisma } from "@server/db";
 import type { NextApiRequest, NextApiResponse } from "next";
+import getRawBody from "raw-body";
 import { env } from "src/env.mjs";
 import Stripe from "stripe";
 const stripe = new Stripe(env.STRIPE_TEST_SECRET_KEY, {
     apiVersion: "2022-11-15"
 });
+
+export const config = {
+    api: {
+      bodyParser: false,
+    },
+};
 
 // eslint-disable-next-line @typescript-eslint/require-await
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -21,13 +28,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     // Only verify the event if you have an endpoint secret defined.
     // Otherwise use the basic event deserialized with JSON.parse
     if (endpointSecret) {
+        const rawBody = await getRawBody(req, { encoding: true });
         // Get the signature sent by Stripe
         const signature = req.headers["stripe-signature"] as string | string[];
         try {
-            event = stripe.webhooks.constructEvent(req.body, signature, endpointSecret);
+            event = stripe.webhooks.constructEvent(rawBody, signature, endpointSecret);
         } catch (err: any) {
             console.log(`⚠️  Webhook signature verification failed.`, err.message);
-            return res.status(400);
+            return res.status(400).end();
         }
     }
     let subscription;
@@ -77,5 +85,5 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             console.log(`Unhandled event type ${event.type}.`);
     }
     // Return a 200 response to acknowledge receipt of the event
-    res.status(200);
+    res.status(200).end();
 }
