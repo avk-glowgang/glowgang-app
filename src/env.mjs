@@ -24,7 +24,10 @@ const server = z.object({
     SMTP_KEY: z.string(),
     EMAIL_SERVER: z.string(),
     EMAIL_FROM: z.string(),
-    SIB_API_KEY: z.string()
+    SIB_API_KEY: z.string(),
+    DISCORD_BOT_TOKEN: z.string(),
+    DISCORD_PRO_MEMBER_ID: z.string(),
+    DISCORD_GUILD_ID: z.string(),
 });
 
 /**
@@ -55,7 +58,10 @@ const processEnv = {
     EMAIL_SERVER: process.env.EMAIL_SERVER,
     EMAIL_FROM: process.env.EMAIL_FROM,
     SIB_API_KEY: process.env.SIB_API_KEY,
-    NEXT_PUBLIC_TEST_MEMBERSHIP_LOOKUP_KEY: process.env.NEXT_PUBLIC_TEST_MEMBERSHIP_LOOKUP_KEY
+    NEXT_PUBLIC_TEST_MEMBERSHIP_LOOKUP_KEY: process.env.NEXT_PUBLIC_TEST_MEMBERSHIP_LOOKUP_KEY,
+    DISCORD_BOT_TOKEN: process.env.DISCORD_BOT_TOKEN,
+    DISCORD_PRO_MEMBER_ID: process.env.DISCORD_PRO_MEMBER_ID,
+    DISCORD_GUILD_ID: process.env.DISCORD_GUILD_ID,
 };
 
 // Don't touch the part below
