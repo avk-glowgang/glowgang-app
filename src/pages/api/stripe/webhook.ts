@@ -62,7 +62,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             let userId;
             if (checkout.data[0]) userId = checkout.data[0].metadata?.user_id;
       
-            if (userId) await prisma.user.update({ where: { id: userId }, data: { isPro: false } })
+            if (userId) {
+                await prisma.user.update({ where: { id: userId }, data: { isPro: false } })
+                await prisma.proCheckout.deleteMany({where: { userID: userId }});
+            }
             else console.log('user not found')
         
             break;
