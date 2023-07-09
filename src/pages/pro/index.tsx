@@ -256,9 +256,10 @@ import { stripe } from "@server/stripe";
 import type Stripe from "stripe";
 import { prisma } from "@server/db";
 import { useSession } from "next-auth/react";
-const YOUR_DOMAIN = env.NODE_ENV == "development" ? "http://localhost:3000" : env.NEXTAUTH_URL;
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
+    const YOUR_DOMAIN = env.NODE_ENV == "development" ? "http://localhost:3000" : env.NEXTAUTH_URL;
+
     // TODO: remove when page is launched
     // if (env.NODE_ENV !== "development") {
     //     return {

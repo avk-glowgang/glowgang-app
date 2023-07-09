@@ -90,7 +90,6 @@ import { useSession } from "next-auth/react";
 import { API } from "@discordjs/core";
 import { REST } from "@discordjs/rest";
 import { ManageBillingButton } from "../profile";
-const YOUR_DOMAIN = env.NODE_ENV == "development" ? "http://localhost:3000" : env.NEXTAUTH_URL;
 const TOKEN = env.DISCORD_BOT_TOKEN;
 const GUILD_ID = env.DISCORD_GUILD_ID;
 const PRO_MEMBER_ID = env.DISCORD_PRO_MEMBER_ID;
@@ -99,15 +98,17 @@ const PRO_MEMBER_ID = env.DISCORD_PRO_MEMBER_ID;
 const SibApiV3Sdk = require("sib-api-v3-sdk");
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-    // TODO: remove when page is launched
-    if (env.NODE_ENV !== "development") {
-        return {
-            redirect: {
-                destination: "/dashboard",
-                permanent: false
-            }
-        };
-    }
+    const YOUR_DOMAIN = env.NODE_ENV == "development" ? "http://localhost:3000" : env.NEXTAUTH_URL;
+
+    // // TODO: remove when page is launched
+    // if (env.NODE_ENV !== "development") {
+    //     return {
+    //         redirect: {
+    //             destination: "/dashboard",
+    //             permanent: false
+    //         }
+    //     };
+    // }
 
     const session = await getServerSession(context.req, context.res, authOptions);
 
