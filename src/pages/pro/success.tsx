@@ -57,20 +57,16 @@ const ProSuccessPage: NextPage<{ portal: Stripe.Response<Stripe.BillingPortal.Se
                                 </span>{" "}
                                 now!
                             </p>
-                            <Link
-                                href="/dashboard"
-                                className="mt-10 inline-block rounded bg-red-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-red-500 focus:outline-none focus:ring focus:ring-yellow-400">
-                                ← Go back to dashboard
-                            </Link>
-                            {portal.url && (
-                                <div className="mt-4">
-                                    <Link
-                                        href={portal.url}
-                                        className="inline-block rounded bg-red-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-red-500 focus:outline-none focus:ring focus:ring-yellow-400">
-                                        Manage your billing information →
-                                    </Link>
-                                </div>
-                            )}
+                            
+                            <div className="flex gap-4 mt-10">
+                                <Link
+                                    href="/dashboard"
+                                    className="inline-block rounded-lg bg-gray-900 px-12 py-3 text-sm font-medium text-white transition hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-400">
+                                    ← Go back to dashboard
+                                </Link>
+
+                                {portal.url && <ManageBillingButton href={portal.url}/>}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -93,6 +89,7 @@ import { prisma } from "@server/db";
 import { useSession } from "next-auth/react";
 import { API } from "@discordjs/core";
 import { REST } from "@discordjs/rest";
+import { ManageBillingButton } from "../profile";
 const YOUR_DOMAIN = env.NODE_ENV == "development" ? "http://localhost:3000" : "https://glow.up.railway.app/";
 const TOKEN = env.DISCORD_BOT_TOKEN;
 const GUILD_ID = env.DISCORD_GUILD_ID;

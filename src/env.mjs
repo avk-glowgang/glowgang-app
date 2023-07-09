@@ -35,7 +35,8 @@ const server = z.object({
  * built with invalid env vars. To expose them to the client, prefix them with `NEXT_PUBLIC_`.
  */
 const client = z.object({
-    NEXT_PUBLIC_TEST_MEMBERSHIP_LOOKUP_KEY: z.string()
+    NEXT_PUBLIC_TEST_MEMBERSHIP_LOOKUP_KEY: z.string(),
+    NEXT_PUBLIC_STRIPE_BILLING_PORTAL_URL: z.string()
 });
 
 /**
@@ -59,6 +60,7 @@ const processEnv = {
     EMAIL_FROM: process.env.EMAIL_FROM,
     SIB_API_KEY: process.env.SIB_API_KEY,
     NEXT_PUBLIC_TEST_MEMBERSHIP_LOOKUP_KEY: process.env.NEXT_PUBLIC_TEST_MEMBERSHIP_LOOKUP_KEY,
+    NEXT_PUBLIC_STRIPE_BILLING_PORTAL_URL: process.env.NEXT_PUBLIC_STRIPE_BILLING_PORTAL_URL,
     DISCORD_BOT_TOKEN: process.env.DISCORD_BOT_TOKEN,
     DISCORD_PRO_MEMBER_ID: process.env.DISCORD_PRO_MEMBER_ID,
     DISCORD_GUILD_ID: process.env.DISCORD_GUILD_ID,
