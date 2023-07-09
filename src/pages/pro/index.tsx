@@ -260,14 +260,14 @@ const YOUR_DOMAIN = env.NODE_ENV == "development" ? "http://localhost:3000" : "h
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
     // TODO: remove when page is launched
-    if (env.NODE_ENV !== "development") {
-        return {
-            redirect: {
-                destination: "/dashboard",
-                permanent: false
-            }
-        };
-    }
+    // if (env.NODE_ENV !== "development") {
+    //     return {
+    //         redirect: {
+    //             destination: "/dashboard",
+    //             permanent: false
+    //         }
+    //     };
+    // }
     // check if user is logged in
     const session = await getServerSession(context.req, context.res, authOptions);
     if (!session) {
