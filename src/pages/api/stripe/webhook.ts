@@ -7,6 +7,13 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import getRawBody from "raw-body";
 import { env } from "src/env.mjs";
 import Stripe from "stripe";
+import { API } from "@discordjs/core";
+import { REST } from "@discordjs/rest";
+
+const TOKEN = env.DISCORD_BOT_TOKEN;
+const GUILD_ID = env.DISCORD_GUILD_ID;
+const PRO_MEMBER_ID = env.DISCORD_PRO_MEMBER_ID;
+
 const stripe = new Stripe(env.STRIPE_TEST_SECRET_KEY, {
     apiVersion: "2022-11-15"
 });
@@ -84,6 +91,27 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             if (subscription.cancel_at) {
                 const subscriptionID = subscription.id;
                 await stripe.subscriptions.cancel(subscriptionID);
+
+                const checkout = await stripe.checkout.sessions.list({ subscription: subscriptionID });
+                
+                let userId;
+                if (checkout.data[0]) userId = checkout.data[0].metadata?.user_id;
+                
+                if (userId) {
+                    const account = await prisma.account.findFirst({ where: { userId: userId } });
+                    
+                    if (account) {
+                        const rest = new REST({ version: '10' }).setToken(TOKEN);
+                        const api = new API(rest);
+                        await api.guilds.removeRoleFromMember(GUILD_ID, account.providerAccountId, PRO_MEMBER_ID);
+                        console.log(`removed role pro from ${account.id}`)
+                    } else {
+                        console.log(`account for userId ${userId} not found`);
+                    }
+                } else {
+                    console.log(`user not found`)
+                }
+
             }
             
             // Then define and call a method to handle the subscription update.
