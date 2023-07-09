@@ -90,7 +90,7 @@ import { useSession } from "next-auth/react";
 import { API } from "@discordjs/core";
 import { REST } from "@discordjs/rest";
 import { ManageBillingButton } from "../profile";
-const YOUR_DOMAIN = env.NODE_ENV == "development" ? "http://localhost:3000" : "https://glow.up.railway.app/";
+const YOUR_DOMAIN = env.NODE_ENV == "development" ? "http://localhost:3000" : env.NEXTAUTH_URL;
 const TOKEN = env.DISCORD_BOT_TOKEN;
 const GUILD_ID = env.DISCORD_GUILD_ID;
 const PRO_MEMBER_ID = env.DISCORD_PRO_MEMBER_ID;
