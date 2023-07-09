@@ -25,7 +25,7 @@ const Header: React.FC<{ user: User | undefined }> = ({ user }) => {
 
                     <div className="mt-4 flex flex-col gap-4 sm:mt-0 sm:flex-row sm:items-center">
                         {/* // Show this button if the user is PRO. Hide the become pro button */}
-                        {user && user.isPro && (
+                        {/* {user && user.isPro && (
                             <button
                                 className="inline-flex items-center justify-center rounded-lg border border-gray-200 bg-white px-5 py-3 text-gray-500 transition hover:bg-gray-50 focus:outline-none focus:ring"
                                 type="button">
@@ -43,7 +43,7 @@ const Header: React.FC<{ user: User | undefined }> = ({ user }) => {
                                         <p>Become a PRO member</p>
                                     </Link>
                                 </button>
-                            ))}
+                            ))} */}
                     </div>
                 </div>
             </div>
