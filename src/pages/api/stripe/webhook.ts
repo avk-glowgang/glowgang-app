@@ -64,7 +64,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       
             if (userId) {
                 await prisma.user.update({ where: { id: userId }, data: { isPro: false } })
-                await prisma.proCheckout.deleteMany({where: { userID: userId }});
+                await prisma.proCheckout.deleteMany({ where: { userID: userId } });
             }
             else console.log('user not found')
         
@@ -80,6 +80,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             subscription = event.data.object;
             status = subscription.status;
             console.log(`Subscription status is ${status}.`);
+            
+            if (subscription.cancel_at) {
+                const subscriptionID = subscription.id;
+                await stripe.subscriptions.cancel(subscriptionID);
+            }
+            
             // Then define and call a method to handle the subscription update.
             // handleSubscriptionUpdated(subscription);
             break;
