@@ -42,6 +42,7 @@ type Props = {
 }
 
 const Profile: NextPage<Props> = ({ user }) => {
+
     return (
         <>
             <Head>
@@ -94,31 +95,12 @@ import { getServerSession } from "next-auth/next";
 import { authOptions } from "@server/auth";
 import { env } from "src/env.mjs";
 import { prisma } from "@server/db";
-import React from "react";
 import Link from "next/link";
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-    // TODO: remove when page is launched
-    if (env.NODE_ENV !== "development") {
-        return {
-            redirect: {
-                destination: "/",
-                permanent: false
-            }
-        };
-    }
-
     const session = await getServerSession(context.req, context.res, authOptions);
     const user = await prisma.user.findFirst({ 
         where: { id: session?.user.id }
-        // include: { 
-        //     accounts: {
-        //         select: {
-        //             provider: true,
-        //             type: true
-        //         }
-        //     } 
-        // }
     });
 
     if (!session) {
