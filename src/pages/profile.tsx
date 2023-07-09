@@ -24,6 +24,17 @@ const Badge: React.FC<{isPro: boolean}> = ({ isPro }) => {
     return <div className="text-xs font-semibold text-purple-700 bg-purple-100 rounded px-2 py-1">Member</div>
 }
 
+export const ManageBillingButton: React.FC<{href?: string}> = ({ href }) => {
+    const billingPortalLogin = href ? href : env.NEXT_PUBLIC_STRIPE_BILLING_PORTAL_URL || "";
+
+    return <a target="_blank" href={billingPortalLogin} className="text-sm font-semibold text-gray-800 inline-flex gap-1 items-center border rounded-lg border-gray-800 px-4 py-2 w-fit">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z" />
+        </svg>
+        <span>Manage Billing</span>
+    </a>
+}
+
 
 type Props = {
     sessions: Session,
@@ -31,7 +42,6 @@ type Props = {
 }
 
 const Profile: NextPage<Props> = ({ user }) => {
-    const billingPortalLogin = env.NEXT_PUBLIC_STRIPE_BILLING_PORTAL_URL || "";
     return (
         <>
             <Head>
@@ -59,13 +69,7 @@ const Profile: NextPage<Props> = ({ user }) => {
                         <Label placeholder="Status" value={<Badge isPro={user.isPro}/>}/>
 
                         <div className="mt-4">
-                        {user.isPro ? 
-                            <a target="_blank" href={billingPortalLogin} className="text-sm font-semibold text-gray-800 inline-flex gap-1 items-center border rounded-lg border-gray-800 px-4 py-2 w-fit">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z" />
-                                </svg>
-                                <span>Manage Billing</span>
-                            </a>
+                        {user.isPro ? <ManageBillingButton/>
                         : 
                             <button
                                 className="block rounded-lg bg-black px-4 py-2 text-sm font-medium text-white transition hover:bg-gray-900 focus:outline-none focus:ring"
@@ -75,7 +79,6 @@ const Profile: NextPage<Props> = ({ user }) => {
                                 </Link>
                             </button>
                         }
-                            
                         </div>
                     </div>
                     
