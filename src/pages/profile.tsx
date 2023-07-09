@@ -31,7 +31,7 @@ type Props = {
 }
 
 const Profile: NextPage<Props> = ({ user }) => {
-    const billingPortalLogin = env.NEXT_PUBLIC_TEST_MEMBERSHIP_LOOKUP_KEY || "";
+    const billingPortalLogin = env.NEXT_PUBLIC_STRIPE_BILLING_PORTAL_URL || "";
     return (
         <>
             <Head>
@@ -48,7 +48,11 @@ const Profile: NextPage<Props> = ({ user }) => {
                 <h1 className="font-semibold text-2xl mb-4 text-gray-800">Profile</h1>
 
                 <div className="flex gap-[2rem] border-b-[1px] pb-4">
-                    <div className="bg-gray-300 rounded-lg w-[150px] h-[150px]"></div>
+                    {user.image 
+                        ? <Image src={user.image} alt="profile-user" width={150} height={150} className="rounded-lg object-cover border"/>
+                        : <div className="bg-gray-300 rounded-lg w-[150px] h-[150px]"></div>
+                    }
+                    
                     <div className="flex flex-col gap-2">
                         <Label placeholder="Email" value={user.email}/>
                         <Label placeholder="Name" value={user.name}/>
@@ -74,10 +78,7 @@ const Profile: NextPage<Props> = ({ user }) => {
                             
                         </div>
                     </div>
-                    {/* {user.image 
-                        ? <Image src={user.image} alt="profile-user" width={200} height={200}/>
-                        : <>No Image</>
-                    } */}
+                    
                 </div>
             </main>
         </>

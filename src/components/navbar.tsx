@@ -4,13 +4,13 @@ import { useRouter } from "next/router";
 import { signOut, useSession } from "next-auth/react";
 import { Menu, Transition } from '@headlessui/react'
 
-const MyMenu: React.FC<{ username: string }> = ({ username }) => {
+const MyMenu: React.FC<{ username?: string | null }> = ({ username }) => {
     return (
         <Menu as="div" className="relative inline-block text-left">
             <Menu.Button className="text-gray-200 text-sm inline-flex gap-2 items-center px-4 py-2 font-semibold rounded-md hover:bg-gray-800 hover:bg-opacity-50 transition ease-in-out duration-150">
                 {username}
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
             </Menu.Button>
             
@@ -53,17 +53,17 @@ const MyMenu: React.FC<{ username: string }> = ({ username }) => {
 }
 
 
-function UserButton(): JSX.Element {
-    return (
-        <>
-            <button
-                onClick={() => void signOut()}
-                className="flex cursor-pointer items-center rounded bg-gray-800 px-4 py-2 transition-all ease-in-out hover:bg-gray-700">
-                <span className="text-sm text-white">Sign out</span>
-            </button>
-        </>
-    );
-}
+// function UserButton(): JSX.Element {
+//     return (
+//         <>
+//             <button
+//                 onClick={() => void signOut()}
+//                 className="flex cursor-pointer items-center rounded bg-gray-800 px-4 py-2 transition-all ease-in-out hover:bg-gray-700">
+//                 <span className="text-sm text-white">Sign out</span>
+//             </button>
+//         </>
+//     );
+// }
 
 function Navbar(): JSX.Element {
     const router = useRouter();
