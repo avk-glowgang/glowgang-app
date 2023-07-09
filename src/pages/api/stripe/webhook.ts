@@ -52,14 +52,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         case "customer.subscription.trial_will_end":
             subscription = event.data.object;
             status = subscription.status;
-            console.log(`Subscription status is ${status}.`);
+            console.log(`Subscription ${subscription.id} status is ${status}.`);
             // Then define and call a method to handle the subscription trial ending.
             // handleSubscriptionTrialEnding(subscription);
             break;
         case "customer.subscription.deleted":
             subscription = event.data.object;
             status = subscription.status;
-            console.log(`Subscription status is ${status}.`);
+            console.log(`Subscription ${subscription.id} status is ${status}.`);
             // Then define and call a method to handle the subscription deleted.
             // handleSubscriptionDeleted(subscriptionDeleted);
         
@@ -90,14 +90,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         case "customer.subscription.created":
             subscription = event.data.object;
             status = subscription.status;
-            console.log(`Subscription status is ${status}.`);
+            console.log(`Subscription ${subscription.id} status is ${status}.`);
             // Then define and call a method to handle the subscription created.
             // handleSubscriptionCreated(subscription);
             break;
         case "customer.subscription.updated":
             subscription = event.data.object;
             status = subscription.status;
-            console.log(`Subscription status is ${status}.`);
+            console.log(`Subscription ${subscription.id} status is ${status}.`);
             
             if (subscription.cancel_at) {
                 const subscriptionID = subscription.id;
