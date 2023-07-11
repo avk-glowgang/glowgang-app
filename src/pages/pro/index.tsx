@@ -44,32 +44,35 @@ const ProInfoPage: NextPage<{ checkout: Stripe.Response<Stripe.Checkout.Session>
 
                     <div className=" md:grid md:grid-cols-2 md:gap-12 lg:grid-cols-3">
                         <div>
-                            <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-black lg:h-12 lg:w-12 ">🌟</div>
-                            <h3 className="mb-2 text-xl font-bold ">Discord perks and privileges</h3>
-                            <p className="text-gray-500 ">
-                                Get a special <span className="rounded-full bg-black px-2 py-0.5 font-bold text-white">PRO</span> role, that will grant you
-                                permissions to post in <span className="rounded bg-blue-50 px-0.5 py-0.5 ">Marketplace</span> channels where you can find
-                                employees, clients, business partners, mentors, anything you need!
+                            <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-black lg:h-12 lg:w-12">
+                                🌟
+                            </div>
+                            <h3 className="mb-2 text-xl font-bold">Discord PRO Role</h3>
+                            <p className="text-gray-500">
+                                As a PRO member, you will receive a special <span className="rounded-full bg-black px-2 py-0.5 font-bold text-white">PRO</span> role in our Discord server. This role will make you stand out and be more trustworthy within our community.
                             </p>
                         </div>
                         <div>
-                            <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-black lg:h-12 lg:w-12 ">📹</div>
-                            <h3 className="mb-2 text-xl font-bold ">All live event recordings</h3>
-                            <p className="text-gray-500 ">
-                                Get access to all of our live event recordings, including our weekly{" "}
-                                <span className="rounded bg-green-50 px-0.5 py-0.5 ">Millionaire Mondays</span>,{" "}
-                                <span className="rounded bg-green-50 px-0.5 py-0.5 ">Q&A Wednesdays</span>, and{" "}
-                                <span className="rounded bg-green-50 px-0.5 py-0.5 ">Community Success Stories</span> events, and any future events.
+                            <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-black lg:h-12 lg:w-12">
+                                📹
+                            </div>
+                            <h3 className="mb-2 text-xl font-bold">Marketplace Posting Privileges</h3>
+                            <p className="text-gray-500">
+                                As a PRO member, you will gain the ability to post in our Marketplace channel, where you can sell your services/products, find business partners, self-promote, hire employees, and more. Regular members can still see the Marketplace, but only PRO members have the privilege to post.
                             </p>
                         </div>
+
+
                         <div>
-                            <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-black lg:h-12 lg:w-12 ">🎥</div>
-                            <h3 className="mb-2 text-xl font-bold ">Interviews with Millionaires</h3>
-                            <p className="text-gray-500 ">
-                                Get an hour long interview and behind the scenes footage with millionaires every week! Learn how they got started, and what they
-                                did to become successful.
+                            <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-black lg:h-12 lg:w-12">
+                                🎥
+                            </div>
+                            <h3 className="mb-2 text-xl font-bold">Exclusive Pro Channels in Discord</h3>
+                            <p className="text-gray-500">
+                                As a PRO member, you will unlock hidden PRO channels in our Discord server, exclusively reserved for PRO members. These special channels provide a space where you can interact with other like-minded PRO members and engage in valuable discussions, share insights, and collaborate. In addition, you'll have the opportunity to connect directly with Aaron, gaining exclusive access to his expertise and guidance.
                             </p>
                         </div>
+
                     </div>
                 </div>
 
