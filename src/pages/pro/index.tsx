@@ -224,25 +224,34 @@ const ProInfoPage: NextPage<{ checkout: Stripe.Response<Stripe.Checkout.Session>
                 <div className="container mx-auto mb-20 max-w-5xl px-8">
                     <div className="mt-10 text-center lg:mb-12">
                         <h2 className="mb-4 text-4xl font-bold text-gray-900">Congratulations!</h2>
-                        <p className="text-gray-500 sm:text-lg">You&apos;re one of the first 50 members to join our PRO membership. Here&apos;s a discount code for a 50% off lifetime discount: <span className="font-bold">50GG</span>.</p>
+                        <p className="text-gray-500 sm:text-lg">
+                            You&apos;re one of the first 50 members to join our PRO membership.
+                            <br />
+                            You&apos;re eligible for a 50% OFF lifetime price!
+                        </p>
                     </div>
+
 
 
                     <div className="mt-10 flex flex-col items-center justify-center">
-                        <div className="w-full max-w-md rounded-lg bg-white p-8 text-center shadow-lg">
-                            <div className="mb-5 flex items-center justify-center">
-                                <span className="text-4xl font-bold">$</span>
-                                <span className="text-6xl font-bold">19.97</span>
-                                <span className="text-xl font-bold">/month</span>
+                        <div className="mt-10 flex flex-col items-center justify-center">
+                            <div className="w-full max-w-md rounded-lg bg-white p-8 text-center shadow-lg">
+                                <div className="mb-5 flex items-center justify-center">
+                                    <span className="text-4xl font-bold">
+                                        <del>$19.97</del>
+                                    </span>
+                                    <span className="text-6xl font-bold">$9.97</span>
+                                    <span className="text-xl font-bold">/month</span>
+                                </div>
+                                <Link href={checkout.url as string}>
+                                    <p className="rounded-lg bg-black px-8 py-3 font-bold text-white transition duration-300 hover:bg-gray-900">
+                                        Become a PRO member
+                                    </p>
+                                </Link>
                             </div>
-                            <Link href={checkout.url as string}>
-                                <p className="rounded-lg bg-black px-8 py-3 font-bold text-white transition duration-300 hover:bg-gray-900">
-                                    Become a PRO member
-                                </p>
-                            </Link>
+                            <p className="mt-3 text-xs text-gray-500">Cancel anytime. No hidden fees. No commitment. Secure payment.</p>
                         </div>
-                        <p className="mt-3 text-xs text-gray-500">Cancel anytime. No hidden fees. No commitment. Secure payment.</p>
-                    </div>
+
                 </div>
             </section>
             <Footer />
