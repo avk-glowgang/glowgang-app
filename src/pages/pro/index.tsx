@@ -73,6 +73,16 @@ const ProInfoPage: NextPage<{ checkout: Stripe.Response<Stripe.Checkout.Session>
                             </p>
                         </div>
 
+                        <div>
+                            <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-black lg:h-12 lg:w-12">
+                                🎮
+                            </div>
+                            <h3 className="mb-2 text-xl font-bold">Discord Permissions</h3>
+                            <p className="text-gray-500">
+                                Pro members can enjoy enhanced Discord permissions, including the ability to embed links, attach files, use external stickers and emojis, send text-to-speech messages (/tts), send voice messages, use soundboard, utilize external sounds, and have priority speaker status.
+                            </p>
+                        </div>
+
 
                     </div>
                 </div>
