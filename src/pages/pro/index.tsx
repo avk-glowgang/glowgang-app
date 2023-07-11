@@ -227,7 +227,7 @@ const ProInfoPage: NextPage<{ checkout: Stripe.Response<Stripe.Checkout.Session>
                         <div className="w-full max-w-md rounded-lg bg-white p-8 text-center shadow-lg">
                             <div className="mb-5 flex items-center justify-center">
                                 <span className="text-4xl font-bold">$</span>
-                                <span className="text-6xl font-bold">97</span>
+                                <span className="text-6xl font-bold">19.97</span>
                                 <span className="text-xl font-bold">/month</span>
                             </div>
                             <Link href={checkout.url as string}>
