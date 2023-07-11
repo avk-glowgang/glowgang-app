@@ -251,7 +251,7 @@ const ProInfoPage: NextPage<{ checkout: Stripe.Response<Stripe.Checkout.Session>
                             </div>
                             <p className="mt-3 text-xs text-gray-500">Cancel anytime. No hidden fees. No commitment. Secure payment.</p>
                         </div>
-
+                    </div>
                 </div>
             </section>
             <Footer />
