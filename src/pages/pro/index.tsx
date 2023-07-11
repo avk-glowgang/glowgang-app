@@ -69,9 +69,10 @@ const ProInfoPage: NextPage<{ checkout: Stripe.Response<Stripe.Checkout.Session>
                             </div>
                             <h3 className="mb-2 text-xl font-bold">Exclusive Pro Channels in Discord</h3>
                             <p className="text-gray-500">
-                                As a PRO member, you will unlock hidden PRO channels in our Discord server, exclusively reserved for PRO members. These special channels provide a space where you can interact with other like-minded PRO members and engage in valuable discussions, share insights, and collaborate. In addition, you'll have the opportunity to connect directly with Aaron, gaining exclusive access to his expertise and guidance.
+                                As a PRO member, you will unlock hidden PRO channels in our Discord server, exclusively reserved for PRO members. These special channels provide a space where you can interact with other like-minded PRO members and engage in valuable discussions, share insights, and collaborate. In addition, you&apos;ll have the opportunity to connect directly with Aaron, gaining exclusive access to his expertise and guidance.
                             </p>
                         </div>
+
 
                     </div>
                 </div>
@@ -221,11 +222,11 @@ const ProInfoPage: NextPage<{ checkout: Stripe.Response<Stripe.Checkout.Session>
                 </div>
 
                 <div className="container mx-auto mb-20 max-w-5xl px-8">
-                    <div className="mt-10 text-center  lg:mb-12">
+                    <div className="mt-10 text-center lg:mb-12">
                         <h2 className="mb-4 text-4xl font-bold text-gray-900">Congratulations!</h2>
-                        <p className=" text-gray-500 sm:text-lg">You're one of the first 50 members to join our PRO membership. Here's a discount code for a 50% off lifetime discount: <span className="font-bold">50GG</span>.
-</p>
+                        <p className="text-gray-500 sm:text-lg">You&apos;re one of the first 50 members to join our PRO membership. Here&apos;s a discount code for a 50% off lifetime discount: <span className="font-bold">50GG</span>.</p>
                     </div>
+
 
                     <div className="mt-10 flex flex-col items-center justify-center">
                         <div className="w-full max-w-md rounded-lg bg-white p-8 text-center shadow-lg">
