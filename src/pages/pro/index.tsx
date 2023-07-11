@@ -219,8 +219,9 @@ const ProInfoPage: NextPage<{ checkout: Stripe.Response<Stripe.Checkout.Session>
 
                 <div className="container mx-auto mb-20 max-w-5xl px-8">
                     <div className="mt-10 text-center  lg:mb-12">
-                        <h2 className="mb-4 text-4xl font-bold text-gray-900">Are your ready? 🚀</h2>
-                        <p className=" text-gray-500 sm:text-lg">Get an instant access to everything you&apos;ve seen above.</p>
+                        <h2 className="mb-4 text-4xl font-bold text-gray-900">Congratulations!</h2>
+                        <p className=" text-gray-500 sm:text-lg">You're one of the first 50 members to join our PRO membership. Here's a discount code for a 50% off lifetime discount: <span className="font-bold">50GG</span>.
+</p>
                     </div>
 
                     <div className="mt-10 flex flex-col items-center justify-center">
