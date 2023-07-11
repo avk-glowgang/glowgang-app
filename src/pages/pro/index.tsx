@@ -56,7 +56,7 @@ const ProInfoPage: NextPage<{ checkout: Stripe.Response<Stripe.Checkout.Session>
                             <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-black lg:h-12 lg:w-12">
                                 📹
                             </div>
-                            <h3 className="mb-2 text-xl font-bold">Marketplace Posting Privileges</h3>
+                            <h3 className="mb-2 text-xl font-bold">Marketplace Posting</h3>
                             <p className="text-gray-500">
                                 As a PRO member, you will gain the ability to post in our Marketplace channel, where you can sell your services/products, find business partners, self-promote, hire employees, and more. Regular members can still see the Marketplace, but only PRO members have the privilege to post.
                             </p>
@@ -67,7 +67,7 @@ const ProInfoPage: NextPage<{ checkout: Stripe.Response<Stripe.Checkout.Session>
                             <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-black lg:h-12 lg:w-12">
                                 🎥
                             </div>
-                            <h3 className="mb-2 text-xl font-bold">Exclusive Pro Channels in Discord</h3>
+                            <h3 className="mb-2 text-xl font-bold">Pro Channels in Discord</h3>
                             <p className="text-gray-500">
                                 As a PRO member, you will unlock hidden PRO channels in our Discord server, exclusively reserved for PRO members. These special channels provide a space where you can interact with other like-minded PRO members and engage in valuable discussions, share insights, and collaborate. In addition, you&apos;ll have the opportunity to connect directly with Aaron, gaining exclusive access to his expertise and guidance.
                             </p>
