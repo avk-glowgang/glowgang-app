@@ -58,7 +58,7 @@ const ProInfoPage: NextPage<{ checkout: Stripe.Response<Stripe.Checkout.Session>
                             </div>
                             <h3 className="mb-2 text-xl font-bold">Marketplace Posting</h3>
                             <p className="text-gray-500">
-                                Gain the ability to post in our Marketplace channel, where you can sell your services/products, find business partners, self-promote, hire employees, and more. Regular members can still see the Marketplace, but only PRO members have the privilege to post.
+                                Ability to post in our Marketplace channel, where you can sell your services/products, find business partners, self-promote, hire employees, and more. Regular members can still see the Marketplace, but only PRO members have the privilege to post.
                             </p>
                         </div>
 
@@ -69,7 +69,7 @@ const ProInfoPage: NextPage<{ checkout: Stripe.Response<Stripe.Checkout.Session>
                             </div>
                             <h3 className="mb-2 text-xl font-bold">Pro Channels in Discord</h3>
                             <p className="text-gray-500">
-                                Gain access to exclusive Discord channels where you can connect with like-minded members, engage in valuable discussions, and collaborate. You&apos;ll also have the unique opportunity to directly interact with Aaron.
+                                Access to exclusive Discord channels where you can connect with like-minded members, engage in valuable discussions, and collaborate. You&apos;ll also have the unique opportunity to directly interact with Aaron.
                             </p>
                         </div>
 
@@ -79,7 +79,7 @@ const ProInfoPage: NextPage<{ checkout: Stripe.Response<Stripe.Checkout.Session>
                             </div>
                             <h3 className="mb-2 text-xl font-bold">Discord Permissions</h3>
                             <p className="text-gray-500">
-                                Pro members can enjoy enhanced Discord permissions, including the ability to embed links, attach files, use external stickers and emojis, send text-to-speech messages (/tts), send voice messages, use soundboard, utilize external sounds, and have priority speaker status.
+                                Enhanced Discord permissions, including the ability to embed links, attach files, use external stickers and emojis, send text-to-speech messages (/tts), send voice messages, use soundboard, utilize external sounds, and have priority speaker status.
                             </p>
                         </div>
 
