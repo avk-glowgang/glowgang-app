@@ -79,7 +79,7 @@ const ProInfoPage: NextPage<{ checkout: Stripe.Response<Stripe.Checkout.Session>
                             </div>
                             <h3 className="mb-2 text-xl font-bold">Discord Permissions</h3>
                             <p className="text-gray-500">
-                                Enhanced Discord permissions, including the ability to embed links, attach files, use external stickers and emojis, send text-to-speech messages (/tts), send voice messages, use soundboard, utilize external sounds, and have priority speaker status.
+                                Enhanced Discord permissions, including the ability to embed links, attach files, use external stickers and emojis, send voice messages, use soundboard, utilize external sounds, use activities, add custom emojis, stickers and sounds to the server, have priority speaker status and more...
                             </p>
                         </div>
 
