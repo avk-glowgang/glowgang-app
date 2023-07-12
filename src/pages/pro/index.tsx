@@ -324,6 +324,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
         metadata: {
             user_id: session.user.id
         },
+        allow_promotion_codes: true,
         mode: "subscription",
         success_url: `${YOUR_DOMAIN}/pro/success/?success=true&session_id={CHECKOUT_SESSION_ID}`,
         cancel_url: `${YOUR_DOMAIN}/pro/canceled/?canceled=true`
