@@ -1,9 +1,13 @@
 import Link from "next/link";
 import React from "react";
+import { env } from "src/env.mjs";
 
 type User = {
     isPro: boolean;
 };
+
+const billingPortalLogin = env.NEXT_PUBLIC_STRIPE_BILLING_PORTAL_URL || "";
+
 const Header: React.FC<{ user: User | undefined }> = ({ user }) => {
     return (
         <header aria-label="Header" className="bg-gray-50">
@@ -25,13 +29,9 @@ const Header: React.FC<{ user: User | undefined }> = ({ user }) => {
 
                     <div className="mt-4 flex flex-col gap-4 sm:mt-0 sm:flex-row sm:items-center">
                         {user && user.isPro && (
-                            <button
-                                className="inline-flex items-center justify-center rounded-lg border border-gray-200 bg-white px-5 py-3 text-gray-500 transition hover:bg-gray-50 focus:outline-none focus:ring"
-                                type="button">
-                                <Link href="/dashboard">
-                                    <p className="text-sm font-medium">My Membership</p>
-                                </Link>
-                            </button>
+                            <a target="_blank" href={billingPortalLogin} className="text-sm font-medium inline-flex items-center justify-center rounded-lg border border-gray-200 bg-white px-5 py-3 text-gray-500 transition hover:bg-gray-50 focus:outline-none focus:ring">
+                                My Membership
+                            </a>
                         )}
                         {!user ||
                             (user && !user.isPro && (
