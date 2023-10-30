@@ -26,22 +26,13 @@ const Home: NextPage = () => {
 
 export default Home;
 
-import { getServerSession } from "next-auth/next";
-import { authOptions } from "@server/auth";
-
-export async function getServerSideProps(context: GetServerSidePropsContext) {
-    const session = await getServerSession(context.req, context.res, authOptions);
-
-    if (session) {
-        return {
-            redirect: {
-                destination: "/dashboard",
-                permanent: false
-            }
-        };
-    }
-
+// Prefixing with an underscore to indicate it's intentionally unused
+export function getServerSideProps(_context: GetServerSidePropsContext) {
+    // Always redirect to Aaron's Discord page
     return {
-        props: {}
+        redirect: {
+            destination: "https://aaronvankampen.com/pages/discord",
+            permanent: false
+        }
     };
 }
